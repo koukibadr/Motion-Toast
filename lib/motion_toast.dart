@@ -30,13 +30,12 @@ class _MotionToastState extends State<MotionToast> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
-      height: 200,
+      height: 150,
       color: Colors.transparent,
       child: Center(
         child: Container(
-          width: 200,
-          height: 150,
+          width: 250,
+          height: 100,
           decoration: BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.all(Radius.circular(20))),
