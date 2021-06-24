@@ -33,7 +33,11 @@ class HomePage extends StatelessWidget {
       child: Center(
         child: ElevatedButton(
             onPressed: () {
-              MotionToast().show(context);
+              MotionToast.success(
+                title: "Title example",
+                titleStyle: TextStyle(fontWeight: FontWeight.bold),
+                description: "This is a description",
+              ).show(context);
             },
             child: Text("Click Here")),
       ),

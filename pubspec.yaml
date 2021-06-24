@@ -23,7 +23,3 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # example:
-  fonts:
-    - family: MotionToastIcons
-      fonts:
-        - asset: assets/fonts/MotionToastIcons.ttf
