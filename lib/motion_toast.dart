@@ -11,10 +11,14 @@ class MotionToast extends StatefulWidget {
   _MotionToastState createState() => _MotionToastState();
 
   MotionToast(
-      {this.description = "",
+      {required this.icon,
+      required this.description,
+      required this.color,
       this.title = "",
       this.descriptionStyle = const TextStyle(color: Colors.black),
-      this.titleStyle = const TextStyle(color: Colors.black)}) {
+      this.titleStyle = const TextStyle(color: Colors.black),
+      this.iconType,
+      this.width = 250}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
   }
 
@@ -22,8 +26,80 @@ class MotionToast extends StatefulWidget {
       {required this.description,
       this.title = "",
       this.descriptionStyle = const TextStyle(color: Colors.black),
-      this.titleStyle = const TextStyle(color: Colors.black)}) {
+      this.titleStyle = const TextStyle(color: Colors.black),
+      this.iconType = ICON_TYPE.MATERIAL_DESIGN,
+      this.width = 250}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
+    if (this.iconType == ICON_TYPE.CUPERTINO) {
+      this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
+    } else {
+      this.icon = MOTION_TOAST_ICONS_MD[motionToastType]!;
+    }
+    this.color = MOTION_TOAST_COLORS[motionToastType] ?? SUCCESS_COLOR;
+  }
+
+  MotionToast.warning(
+      {required this.description,
+      this.title = "",
+      this.descriptionStyle = const TextStyle(color: Colors.black),
+      this.titleStyle = const TextStyle(color: Colors.black),
+      this.iconType = ICON_TYPE.MATERIAL_DESIGN,
+      this.width = 250}) {
+    this.motionToastType = MOTION_TOAST_TYPE.WARNING;
+    if (this.iconType == ICON_TYPE.CUPERTINO) {
+      this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
+    } else {
+      this.icon = MOTION_TOAST_ICONS_MD[motionToastType]!;
+    }
+    this.color = MOTION_TOAST_COLORS[motionToastType] ?? SUCCESS_COLOR;
+  }
+
+  MotionToast.error(
+      {required this.description,
+      this.title = "",
+      this.descriptionStyle = const TextStyle(color: Colors.black),
+      this.titleStyle = const TextStyle(color: Colors.black),
+      this.iconType = ICON_TYPE.MATERIAL_DESIGN,
+      this.width = 250}) {
+    this.motionToastType = MOTION_TOAST_TYPE.ERROR;
+    if (this.iconType == ICON_TYPE.CUPERTINO) {
+      this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
+    } else {
+      this.icon = MOTION_TOAST_ICONS_MD[motionToastType]!;
+    }
+    this.color = MOTION_TOAST_COLORS[motionToastType] ?? SUCCESS_COLOR;
+  }
+
+  MotionToast.info(
+      {required this.description,
+      this.title = "",
+      this.descriptionStyle = const TextStyle(color: Colors.black),
+      this.titleStyle = const TextStyle(color: Colors.black),
+      this.iconType = ICON_TYPE.MATERIAL_DESIGN,
+      this.width = 250}) {
+    this.motionToastType = MOTION_TOAST_TYPE.INFO;
+    if (this.iconType == ICON_TYPE.CUPERTINO) {
+      this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
+    } else {
+      this.icon = MOTION_TOAST_ICONS_MD[motionToastType]!;
+    }
+    this.color = MOTION_TOAST_COLORS[motionToastType] ?? SUCCESS_COLOR;
+  }
+
+  MotionToast.delete(
+      {required this.description,
+      this.title = "",
+      this.descriptionStyle = const TextStyle(color: Colors.black),
+      this.titleStyle = const TextStyle(color: Colors.black),
+      this.iconType = ICON_TYPE.MATERIAL_DESIGN,
+      this.width = 250}) {
+    this.motionToastType = MOTION_TOAST_TYPE.DELETE;
+    if (this.iconType == ICON_TYPE.CUPERTINO) {
+      this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
+    } else {
+      this.icon = MOTION_TOAST_ICONS_MD[motionToastType]!;
+    }
+    this.color = MOTION_TOAST_COLORS[motionToastType] ?? SUCCESS_COLOR;
   }
 
   final String description;
@@ -31,6 +107,10 @@ class MotionToast extends StatefulWidget {
   final TextStyle descriptionStyle;
   final TextStyle titleStyle;
   late MOTION_TOAST_TYPE motionToastType;
+  late IconData icon;
+  late Color color;
+  final ICON_TYPE? iconType;
+  final double width;
 
   show(BuildContext context) {
     showBottomSheet(
@@ -43,13 +123,9 @@ class MotionToast extends StatefulWidget {
 }
 
 class _MotionToastState extends State<MotionToast> {
-  late Color toastColor;
-  late IconData toastIcon;
-
   @override
   void initState() {
     super.initState();
-    _initializeToast();
     Timer(Duration(seconds: 3), () {
       try {
         Navigator.pop(context);
@@ -59,33 +135,6 @@ class _MotionToastState extends State<MotionToast> {
     });
   }
 
-  _initializeToast() {
-    if (this.widget.motionToastType != MOTION_TOAST_TYPE.CUSTOM) {
-      toastIcon = MOTION_TOAST_ICONS_CUPERTINO[this.widget.motionToastType]!;
-    } else {
-      //TODO Get icon from constructor
-    }
-    switch (this.widget.motionToastType) {
-      case MOTION_TOAST_TYPE.SUCCESS:
-        toastColor = SUCCESS_COLOR;
-        break;
-      case MOTION_TOAST_TYPE.ERROR:
-        toastColor = ERROR_COLOR;
-        break;
-      case MOTION_TOAST_TYPE.WARNING:
-        toastColor = WARNING_COLOR;
-        break;
-      case MOTION_TOAST_TYPE.INFO:
-        toastColor = INFO_COLOR;
-        break;
-      case MOTION_TOAST_TYPE.DELETE:
-        toastColor = DELETE_COLOR;
-        break;
-      default:
-        toastColor = SUCCESS_COLOR;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -93,10 +142,10 @@ class _MotionToastState extends State<MotionToast> {
       color: Colors.transparent,
       child: Center(
         child: Container(
-          width: 250,
+          width: 300,
           height: 100,
           decoration: BoxDecoration(
-              color: toastColor.withOpacity(0.3),
+              color: this.widget.color.withOpacity(0.3),
               borderRadius: BorderRadius.all(Radius.circular(20))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -105,13 +154,13 @@ class _MotionToastState extends State<MotionToast> {
                 height: 100,
                 width: 15,
                 decoration: BoxDecoration(
-                    color: toastColor,
+                    color: this.widget.color,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
               ),
               SizedBox(
                 width: 20,
               ),
-              Icon(toastIcon, color: this.toastColor),
+              Icon(this.widget.icon, color: this.widget.color),
               SizedBox(
                 width: 10,
               ),

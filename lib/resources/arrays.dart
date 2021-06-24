@@ -1,5 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:motion_toast/resources/colors.dart';
+
+const MOTION_TOAST_COLORS = {
+  MOTION_TOAST_TYPE.SUCCESS: SUCCESS_COLOR,
+  MOTION_TOAST_TYPE.ERROR: ERROR_COLOR,
+  MOTION_TOAST_TYPE.WARNING: WARNING_COLOR,
+  MOTION_TOAST_TYPE.INFO: INFO_COLOR,
+  MOTION_TOAST_TYPE.DELETE: DELETE_COLOR
+};
 
 const MOTION_TOAST_ICONS_MD = {
   MOTION_TOAST_TYPE.SUCCESS: Icons.check_circle_outline,
@@ -18,3 +27,8 @@ const MOTION_TOAST_ICONS_CUPERTINO = {
 };
 
 enum MOTION_TOAST_TYPE { SUCCESS, ERROR, WARNING, INFO, DELETE, CUSTOM }
+
+enum ICON_TYPE {
+  MATERIAL_DESIGN,
+  CUPERTINO
+}
