@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
       child: Center(
         child: ElevatedButton(
             onPressed: () {
-              MotionToast.delete(
+              MotionToast.success(
                 title: "Title example",
                 titleStyle: TextStyle(fontWeight: FontWeight.bold),
                 description: "This is a description",
