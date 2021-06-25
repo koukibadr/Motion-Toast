@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
+import 'package:motion_toast/resources/heart_beat_icon.dart';
 
 // ignore: must_be_immutable
 class MotionToast extends StatefulWidget {
@@ -138,7 +139,7 @@ class _MotionToastState extends State<MotionToast> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 130,
       color: Colors.transparent,
       child: Center(
         child: Container(
@@ -160,7 +161,12 @@ class _MotionToastState extends State<MotionToast> {
               SizedBox(
                 width: 20,
               ),
-              Icon(this.widget.icon, color: this.widget.color),
+              Container(
+                width: 40,
+                child: HeartBeatIcon(
+                    icon: this.widget.icon,
+                    color: this.widget.color),
+              ),
               SizedBox(
                 width: 10,
               ),
