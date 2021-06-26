@@ -129,4 +129,4 @@ Of course the project is open source, and you can contribute to it [repository l
 - If you **want to contribute**, submit a pull request.
 
 ##  Support the community!
-[https://www.buymeacoffee.com/koukibadr][https://www.buymeacoffee.com/koukibadr]
+[https://www.buymeacoffee.com/koukibadr](https://www.buymeacoffee.com/koukibadr)
