@@ -1,3 +1,12 @@
-## [0.0.1] - TODO: Add release date.
+## [1.0.0] - 26/06/2021
 
-* TODO: Describe initial release.
+* Mutliple built-in designs
+  * Success Toast
+  * Warning Toast
+  * Error Toast
+  * Info Toast
+  * Delete Toast
+
+* Support custom toast design
+* Support null safety
+* Heartbeat animation on icon
