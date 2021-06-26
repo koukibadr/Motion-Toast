@@ -37,6 +37,8 @@ class HomePage extends StatelessWidget {
                 title: "Title example",
                 titleStyle: TextStyle(fontWeight: FontWeight.bold),
                 description: "This is a description",
+                enableAnimation: false,
+                iconSize: 30,
               ).show(context);
             },
             child: Text("Click Here")),

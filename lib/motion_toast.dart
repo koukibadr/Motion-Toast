@@ -19,7 +19,9 @@ class MotionToast extends StatefulWidget {
       this.descriptionStyle = const TextStyle(color: Colors.black),
       this.titleStyle = const TextStyle(color: Colors.black),
       this.iconType,
-      this.width = 250}) {
+      this.width = 250,
+      this.iconSize = 40,
+      this.enableAnimation = true}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
   }
 
@@ -29,7 +31,9 @@ class MotionToast extends StatefulWidget {
       this.descriptionStyle = const TextStyle(color: Colors.black),
       this.titleStyle = const TextStyle(color: Colors.black),
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
-      this.width = 250}) {
+      this.width = 250,
+      this.iconSize = 40,
+      this.enableAnimation = true}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     if (this.iconType == ICON_TYPE.CUPERTINO) {
       this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
@@ -45,7 +49,9 @@ class MotionToast extends StatefulWidget {
       this.descriptionStyle = const TextStyle(color: Colors.black),
       this.titleStyle = const TextStyle(color: Colors.black),
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
-      this.width = 250}) {
+      this.width = 250,
+      this.iconSize = 40,
+      this.enableAnimation = true}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     if (this.iconType == ICON_TYPE.CUPERTINO) {
       this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
@@ -61,7 +67,9 @@ class MotionToast extends StatefulWidget {
       this.descriptionStyle = const TextStyle(color: Colors.black),
       this.titleStyle = const TextStyle(color: Colors.black),
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
-      this.width = 250}) {
+      this.width = 250,
+      this.iconSize = 40,
+      this.enableAnimation = true}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     if (this.iconType == ICON_TYPE.CUPERTINO) {
       this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
@@ -77,7 +85,9 @@ class MotionToast extends StatefulWidget {
       this.descriptionStyle = const TextStyle(color: Colors.black),
       this.titleStyle = const TextStyle(color: Colors.black),
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
-      this.width = 250}) {
+      this.width = 250,
+      this.iconSize = 40,
+      this.enableAnimation = true}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     if (this.iconType == ICON_TYPE.CUPERTINO) {
       this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
@@ -93,7 +103,9 @@ class MotionToast extends StatefulWidget {
       this.descriptionStyle = const TextStyle(color: Colors.black),
       this.titleStyle = const TextStyle(color: Colors.black),
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
-      this.width = 250}) {
+      this.width = 250,
+      this.iconSize = 40,
+      this.enableAnimation = true}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     if (this.iconType == ICON_TYPE.CUPERTINO) {
       this.icon = MOTION_TOAST_ICONS_CUPERTINO[motionToastType]!;
@@ -112,6 +124,8 @@ class MotionToast extends StatefulWidget {
   late Color color;
   final ICON_TYPE? iconType;
   final double width;
+  final double iconSize;
+  final bool enableAnimation;
 
   show(BuildContext context) {
     showBottomSheet(
@@ -162,10 +176,17 @@ class _MotionToastState extends State<MotionToast> {
                 width: 20,
               ),
               Container(
-                width: 40,
-                child: HeartBeatIcon(
-                    icon: this.widget.icon,
-                    color: this.widget.color),
+                width: this.widget.iconSize,
+                child: this.widget.enableAnimation
+                    ? HeartBeatIcon(
+                        icon: this.widget.icon,
+                        color: this.widget.color,
+                        size: this.widget.iconSize)
+                    : Icon(
+                        this.widget.icon,
+                        color: this.widget.color,
+                        size: this.widget.iconSize,
+                      ),
               ),
               SizedBox(
                 width: 10,

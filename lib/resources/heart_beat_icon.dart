@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class HeartBeatIcon extends StatefulWidget {
   final IconData icon;
   final Color color;
+  final double size;
 
-  const HeartBeatIcon({required this.icon, required this.color});
+  const HeartBeatIcon({required this.icon, required this.color, required this.size});
 
   @override
   _HeartBeatIconState createState() => _HeartBeatIconState();
@@ -20,7 +21,7 @@ class _HeartBeatIconState extends State<HeartBeatIcon>
     super.initState();
     _heartAnimationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 1200));
-    _heartAnimation = Tween(begin: 25.0, end: 35.0).animate(CurvedAnimation(
+    _heartAnimation = Tween(begin: this.widget.size * 0.7, end: this.widget.size * 0.85).animate(CurvedAnimation(
         curve: Curves.bounceOut, parent: _heartAnimationController));
 
     _heartAnimationController.addStatusListener((AnimationStatus status) {
