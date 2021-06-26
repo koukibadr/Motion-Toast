@@ -35,7 +35,7 @@ class MotionToast extends StatefulWidget {
   ///[color] is set to [SUCCESS_COLOR]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.SUCCESS]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.SUCCESS]`
-  ///[description] is required 
+  ///[description] is required
   ///
   ///the text style by default: `TextStyle(color: Colors.black)`
   ///
@@ -52,12 +52,11 @@ class MotionToast extends StatefulWidget {
     _initializeParameters();
   }
 
-
   ///Render a warning motion toast
   ///[color] is set to [WARNING_COLOR]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.WARNING]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.WARNING]`
-  ///[description] is required 
+  ///[description] is required
   ///
   ///the text style by default: `TextStyle(color: Colors.black)`
   ///
@@ -74,12 +73,11 @@ class MotionToast extends StatefulWidget {
     _initializeParameters();
   }
 
-
   ///Render an error motion toast
   ///[color] is set to [ERROR_COLOR]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.ERROR]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.ERROR]`
-  ///[description] is required 
+  ///[description] is required
   ///
   ///the text style by default: `TextStyle(color: Colors.black)`
   ///
@@ -96,12 +94,11 @@ class MotionToast extends StatefulWidget {
     _initializeParameters();
   }
 
-
   ///Render Info motion toast
   ///[color] is set to [INFO_COLOR]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.INFO]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.INFO]`
-  ///[description] is required 
+  ///[description] is required
   ///
   ///the text style by default: `TextStyle(color: Colors.black)`
   ///
@@ -118,12 +115,11 @@ class MotionToast extends StatefulWidget {
     _initializeParameters();
   }
 
-
   ///Render delete motion toast
   ///[color] is set to [DELETE_COLOR]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.DELETE]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.DELETE]`
-  ///[description] is required 
+  ///[description] is required
   ///
   ///the text style by default: `TextStyle(color: Colors.black)`
   ///
@@ -139,7 +135,6 @@ class MotionToast extends StatefulWidget {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
   }
-
 
   ///initialize [icon] and [color] based on the selected [motionToastType]
   ///
@@ -217,7 +212,6 @@ class MotionToast extends StatefulWidget {
   ///by default the animation is enabled
   ///
   final bool enableAnimation;
-
 
   ///Display the created motion toast
   ///[context]: the actual context of the application
