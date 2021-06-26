@@ -33,8 +33,8 @@ class HomePage extends StatelessWidget {
       child: Center(
         child: ElevatedButton(
             onPressed: () {
-              MotionToast.success(
-                title: "Title example",
+              MotionToast.info(
+                title: "Motion Toast",
                 titleStyle: TextStyle(fontWeight: FontWeight.bold),
                 description: "This is a description",
                 enableAnimation: false,
