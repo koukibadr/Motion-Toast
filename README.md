@@ -127,3 +127,6 @@ Of course the project is open source, and you can contribute to it [repository l
 - If you **found a bug**, open an issue.
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
+
+##  Support the community!
+[https://www.buymeacoffee.com/koukibadr][https://www.buymeacoffee.com/koukibadr]
