@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 
 void main() {
   runApp(MyApp());
@@ -115,6 +116,7 @@ class HomePage extends StatelessWidget {
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "Example of success motion toast",
       descriptionStyle: TextStyle(fontSize: 12),
+      layoutOrientation: ORIENTATION.RTL,
       width: 300,
     ).show(context);
   }

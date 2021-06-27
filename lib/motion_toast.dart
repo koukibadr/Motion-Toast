@@ -27,7 +27,8 @@ class MotionToast extends StatefulWidget {
       this.iconType,
       this.width = 250,
       this.iconSize = 40,
-      this.enableAnimation = true}) {
+      this.enableAnimation = true,
+      this.layoutOrientation = ORIENTATION.LTR}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
   }
 
@@ -47,7 +48,8 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = 250,
       this.iconSize = 40,
-      this.enableAnimation = true}) {
+      this.enableAnimation = true,
+      this.layoutOrientation = ORIENTATION.LTR}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     _initializeParameters();
   }
@@ -68,7 +70,8 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = 250,
       this.iconSize = 40,
-      this.enableAnimation = true}) {
+      this.enableAnimation = true,
+      this.layoutOrientation = ORIENTATION.LTR}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     _initializeParameters();
   }
@@ -89,7 +92,8 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = 250,
       this.iconSize = 40,
-      this.enableAnimation = true}) {
+      this.enableAnimation = true,
+      this.layoutOrientation = ORIENTATION.LTR}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     _initializeParameters();
   }
@@ -110,7 +114,8 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = 250,
       this.iconSize = 40,
-      this.enableAnimation = true}) {
+      this.enableAnimation = true,
+      this.layoutOrientation = ORIENTATION.LTR}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     _initializeParameters();
   }
@@ -131,7 +136,8 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = 250,
       this.iconSize = 40,
-      this.enableAnimation = true}) {
+      this.enableAnimation = true,
+      this.layoutOrientation = ORIENTATION.LTR}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
   }
@@ -213,6 +219,15 @@ class MotionToast extends StatefulWidget {
   ///
   final bool enableAnimation;
 
+  ///The layout orientation (from right to left or from left to right)
+  ///```dart
+  ///{
+  ///LTR,
+  ///RTL
+  ///}
+  ///```
+  final ORIENTATION layoutOrientation;
+
   ///Display the created motion toast
   ///[context]: the actual context of the application
   ///
@@ -251,52 +266,105 @@ class _MotionToastState extends State<MotionToast> {
           decoration: BoxDecoration(
               color: this.widget.color.withOpacity(0.3),
               borderRadius: BorderRadius.all(Radius.circular(20))),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                height: MOTION_TOAST_HEIGHT * 0.7,
-                width: MOTION_TOAST_SIDE_BAR_WIDTH,
-                decoration: BoxDecoration(
-                    color: this.widget.color,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Container(
-                width: this.widget.iconSize,
-                child: this.widget.enableAnimation
-                    ? HeartBeatIcon(
-                        icon: this.widget.icon,
-                        color: this.widget.color,
-                        size: this.widget.iconSize)
-                    : Icon(
-                        this.widget.icon,
-                        color: this.widget.color,
-                        size: this.widget.iconSize,
-                      ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  this.widget.title.isNotEmpty
-                      ? Text(this.widget.title, style: this.widget.titleStyle)
-                      : Container(),
-                  Text(
-                    this.widget.description,
-                    style: this.widget.descriptionStyle,
-                  ),
-                ],
-              )
-            ],
-          ),
+          child: this.widget.layoutOrientation == ORIENTATION.LTR
+              ? _renderMotionToastContent()
+              : _renderReversedMotionToastContent(),
         ),
       ),
+    );
+  }
+
+  Row _renderMotionToastContent() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          height: MOTION_TOAST_HEIGHT * 0.7,
+          width: MOTION_TOAST_SIDE_BAR_WIDTH,
+          decoration: BoxDecoration(
+              color: this.widget.color,
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Container(
+          width: this.widget.iconSize,
+          child: this.widget.enableAnimation
+              ? HeartBeatIcon(
+                  icon: this.widget.icon,
+                  color: this.widget.color,
+                  size: this.widget.iconSize)
+              : Icon(
+                  this.widget.icon,
+                  color: this.widget.color,
+                  size: this.widget.iconSize,
+                ),
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            this.widget.title.isNotEmpty
+                ? Text(this.widget.title, style: this.widget.titleStyle)
+                : Container(),
+            Text(
+              this.widget.description,
+              style: this.widget.descriptionStyle,
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Row _renderReversedMotionToastContent() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            this.widget.title.isNotEmpty
+                ? Text(this.widget.title, style: this.widget.titleStyle)
+                : Container(),
+            Text(
+              this.widget.description,
+              style: this.widget.descriptionStyle,
+            ),
+          ],
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Container(
+          width: this.widget.iconSize,
+          child: this.widget.enableAnimation
+              ? HeartBeatIcon(
+                  icon: this.widget.icon,
+                  color: this.widget.color,
+                  size: this.widget.iconSize)
+              : Icon(
+                  this.widget.icon,
+                  color: this.widget.color,
+                  size: this.widget.iconSize,
+                ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Container(
+          height: MOTION_TOAST_HEIGHT * 0.7,
+          width: MOTION_TOAST_SIDE_BAR_WIDTH,
+          decoration: BoxDecoration(
+              color: this.widget.color,
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+        )
+      ],
     );
   }
 }
