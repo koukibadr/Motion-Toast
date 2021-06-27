@@ -128,5 +128,9 @@ Of course the project is open source, and you can contribute to it [repository l
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
 
-##  Support the community!
-[https://www.buymeacoffee.com/koukibadr](https://www.buymeacoffee.com/koukibadr)
+
+## Support The Community
+If you like the package and want to support the dev team follow the donation link below.
+Thanks for your support!
+
+[![BuyMeACoffee on CocoaPods.org](https://camo.githubusercontent.com/2ef5c63105d22716d9d093d2c8b77cd7aa9d540b/68747470733a2f2f63646e2e6275796d6561636f666665652e636f6d2f627574746f6e732f76322f64656661756c742d79656c6c6f772e706e67)](https://www.buymeacoffee.com/koukibadr)
