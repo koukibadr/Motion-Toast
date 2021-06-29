@@ -28,7 +28,8 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
   }
 
@@ -49,7 +50,8 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     _initializeParameters();
   }
@@ -71,7 +73,8 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     _initializeParameters();
   }
@@ -93,7 +96,8 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     _initializeParameters();
   }
@@ -115,7 +119,8 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     _initializeParameters();
   }
@@ -137,7 +142,8 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
   }
@@ -228,6 +234,11 @@ class MotionToast extends StatefulWidget {
   ///```
   final ORIENTATION layoutOrientation;
 
+  final bool onTop;
+
+  late AnimationController? slideController;
+  late Animation<Offset>? offsetAnimation;
+
   ///Display the created motion toast
   ///[context]: the actual context of the application
   ///
@@ -235,16 +246,31 @@ class MotionToast extends StatefulWidget {
     showBottomSheet(
         backgroundColor: Colors.transparent,
         context: context,
+        transitionAnimationController: slideController,
         builder: (context) {
           return this;
         });
   }
 }
 
-class _MotionToastState extends State<MotionToast> {
+class _MotionToastState extends State<MotionToast> with TickerProviderStateMixin {
+
   @override
   void initState() {
     super.initState();
+
+    this.widget.slideController = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    this.widget.offsetAnimation = Tween<Offset>(
+      begin: Offset.zero,
+      end: const Offset(0, 1.5),
+    ).animate(CurvedAnimation(
+      parent: this.widget.slideController!,
+      curve: Curves.ease,
+    ));
+
     Timer(Duration(seconds: 3), () {
       try {
         Navigator.pop(context);
@@ -256,6 +282,14 @@ class _MotionToastState extends State<MotionToast> {
 
   @override
   Widget build(BuildContext context) {
+    if (this.widget.onTop) {
+      return _renderTopMotionToast();
+    } else {
+      return _renderBottomMotionToast();
+    }
+  }
+
+  _renderBottomMotionToast() {
     return Container(
       height: MOTION_TOAST_HEIGHT,
       color: Colors.transparent,
@@ -269,6 +303,32 @@ class _MotionToastState extends State<MotionToast> {
           child: this.widget.layoutOrientation == ORIENTATION.LTR
               ? _renderMotionToastContent()
               : _renderReversedMotionToastContent(),
+        ),
+      ),
+    );
+  }
+
+  _renderTopMotionToast() {
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      color: Colors.transparent,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: this.widget.width,
+              height: MOTION_TOAST_HEIGHT * 0.7,
+              decoration: BoxDecoration(
+                  color: this.widget.color.withOpacity(0.3),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: this.widget.layoutOrientation == ORIENTATION.LTR
+                  ? _renderMotionToastContent()
+                  : _renderReversedMotionToastContent(),
+            ),
+          ],
         ),
       ),
     );
