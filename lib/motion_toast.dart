@@ -32,7 +32,8 @@ class MotionToast extends StatefulWidget {
       this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
-      this.toastDuration = const Duration(seconds: 3)}) {
+      this.toastDuration = const Duration(seconds: 3),
+      this.animationCurve = Curves.ease}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
   }
 
@@ -57,7 +58,8 @@ class MotionToast extends StatefulWidget {
       this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
-      this.toastDuration = const Duration(seconds: 3)}) {
+      this.toastDuration = const Duration(seconds: 3),
+      this.animationCurve = Curves.ease}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     _initializeParameters();
   }
@@ -83,7 +85,8 @@ class MotionToast extends StatefulWidget {
       this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
-      this.toastDuration = const Duration(seconds: 3)}) {
+      this.toastDuration = const Duration(seconds: 3),
+      this.animationCurve = Curves.ease}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     _initializeParameters();
   }
@@ -109,7 +112,8 @@ class MotionToast extends StatefulWidget {
       this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
-      this.toastDuration = const Duration(seconds: 3)}) {
+      this.toastDuration = const Duration(seconds: 3),
+      this.animationCurve = Curves.ease}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     _initializeParameters();
   }
@@ -135,7 +139,8 @@ class MotionToast extends StatefulWidget {
       this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
-      this.toastDuration = const Duration(seconds: 3)}) {
+      this.toastDuration = const Duration(seconds: 3),
+      this.animationCurve = Curves.ease}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     _initializeParameters();
   }
@@ -161,7 +166,8 @@ class MotionToast extends StatefulWidget {
       this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
-      this.toastDuration = const Duration(seconds: 3)}) {
+      this.toastDuration = const Duration(seconds: 3),
+      this.animationCurve = Curves.ease}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
   }
@@ -260,6 +266,8 @@ class MotionToast extends StatefulWidget {
 
   final Duration toastDuration;
 
+  final Curve animationCurve;
+
   ///Display the created motion toast
   ///[context]: the actual context of the application
   ///
@@ -282,7 +290,7 @@ class _MotionToastState extends State<MotionToast>
   void initState() {
     super.initState();
     _initializeAnimation();
-    Timer(Duration(seconds: 3), () {
+    Timer(this.widget.toastDuration, () {
       try {
         Navigator.pop(context);
       } catch (e) {
@@ -291,18 +299,43 @@ class _MotionToastState extends State<MotionToast>
     });
   }
 
-  _initializeAnimation(){
+  _initializeAnimation() {
     slideController = AnimationController(
       duration: this.widget.animationDuration,
       vsync: this,
     );
 
-    offsetAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(0, -0.3),
-    ).animate(CurvedAnimation(parent: slideController, curve: Curves.ease));
-    
-    WidgetsBinding.instance!.addPostFrameCallback((_){
+    switch (this.widget.animationType) {
+      case ANIMATION.FROM_TOP:
+        offsetAnimation = Tween<Offset>(
+          begin: const Offset(0, -0.3),
+          end: const Offset(0, 0.3),
+        ).animate(CurvedAnimation(
+            parent: slideController, curve: this.widget.animationCurve));
+        break;
+      case ANIMATION.FROM_LEFT:
+        offsetAnimation = Tween<Offset>(
+          begin: const Offset(-0.3, -0.3),
+          end: const Offset(0, -0.3),
+        ).animate(CurvedAnimation(
+            parent: slideController, curve: this.widget.animationCurve));
+        break;
+      case ANIMATION.FROM_RIGHT:
+        offsetAnimation = Tween<Offset>(
+          begin: const Offset(1.3, -0.3),
+          end: const Offset(0, -0.3),
+        ).animate(CurvedAnimation(
+            parent: slideController, curve: this.widget.animationCurve));
+        break;
+      default:
+        offsetAnimation = Tween<Offset>(
+          begin: Offset.zero,
+          end: const Offset(0, -0.3),
+        ).animate(CurvedAnimation(
+            parent: slideController, curve: this.widget.animationCurve));
+    }
+
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       slideController.forward();
     });
   }
