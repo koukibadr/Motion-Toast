@@ -118,7 +118,8 @@ class HomePage extends StatelessWidget {
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "Example of success motion toast",
       descriptionStyle: TextStyle(fontSize: 12),
-      layoutOrientation: ORIENTATION.LTR,
+      layoutOrientation: ORIENTATION.RTL,
+      animationType: ANIMATION.FROM_LEFT,
       width: 300,
     ).show(context);
   }
