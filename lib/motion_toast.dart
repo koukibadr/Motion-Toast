@@ -29,7 +29,6 @@ class MotionToast extends StatefulWidget {
       this.iconSize = 40,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
-      this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
@@ -55,7 +54,6 @@ class MotionToast extends StatefulWidget {
       this.iconSize = 40,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
-      this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
@@ -82,7 +80,6 @@ class MotionToast extends StatefulWidget {
       this.iconSize = 40,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
-      this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
@@ -109,7 +106,6 @@ class MotionToast extends StatefulWidget {
       this.iconSize = 40,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
-      this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
@@ -136,7 +132,6 @@ class MotionToast extends StatefulWidget {
       this.iconSize = 40,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
-      this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
@@ -163,7 +158,6 @@ class MotionToast extends StatefulWidget {
       this.iconSize = 40,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
-      this.onTop = false,
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
@@ -258,8 +252,6 @@ class MotionToast extends StatefulWidget {
   ///```
   final ORIENTATION layoutOrientation;
 
-  final bool onTop;
-
   final ANIMATION animationType;
 
   final Duration animationDuration;
@@ -342,14 +334,6 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   Widget build(BuildContext context) {
-    if (this.widget.onTop) {
-      return _renderTopMotionToast();
-    } else {
-      return _renderBottomMotionToast();
-    }
-  }
-
-  _renderBottomMotionToast() {
     return Container(
       height: MOTION_TOAST_HEIGHT,
       color: Colors.transparent,
@@ -376,32 +360,6 @@ class _MotionToastState extends State<MotionToast>
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  _renderTopMotionToast() {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      color: Colors.transparent,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: this.widget.width,
-              height: MOTION_TOAST_HEIGHT * 0.7,
-              decoration: BoxDecoration(
-                  color: this.widget.color.withOpacity(0.3),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: this.widget.layoutOrientation == ORIENTATION.LTR
-                  ? _renderMotionToastContent()
-                  : _renderReversedMotionToastContent(),
-            ),
-          ],
         ),
       ),
     );
