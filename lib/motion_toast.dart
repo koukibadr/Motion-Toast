@@ -28,7 +28,11 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false,
+      this.animationType = ANIMATION.FROM_BOTTOM,
+      this.animationDuration = const Duration(milliseconds: 1500),
+      this.toastDuration = const Duration(seconds: 3)}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
   }
 
@@ -49,7 +53,11 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false,
+      this.animationType = ANIMATION.FROM_BOTTOM,
+      this.animationDuration = const Duration(milliseconds: 1500),
+      this.toastDuration = const Duration(seconds: 3)}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     _initializeParameters();
   }
@@ -71,7 +79,11 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false,
+      this.animationType = ANIMATION.FROM_BOTTOM,
+      this.animationDuration = const Duration(milliseconds: 1500),
+      this.toastDuration = const Duration(seconds: 3)}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     _initializeParameters();
   }
@@ -93,7 +105,11 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false,
+      this.animationType = ANIMATION.FROM_BOTTOM,
+      this.animationDuration = const Duration(milliseconds: 1500),
+      this.toastDuration = const Duration(seconds: 3)}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     _initializeParameters();
   }
@@ -115,7 +131,11 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false,
+      this.animationType = ANIMATION.FROM_BOTTOM,
+      this.animationDuration = const Duration(milliseconds: 1500),
+      this.toastDuration = const Duration(seconds: 3)}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     _initializeParameters();
   }
@@ -137,7 +157,11 @@ class MotionToast extends StatefulWidget {
       this.width = 250,
       this.iconSize = 40,
       this.enableAnimation = true,
-      this.layoutOrientation = ORIENTATION.LTR}) {
+      this.layoutOrientation = ORIENTATION.LTR,
+      this.onTop = false,
+      this.animationType = ANIMATION.FROM_BOTTOM,
+      this.animationDuration = const Duration(milliseconds: 1500),
+      this.toastDuration = const Duration(seconds: 3)}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
   }
@@ -228,6 +252,14 @@ class MotionToast extends StatefulWidget {
   ///```
   final ORIENTATION layoutOrientation;
 
+  final bool onTop;
+
+  final ANIMATION animationType;
+
+  final Duration animationDuration;
+
+  final Duration toastDuration;
+
   ///Display the created motion toast
   ///[context]: the actual context of the application
   ///
@@ -241,10 +273,15 @@ class MotionToast extends StatefulWidget {
   }
 }
 
-class _MotionToastState extends State<MotionToast> {
+class _MotionToastState extends State<MotionToast>
+    with TickerProviderStateMixin {
+  late Animation<Offset> offsetAnimation;
+  late AnimationController slideController;
+
   @override
   void initState() {
     super.initState();
+    _initializeAnimation();
     Timer(Duration(seconds: 3), () {
       try {
         Navigator.pop(context);
@@ -254,21 +291,84 @@ class _MotionToastState extends State<MotionToast> {
     });
   }
 
+  _initializeAnimation(){
+    slideController = AnimationController(
+      duration: this.widget.animationDuration,
+      vsync: this,
+    );
+
+    offsetAnimation = Tween<Offset>(
+      begin: Offset.zero,
+      end: const Offset(0, -0.3),
+    ).animate(CurvedAnimation(parent: slideController, curve: Curves.ease));
+    
+    WidgetsBinding.instance!.addPostFrameCallback((_){
+      slideController.forward();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (this.widget.onTop) {
+      return _renderTopMotionToast();
+    } else {
+      return _renderBottomMotionToast();
+    }
+  }
+
+  _renderBottomMotionToast() {
     return Container(
       height: MOTION_TOAST_HEIGHT,
       color: Colors.transparent,
       child: Center(
-        child: Container(
-          width: this.widget.width,
-          height: MOTION_TOAST_HEIGHT * 0.7,
-          decoration: BoxDecoration(
-              color: this.widget.color.withOpacity(0.3),
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          child: this.widget.layoutOrientation == ORIENTATION.LTR
-              ? _renderMotionToastContent()
-              : _renderReversedMotionToastContent(),
+        child: SlideTransition(
+          position: offsetAnimation,
+          child: Stack(
+            children: [
+              Container(
+                  width: this.widget.width,
+                  height: MOTION_TOAST_HEIGHT * 0.7,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(20)))),
+              Container(
+                width: this.widget.width,
+                height: MOTION_TOAST_HEIGHT * 0.7,
+                decoration: BoxDecoration(
+                    color: this.widget.color.withOpacity(0.3),
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: this.widget.layoutOrientation == ORIENTATION.LTR
+                    ? _renderMotionToastContent()
+                    : _renderReversedMotionToastContent(),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  _renderTopMotionToast() {
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      color: Colors.transparent,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: this.widget.width,
+              height: MOTION_TOAST_HEIGHT * 0.7,
+              decoration: BoxDecoration(
+                  color: this.widget.color.withOpacity(0.3),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: this.widget.layoutOrientation == ORIENTATION.LTR
+                  ? _renderMotionToastContent()
+                  : _renderReversedMotionToastContent(),
+            ),
+          ],
         ),
       ),
     );

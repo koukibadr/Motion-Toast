@@ -29,83 +29,85 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "Motion Toast Examples",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {
-                  _displaySuccessMotionToast(context);
-                },
-                child: Text("Success Motion Toast")),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {
-                  _displayWarningMotionToast(context);
-                },
-                child: Text("Warning Motion Toast")),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {
-                  _displayErrorMotionToast(context);
-                },
-                child: Text("Error Motion Toast")),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {
-                  _displayInfoMotionToast(context);
-                },
-                child: Text("Info Motion Toast")),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {
-                  _displayDeleteMotionToast(context);
-                },
-                child: Text("Delete Motion Toast")),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {
-                  _displayCustomMotionToast(context);
-                },
-                child: Text("Custom Motion Toast")),
-          ),
-        ],
+    return SafeArea(
+          child: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "Motion Toast Examples",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displaySuccessMotionToast(context);
+                  },
+                  child: Text("Success Motion Toast")),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displayWarningMotionToast(context);
+                  },
+                  child: Text("Warning Motion Toast")),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displayErrorMotionToast(context);
+                  },
+                  child: Text("Error Motion Toast")),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displayInfoMotionToast(context);
+                  },
+                  child: Text("Info Motion Toast")),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displayDeleteMotionToast(context);
+                  },
+                  child: Text("Delete Motion Toast")),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displayCustomMotionToast(context);
+                  },
+                  child: Text("Custom Motion Toast")),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -116,7 +118,7 @@ class HomePage extends StatelessWidget {
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "Example of success motion toast",
       descriptionStyle: TextStyle(fontSize: 12),
-      layoutOrientation: ORIENTATION.RTL,
+      layoutOrientation: ORIENTATION.LTR,
       width: 300,
     ).show(context);
   }
