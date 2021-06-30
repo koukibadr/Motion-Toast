@@ -236,8 +236,7 @@ class MotionToast extends StatefulWidget {
 
   final bool onTop;
 
-  late AnimationController? slideController;
-  late Animation<Offset>? offsetAnimation;
+  static AnimationController? slideController;
 
   ///Display the created motion toast
   ///[context]: the actual context of the application
@@ -246,7 +245,6 @@ class MotionToast extends StatefulWidget {
     showBottomSheet(
         backgroundColor: Colors.transparent,
         context: context,
-        transitionAnimationController: slideController,
         builder: (context) {
           return this;
         });
@@ -259,17 +257,10 @@ class _MotionToastState extends State<MotionToast> with TickerProviderStateMixin
   void initState() {
     super.initState();
 
-    this.widget.slideController = AnimationController(
-      duration: const Duration(milliseconds: 500),
+    MotionToast.slideController = AnimationController(
+      duration: const Duration(milliseconds: 100),
       vsync: this,
     );
-    this.widget.offsetAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(0, 1.5),
-    ).animate(CurvedAnimation(
-      parent: this.widget.slideController!,
-      curve: Curves.ease,
-    ));
 
     Timer(Duration(seconds: 3), () {
       try {
@@ -294,15 +285,26 @@ class _MotionToastState extends State<MotionToast> with TickerProviderStateMixin
       height: MOTION_TOAST_HEIGHT,
       color: Colors.transparent,
       child: Center(
-        child: Container(
-          width: this.widget.width,
-          height: MOTION_TOAST_HEIGHT * 0.7,
-          decoration: BoxDecoration(
-              color: this.widget.color.withOpacity(0.3),
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          child: this.widget.layoutOrientation == ORIENTATION.LTR
-              ? _renderMotionToastContent()
-              : _renderReversedMotionToastContent(),
+        child: Stack(
+          children: [
+            Container(
+              width: this.widget.width,
+              height: MOTION_TOAST_HEIGHT * 0.7,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(20)))
+            ),
+            Container(
+              width: this.widget.width,
+              height: MOTION_TOAST_HEIGHT * 0.7,
+              decoration: BoxDecoration(
+                  color: this.widget.color.withOpacity(0.3),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: this.widget.layoutOrientation == ORIENTATION.LTR
+                  ? _renderMotionToastContent()
+                  : _renderReversedMotionToastContent(),
+            ),
+          ],
         ),
       ),
     );
