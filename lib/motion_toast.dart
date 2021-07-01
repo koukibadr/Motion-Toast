@@ -252,6 +252,8 @@ class MotionToast extends StatefulWidget {
   ///```
   final ORIENTATION layoutOrientation;
 
+
+  ///The type of animation 
   final ANIMATION animationType;
 
   final Duration animationDuration;
@@ -298,13 +300,6 @@ class _MotionToastState extends State<MotionToast>
     );
 
     switch (this.widget.animationType) {
-      case ANIMATION.FROM_TOP:
-        offsetAnimation = Tween<Offset>(
-          begin: const Offset(0, -0.3),
-          end: const Offset(0, 0.3),
-        ).animate(CurvedAnimation(
-            parent: slideController, curve: this.widget.animationCurve));
-        break;
       case ANIMATION.FROM_LEFT:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(-0.3, -0.3),
