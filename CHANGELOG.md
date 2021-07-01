@@ -1,3 +1,14 @@
+## [1.1.0] - 01/07/2021
+
+* Mutliple built-in animations
+  * From left to right enter animation
+  * From right to left enter animation
+  * From bottom enter animation
+
+* Possibility to change toast layout orientation LTR / RTL
+* Possibility to change toast duration
+* Possibility to change the animation rendering curve
+
 ## [1.0.0] - 26/06/2021
 
 * Mutliple built-in designs

@@ -7,6 +7,7 @@
 | ![success_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/success_toast.gif?raw=true) | ![warning_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/warning_toast.gif?raw=true) | ![error_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/error_toast.gif?raw=true) |
 |--|--|--|
 | ![info_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/info_toast.gif?raw=true) | ![delete_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/delete_toast.gif?raw=true) | ![custom_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/custom_toast.gif?raw=true) |
+| ![motion_toast_bounce.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_bounce.gif?raw=true) | ![motion_toast_from_left.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_left.gif?raw=true) | ![motion_toast_from_right.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_right.gif?raw=true) |
 
 
 ##  Features
@@ -25,7 +26,7 @@
  In order to add motion toast to your project add this line to your `pubspec.yaml` file
  ```yaml
  dependencies:
-	 motion_toast: ^1.0.0
+	 motion_toast: ^1.1.0
  ```
 Or you can reference the main repository directly by adding those lines
  ```yaml
@@ -49,6 +50,12 @@ Or you can reference the main repository directly by adding those lines
 | **iconSize** | `double` | The icon size | false | 40 |
 | **iconType** | `ICON_TYPE` String | The design type of the icon (Material design or Cupertino) values: `ICON_TYPE.MATERIAL_DESIGN or ICON_TYPE.CUPERTINO` | false | `ICON_TYPE.MATERIAL_DESIGN` |
 | **enableAnimation** | `boolean`| Whether enable or disable the animation applied on the icon (heartbeat animation) | false | true |
+| **layoutOrientation** | `ORIENTATION`| the layout orientation of the toast (from left to right LTR or from right to left RTL | false | `ORIENTATION.LTR`|
+| **animationType** | `ANIMATION`| the toast enter animation | false | `ANIMATION.FROM_BOTTOM`|
+| **animationDuration** | `Duration`| the animation duration | false | `Duration(milliseconds:  1500)`|
+| **toastDuration** | `Duration`| How much the toast will be shown | false | `Duration(seconds:  3)`	|
+| **animationCurve** | `Curves`| The toast animation curve | false | `Curves.ease`	|
+
 
 => **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
 
@@ -115,6 +122,21 @@ Or you can reference the main repository directly by adding those lines
 			 titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
 			 description:  "You can customize the toast!",
 			 width:  300,
+	).show(context);
+ ```
+
+ - **Right-Designed Motion Toast**
+ To change the toast layout you need to use `layoutOrientation`,
+**`icon`  `description` and `color` are required**
+ ```dart
+	 MotionToast.success(
+		 title:  "من اليمين",
+		 titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
+		 description:  "هذا مثال بالعربية",
+		 descriptionStyle:  TextStyle(fontSize:  12),
+		 layoutOrientation:  ORIENTATION.RTL,
+		 animationType:  ANIMATION.FROM_RIGHT,
+		 width:  300,
 	).show(context);
  ```
 
