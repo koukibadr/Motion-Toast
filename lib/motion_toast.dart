@@ -252,14 +252,28 @@ class MotionToast extends StatefulWidget {
   ///```
   final ORIENTATION layoutOrientation;
 
-
-  ///The type of animation 
+  ///The type of animation, by default it's [ANIMATION.FROM_BOTTOM]
+  ///```dart
+  ///{
+  ///FROM_BOTTOM,
+  ///FROM_LEFT,
+  ///FROM_RIGHT
+  ///}
+  ///```
   final ANIMATION animationType;
 
+  ///the Duration of the toast animation
+  ///by default it's 1.5 seconds
+  ///
   final Duration animationDuration;
 
+  ///How long the toast will be shown
+  ///by default it's 3 seconds.
+  ///
   final Duration toastDuration;
 
+  ///The toast animation curve
+  ///by default it's `Curves.ease`
   final Curve animationCurve;
 
   ///Display the created motion toast

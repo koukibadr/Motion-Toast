@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Container(
+      child: Container(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -114,20 +114,24 @@ class HomePage extends StatelessWidget {
 
   _displaySuccessMotionToast(BuildContext context) {
     MotionToast.success(
-      title: "Success Motion Toast",
+      title: "من اليمين",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: "Example of success motion toast",
+      description: "هذا مثال بالعربية",
       descriptionStyle: TextStyle(fontSize: 12),
+      layoutOrientation: ORIENTATION.RTL,
+      animationType: ANIMATION.FROM_RIGHT,
       width: 300,
     ).show(context);
   }
 
   _displayWarningMotionToast(BuildContext context) {
     MotionToast.warning(
-            title: "Warning Motion Toast",
-            titleStyle: TextStyle(fontWeight: FontWeight.bold),
-            description: "This is a Warning")
-        .show(context);
+      title: "Warning Motion Toast",
+      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      description: "This is a Warning",
+      animationCurve: Curves.bounceIn,
+      animationDuration: Duration(milliseconds: 1000),
+    ).show(context);
   }
 
   _displayErrorMotionToast(BuildContext context) {
@@ -135,6 +139,7 @@ class HomePage extends StatelessWidget {
       title: "Error",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "Please enter your name",
+      animationType: ANIMATION.FROM_LEFT,
     ).show(context);
   }
 
