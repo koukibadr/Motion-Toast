@@ -18,6 +18,9 @@
  - Support null safety
  - Heartbeat animations
  - Full customized text
+ - Built in animations
+ - Customize toast layout (LTR/RTL)
+ - Customize toast duration
 
   
 
