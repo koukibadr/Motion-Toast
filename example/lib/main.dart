@@ -106,6 +106,28 @@ class HomePage extends StatelessWidget {
                   },
                   child: Text("Custom Motion Toast")),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displayCenterMotionToast(context);
+                  },
+                  child: Text("Center Motion Toast")),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    _displayTopMotionToast(context);
+                  },
+                  child: Text("Top Motion Toast")),
+            ),
           ],
         ),
       ),
@@ -168,6 +190,30 @@ class HomePage extends StatelessWidget {
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "You can customize the toast!",
       width: 300,
+    ).show(context);
+  }
+
+  _displayCenterMotionToast(BuildContext context) {
+    MotionToast(
+      icon: Icons.alarm,
+      color: Colors.deepOrange,
+      title: "Center Toast",
+      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      description: "Center displayed motion toast",
+      width: 350,
+      position: MOTION_TOAST_POSITION.CENTER,
+    ).show(context);
+  }
+
+  _displayTopMotionToast(BuildContext context) {
+    MotionToast(
+      icon: Icons.zoom_out,
+      color: Colors.deepOrange,
+      title: "Top Motion Toast",
+      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      description: "Another motion toast example",
+      width: 400,
+      position: MOTION_TOAST_POSITION.TOP,
     ).show(context);
   }
 }
