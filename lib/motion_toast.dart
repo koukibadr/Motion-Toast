@@ -306,6 +306,20 @@ class MotionToast extends StatefulWidget {
               return AlertDialog(
                 backgroundColor: Colors.transparent,
                 contentPadding: EdgeInsets.all(0),
+                elevation: 0,
+                content: this,
+              );
+            });
+        break;
+      case MOTION_TOAST_POSITION.TOP:
+        showDialog(
+            context: context,
+            barrierColor: Colors.white.withOpacity(0),
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: Colors.transparent,
+                contentPadding: EdgeInsets.all(0),
+                elevation: 0,
                 content: this,
               );
             });
@@ -376,6 +390,8 @@ class _MotionToastState extends State<MotionToast>
     switch (this.widget.position) {
       case MOTION_TOAST_POSITION.CENTER:
         return _renderCenterMotionToast();
+      case MOTION_TOAST_POSITION.TOP:
+        return _renderTopMotionToast();
       default:
         return _renderBottomMotionToast();
     }
@@ -442,6 +458,42 @@ class _MotionToastState extends State<MotionToast>
           ),
         ],
       ),
+    );
+  }
+
+  Widget _renderTopMotionToast() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: MOTION_TOAST_HEIGHT * 0.7,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Stack(
+                children: [
+                  Container(
+                      width: this.widget.width,
+                      height: MOTION_TOAST_HEIGHT * 0.7,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(20)))),
+                  Container(
+                      width: this.widget.width,
+                      height: MOTION_TOAST_HEIGHT * 0.7,
+                      decoration: BoxDecoration(
+                          color: this.widget.color.withOpacity(0.3),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: this.widget.layoutOrientation == ORIENTATION.LTR
+                          ? _renderMotionToastContent()
+                          : _renderReversedMotionToastContent()),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
