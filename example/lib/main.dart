@@ -147,6 +147,7 @@ class HomePage extends StatelessWidget {
     MotionToast.info(
             title: "Info Motion Toast",
             titleStyle: TextStyle(fontWeight: FontWeight.bold),
+            position: MOTION_TOAST_POSITION.CENTER,
             description: "Example of Info Toast")
         .show(context);
   }

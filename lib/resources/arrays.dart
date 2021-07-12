@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/colors.dart';
 
@@ -33,3 +34,5 @@ enum ICON_TYPE { MATERIAL_DESIGN, CUPERTINO }
 enum ORIENTATION { LTR, RTL }
 
 enum ANIMATION { FROM_BOTTOM, FROM_LEFT, FROM_RIGHT }
+
+enum MOTION_TOAST_POSITION { CENTER, BOTTOM, TOP }

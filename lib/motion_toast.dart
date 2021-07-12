@@ -1,6 +1,7 @@
 library motion_toast;
 
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
@@ -32,7 +33,8 @@ class MotionToast extends StatefulWidget {
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
-      this.animationCurve = Curves.ease}) {
+      this.animationCurve = Curves.ease,
+      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
   }
 
@@ -57,7 +59,8 @@ class MotionToast extends StatefulWidget {
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
-      this.animationCurve = Curves.ease}) {
+      this.animationCurve = Curves.ease,
+      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     _initializeParameters();
   }
@@ -83,7 +86,8 @@ class MotionToast extends StatefulWidget {
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
-      this.animationCurve = Curves.ease}) {
+      this.animationCurve = Curves.ease,
+      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     _initializeParameters();
   }
@@ -109,7 +113,8 @@ class MotionToast extends StatefulWidget {
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
-      this.animationCurve = Curves.ease}) {
+      this.animationCurve = Curves.ease,
+      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     _initializeParameters();
   }
@@ -135,7 +140,8 @@ class MotionToast extends StatefulWidget {
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
-      this.animationCurve = Curves.ease}) {
+      this.animationCurve = Curves.ease,
+      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     _initializeParameters();
   }
@@ -161,7 +167,8 @@ class MotionToast extends StatefulWidget {
       this.animationType = ANIMATION.FROM_BOTTOM,
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
-      this.animationCurve = Curves.ease}) {
+      this.animationCurve = Curves.ease,
+      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
   }
@@ -276,16 +283,41 @@ class MotionToast extends StatefulWidget {
   ///by default it's `Curves.ease`
   final Curve animationCurve;
 
+  ///The position where the motion toast will be displayed
+  ///possible values
+  ///```dart
+  ///{
+  ///CENTER,
+  ///TOP,
+  ///BOTTOM
+  ///}
+  ///```
+  final MOTION_TOAST_POSITION position;
+
   ///Display the created motion toast
   ///[context]: the actual context of the application
   ///
   show(BuildContext context) {
-    showBottomSheet(
-        backgroundColor: Colors.transparent,
-        context: context,
-        builder: (context) {
-          return this;
-        });
+    switch (this.position) {
+      case MOTION_TOAST_POSITION.CENTER:
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: Colors.transparent,
+                contentPadding: EdgeInsets.all(0),
+                content: this,
+              );
+            });
+        break;
+      default:
+        showBottomSheet(
+            backgroundColor: Colors.transparent,
+            context: context,
+            builder: (context) {
+              return this;
+            });
+    }
   }
 }
 
@@ -301,9 +333,7 @@ class _MotionToastState extends State<MotionToast>
     Timer(this.widget.toastDuration, () {
       try {
         Navigator.pop(context);
-      } catch (e) {
-        print(e.toString());
-      }
+      } catch (e) {}
     });
   }
 
@@ -343,6 +373,15 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   Widget build(BuildContext context) {
+    switch (this.widget.position) {
+      case MOTION_TOAST_POSITION.CENTER:
+        return _renderCenterMotionToast();
+      default:
+        return _renderBottomMotionToast();
+    }
+  }
+
+  Container _renderBottomMotionToast() {
     return Container(
       height: MOTION_TOAST_HEIGHT,
       color: Colors.transparent,
@@ -370,6 +409,38 @@ class _MotionToastState extends State<MotionToast>
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _renderCenterMotionToast() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MOTION_TOAST_HEIGHT * 0.7,
+      color: Colors.transparent,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            children: [
+              Container(
+                  width: this.widget.width,
+                  height: MOTION_TOAST_HEIGHT * 0.7,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(20)))),
+              Container(
+                  width: this.widget.width,
+                  height: MOTION_TOAST_HEIGHT * 0.7,
+                  decoration: BoxDecoration(
+                      color: this.widget.color.withOpacity(0.3),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: this.widget.layoutOrientation == ORIENTATION.LTR
+                      ? _renderMotionToastContent()
+                      : _renderReversedMotionToastContent()),
+            ],
+          ),
+        ],
       ),
     );
   }
