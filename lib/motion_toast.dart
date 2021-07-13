@@ -455,7 +455,6 @@ class _MotionToastState extends State<MotionToast>
     }
   }
 
-
   ///Create a bottom motion toast with all the given attributes
   ///
   Widget _renderBottomMotionToast() {
@@ -490,7 +489,6 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
-
   ///render center displayed motion toast with all the given attributes
   ///
   Widget _renderCenterMotionToast() {
@@ -524,7 +522,6 @@ class _MotionToastState extends State<MotionToast>
       ),
     );
   }
-
 
   ///render a top positionned motion toast with all the given attributes
   ///
@@ -569,10 +566,9 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
-
-  /// render the content of the motion toast 
+  /// render the content of the motion toast
   /// the rendering will be used for [ORIENTATION.LTR] orientation
-  /// 
+  ///
   Row _renderMotionToastContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -620,10 +616,9 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
-
   /// render a reversed content for the motion toast
   /// the orientation will be used for [ORIENTATION.RTL]
-  /// 
+  ///
   Row _renderReversedMotionToastContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
