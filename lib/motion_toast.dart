@@ -324,7 +324,7 @@ class MotionToast extends StatefulWidget {
   ///```
   final MOTION_TOAST_POSITION position;
 
-  ///Display the created motion toast
+  ///Display the created motion toast based on the [position] attribute
   ///[context]: the actual context of the application
   ///
   show(BuildContext context) {
@@ -455,7 +455,10 @@ class _MotionToastState extends State<MotionToast>
     }
   }
 
-  Container _renderBottomMotionToast() {
+
+  ///Create a bottom motion toast with all the given attributes
+  ///
+  Widget _renderBottomMotionToast() {
     return Container(
       height: MOTION_TOAST_HEIGHT,
       color: Colors.transparent,
@@ -487,6 +490,9 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
+
+  ///render center displayed motion toast with all the given attributes
+  ///
   Widget _renderCenterMotionToast() {
     return Container(
       width: MediaQuery.of(context).size.width,
@@ -519,6 +525,9 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
+
+  ///render a top positionned motion toast with all the given attributes
+  ///
   Widget _renderTopMotionToast() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -560,6 +569,10 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
+
+  /// render the content of the motion toast 
+  /// the rendering will be used for [ORIENTATION.LTR] orientation
+  /// 
   Row _renderMotionToastContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -607,6 +620,10 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
+
+  /// render a reversed content for the motion toast
+  /// the orientation will be used for [ORIENTATION.RTL]
+  /// 
   Row _renderReversedMotionToastContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
