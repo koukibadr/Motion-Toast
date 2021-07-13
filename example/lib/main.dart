@@ -176,10 +176,11 @@ class HomePage extends StatelessWidget {
 
   _displayDeleteMotionToast(BuildContext context) {
     MotionToast.delete(
-            title: "Deleted",
-            titleStyle: TextStyle(fontWeight: FontWeight.bold),
-            description: "The item is deleted")
-        .show(context);
+      title: "Deleted",
+      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      description: "The item is deleted",
+      animationType: ANIMATION.FROM_RIGHT,
+    ).show(context);
   }
 
   _displayCustomMotionToast(BuildContext context) {
@@ -189,6 +190,8 @@ class HomePage extends StatelessWidget {
       title: "Custom Toast",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "You can customize the toast!",
+      animationType: ANIMATION.FROM_RIGHT,
+      position: MOTION_TOAST_POSITION.TOP,
       width: 300,
     ).show(context);
   }
@@ -214,6 +217,7 @@ class HomePage extends StatelessWidget {
       description: "Another motion toast example",
       width: 400,
       position: MOTION_TOAST_POSITION.TOP,
+      animationType: ANIMATION.FROM_TOP,
     ).show(context);
   }
 }
