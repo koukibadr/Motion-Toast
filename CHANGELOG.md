@@ -1,3 +1,8 @@
+## [1.2.0] - 13/07/2021
+
+* Add support to multiple displaying positions
+* Add from top to bottom animation
+
 ## [1.1.0] - 01/07/2021
 
 * Mutliple built-in animations

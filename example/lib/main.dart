@@ -162,6 +162,8 @@ class HomePage extends StatelessWidget {
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "Please enter your name",
       animationType: ANIMATION.FROM_LEFT,
+      position: MOTION_TOAST_POSITION.TOP,
+      width: 300,
     ).show(context);
   }
 
@@ -179,7 +181,8 @@ class HomePage extends StatelessWidget {
       title: "Deleted",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "The item is deleted",
-      animationType: ANIMATION.FROM_RIGHT,
+      animationType: ANIMATION.FROM_TOP,
+      position: MOTION_TOAST_POSITION.TOP,
     ).show(context);
   }
 
