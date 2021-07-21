@@ -574,7 +574,6 @@ class _MotionToastState extends State<MotionToast>
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          height: MOTION_TOAST_HEIGHT * 0.7,
           width: MOTION_TOAST_SIDE_BAR_WIDTH,
           decoration: BoxDecoration(
               color: this.widget.color,
