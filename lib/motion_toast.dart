@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
+import 'package:motion_toast/resources/constants.dart';
 import 'package:motion_toast/resources/heart_beat_icon.dart';
 
 const double MOTION_TOAST_HEIGHT = 130;
@@ -34,7 +35,8 @@ class MotionToast extends StatefulWidget {
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
-      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
+      this.position = MOTION_TOAST_POSITION.BOTTOM,
+      this.borderRadius = DEFAULT_RADIUS}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
             this.animationType != ANIMATION.FROM_TOP) ||
@@ -65,7 +67,8 @@ class MotionToast extends StatefulWidget {
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
-      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
+      this.position = MOTION_TOAST_POSITION.BOTTOM,
+      this.borderRadius = DEFAULT_RADIUS}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -97,7 +100,8 @@ class MotionToast extends StatefulWidget {
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
-      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
+      this.position = MOTION_TOAST_POSITION.BOTTOM,
+      this.borderRadius = DEFAULT_RADIUS}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -129,7 +133,8 @@ class MotionToast extends StatefulWidget {
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
-      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
+      this.position = MOTION_TOAST_POSITION.BOTTOM,
+      this.borderRadius = DEFAULT_RADIUS}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -161,7 +166,8 @@ class MotionToast extends StatefulWidget {
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
-      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
+      this.position = MOTION_TOAST_POSITION.BOTTOM,
+      this.borderRadius = DEFAULT_RADIUS}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -193,7 +199,8 @@ class MotionToast extends StatefulWidget {
       this.animationDuration = const Duration(milliseconds: 1500),
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
-      this.position = MOTION_TOAST_POSITION.BOTTOM}) {
+      this.position = MOTION_TOAST_POSITION.BOTTOM,
+      this.borderRadius = DEFAULT_RADIUS}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -323,6 +330,8 @@ class MotionToast extends StatefulWidget {
   ///}
   ///```
   final MOTION_TOAST_POSITION position;
+
+  final double borderRadius;
 
   ///Display the created motion toast based on the [position] attribute
   ///[context]: the actual context of the application
@@ -471,13 +480,13 @@ class _MotionToastState extends State<MotionToast>
                   height: MOTION_TOAST_HEIGHT * 0.7,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(20)))),
+                      borderRadius: BorderRadius.all(Radius.circular(this.widget.borderRadius)))),
               Container(
                 width: this.widget.width,
                 height: MOTION_TOAST_HEIGHT * 0.7,
                 decoration: BoxDecoration(
                     color: this.widget.color.withOpacity(0.3),
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                    borderRadius: BorderRadius.all(Radius.circular(this.widget.borderRadius))),
                 child: this.widget.layoutOrientation == ORIENTATION.LTR
                     ? _renderMotionToastContent()
                     : _renderReversedMotionToastContent(),
@@ -506,13 +515,13 @@ class _MotionToastState extends State<MotionToast>
                   height: MOTION_TOAST_HEIGHT * 0.7,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(20)))),
+                      borderRadius: BorderRadius.all(Radius.circular(this.widget.borderRadius)))),
               Container(
                   width: this.widget.width,
                   height: MOTION_TOAST_HEIGHT * 0.7,
                   decoration: BoxDecoration(
                       color: this.widget.color.withOpacity(0.3),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                      borderRadius: BorderRadius.all(Radius.circular(this.widget.borderRadius))),
                   child: this.widget.layoutOrientation == ORIENTATION.LTR
                       ? _renderMotionToastContent()
                       : _renderReversedMotionToastContent()),
@@ -545,14 +554,14 @@ class _MotionToastState extends State<MotionToast>
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20)))),
+                                BorderRadius.all(Radius.circular(this.widget.borderRadius)))),
                     Container(
                         width: this.widget.width,
                         height: MOTION_TOAST_HEIGHT * 0.7,
                         decoration: BoxDecoration(
                             color: this.widget.color.withOpacity(0.3),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
+                                BorderRadius.all(Radius.circular(this.widget.borderRadius))),
                         child: this.widget.layoutOrientation == ORIENTATION.LTR
                             ? _renderMotionToastContent()
                             : _renderReversedMotionToastContent()),
@@ -577,7 +586,7 @@ class _MotionToastState extends State<MotionToast>
           width: MOTION_TOAST_SIDE_BAR_WIDTH,
           decoration: BoxDecoration(
               color: this.widget.color,
-              borderRadius: BorderRadius.all(Radius.circular(20))),
+              borderRadius: BorderRadius.all(Radius.circular(this.widget.borderRadius))),
         ),
         SizedBox(
           width: 20,
@@ -659,7 +668,7 @@ class _MotionToastState extends State<MotionToast>
           width: MOTION_TOAST_SIDE_BAR_WIDTH,
           decoration: BoxDecoration(
               color: this.widget.color,
-              borderRadius: BorderRadius.all(Radius.circular(20))),
+              borderRadius: BorderRadius.all(Radius.circular(this.widget.borderRadius))),
         )
       ],
     );
