@@ -331,6 +331,10 @@ class MotionToast extends StatefulWidget {
   ///```
   final MOTION_TOAST_POSITION position;
 
+
+  ///Define the border radius of the toast
+  ///by default it's 20
+  ///
   final double borderRadius;
 
   ///Display the created motion toast based on the [position] attribute

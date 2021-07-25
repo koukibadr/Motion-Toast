@@ -152,6 +152,7 @@ class HomePage extends StatelessWidget {
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "This is a Warning",
       animationCurve: Curves.bounceIn,
+      borderRadius: 0,
       animationDuration: Duration(milliseconds: 1000),
     ).show(context);
   }
