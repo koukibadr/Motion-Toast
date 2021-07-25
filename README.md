@@ -1,76 +1,55 @@
 
   
 
+  
+
 #  Motion Toast
 
 ![MOTION TOAST.gif](https://github.com/koukibadr/Motion-Toast/blob/main/MOTION%20TOAST.gif?raw=true)
 
-  
-
 **A new well designed toast with animations and multiple built-in types**
 
   
+
 | ![motion_toast_from_right.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_right.gif?raw=true) | ![motion_toast_bounce.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_bounce.gif?raw=true) |
 |--|--|
 | ![center_motion_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/center_motion_toast.gif?raw=true) | ![center_motion_toast_2.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/center_motion_toast_2.gif?raw=true) |
 | ![top_left_animation.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/top_left_animation.gif?raw=true) | ![top_top_animation.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/top_top_animation.gif?raw=true) |
 
   
+
   
 
 ##  Features
 
-  
-
 - Animated toasts with animated icons
-
 - Built-in types (Success, Warning, Error, Info, Delete)
-
 - Possibility to design your own toast
-
 - Support null safety
-
 - Heartbeat animations
-
 - Full customized text
-
 - Built in animations
-
 - Customize toast layout (LTR/RTL)
-
 - Customize toast duration
-
 - Customize Motion toast position (Center, Bottom, Top)
 
-  
-
-  
 
 ##  Getting Started
-
-  
 
 In order to add motion toast to your project add this line to your `pubspec.yaml` file
 
 ```yaml
-
 dependencies:
 	motion_toast: ^1.2.0
-
 ```
 
 Or you can reference the main repository directly by adding those lines
 
 ```yaml
-
 dependencies:
 	motion_toast:
 		git: https://github.com/koukibadr/Motion-Toast.git
-
 ```
-
-  
-  
 
 ##  Attributes
 
@@ -92,20 +71,17 @@ dependencies:
 | **toastDuration** | `Duration`| How much the toast will be shown | false | `Duration(seconds: 3)` |
 | **animationCurve** | `Curves`| The toast animation curve | false | `Curves.ease` |
 | **position** | `MOTION_TOAST_POSITION`| The position where the toast will be displayed (TOP, BOTTOM, CENTER) | false | `MOTION_TOAST_POSITION.BOTTOM` |
+| **borderRadius** | `double`| define the radius of the toast | false | 20 |
 
-  
- 
-- **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
 
-- **For bottom toast you can't set the animation `FROM_TOP` as well as for top displayed toast you can't set the animation to `FROM_BOTTOM`**
-- **for center motion toast it will be rendered without animations**
+-  **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
 
-  
-  
+-  **For bottom toast you can't set the animation `FROM_TOP` as well as for top displayed toast you can't set the animation to `FROM_BOTTOM`**
+
+-  **for center motion toast it will be rendered without animations**
+
 
 ##  Implementation
-
-  
 
 -  **Success Motion Toast**
 
@@ -116,47 +92,35 @@ MotionToast.success(
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
 	description:  "Example of success motion toast",
 	descriptionStyle:  TextStyle(fontSize:  12),
-	width:  300,
+	width:  300
 ).show(context);
 
 ```
-
-  
-  
 
 -  **Warning Motion Toast**
 
 ```dart
-
-MotionToast.warning(
-	title:  "Warning Motion Toast",
-	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
-	description:  "This is a Warning"
-).show(context);
+	MotionToast.warning(
+		title:  "Warning Motion Toast",
+		titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
+		description:  "This is a Warning"
+	).show(context);
 
 ```
-
-  
 
 -  **Error Motion Toast**
 
 ```dart
-
 MotionToast.error(
 	title:  "Error",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
 	description:  "Please enter your name"
 ).show(context);
-
 ```
-
-  
-  
 
 -  **Info Motion Toast**
 
 ```dart
-
 MotionToast.info(
 	title:  "Info Motion Toast",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
@@ -165,12 +129,9 @@ MotionToast.info(
 
 ```
 
-  
-
 -  **Delete Motion Toast**
 
 ```dart
-
 MotionToast.delete(
 	title:  "Deleted",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
@@ -180,50 +141,43 @@ MotionToast.delete(
 ```
 
 -  **Custom Motion Toast**
-
 To create your custom toast just use the default constructor,
-
 **`icon`  `description` and `color` are required**
 
-```dart
+  
 
+```dart
 MotionToast(
 	icon:  Icons.alarm,
 	color:  Colors.pink,
 	title:  "Custom Toast",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
 	description:  "You can customize the toast!",
-	width:  300,
+	width:  300
 ).show(context);
 
 ```
 
-  
-
 -  **Right-Designed Motion Toast**
 
 To change the toast layout you need to use `layoutOrientation`,
-
 **`icon`  `description` and `color` are required**
 
 ```dart
-
 MotionToast.success(
 	title:  "من اليمين",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
 	description:  "هذا مثال بالعربية",
 	descriptionStyle:  TextStyle(fontSize:  12),
 	layoutOrientation:  ORIENTATION.RTL,
-	animationType:  ANIMATION.FROM_RIGHT,
-
-width:  300,
-
+	animationType:  ANIMATION.FROM_RIGHT,width:  300,
 ).show(context);
-
 ```
 
-  -  **Top-displayed Motion Toast**
-  To change the display position of the motion toast use `position` attribute
+-  **Top-displayed Motion Toast**
+
+To change the display position of the motion toast use `position` attribute
+
 ```dart
 MotionToast(
 	icon:  Icons.zoom_out,
@@ -234,10 +188,11 @@ MotionToast(
 	position:  MOTION_TOAST_POSITION.TOP,
 	animationType:  ANIMATION.FROM_TOP,
 ).show(context);
+
 ```
 
+-  **Center-displayed Motion Toast**
 
-  -  **Center-displayed Motion Toast**
 ```dart
 MotionToast(
 	icon:  Icons.zoom_out,
@@ -247,30 +202,22 @@ MotionToast(
 	description:  "Another motion toast example",
 	position:  MOTION_TOAST_POSITION.CENTER
 ).show(context);
+
 ```
+
 ##  Contribution
 
-  
-
-  
 
 Of course the project is open source, and you can contribute to it [repository link](https://github.com/koukibadr/Motion-Toast)
 
 - If you **found a bug**, open an issue.
-
 - If you **have a feature request**, open an issue.
-
 - If you **want to contribute**, submit a pull request.
 
-  
-  
 
 ##  Support The Community
 
 If you like the package and want to support the dev team follow the donation link below.
-
 Thanks for your support!
-
-  
 
 [![BuyMeACoffee on CocoaPods.org](https://camo.githubusercontent.com/2ef5c63105d22716d9d093d2c8b77cd7aa9d540b/68747470733a2f2f63646e2e6275796d6561636f666665652e636f6d2f627574746f6e732f76322f64656661756c742d79656c6c6f772e706e67)](https://www.buymeacoffee.com/koukibadr)
