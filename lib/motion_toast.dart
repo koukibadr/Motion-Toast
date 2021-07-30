@@ -8,9 +8,6 @@ import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
 import 'package:motion_toast/resources/heart_beat_icon.dart';
 
-
-const double MOTION_TOAST_SIDE_BAR_WIDTH = 15;
-
 ///Render the motion toast widget
 // ignore: must_be_immutable
 class MotionToast extends StatefulWidget {
@@ -29,7 +26,7 @@ class MotionToast extends StatefulWidget {
       this.iconType,
       this.width = DEFAULT_TOAST_WIDTH,
       this.height = MOTION_TOAST_HEIGHT,
-      this.iconSize = 40,
+      this.iconSize = DEFAULT_ICON_SIZE,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
       this.animationType = ANIMATION.FROM_BOTTOM,
@@ -62,7 +59,7 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = DEFAULT_TOAST_WIDTH,
       this.height = MOTION_TOAST_HEIGHT,
-      this.iconSize = 40,
+      this.iconSize = DEFAULT_ICON_SIZE,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
       this.animationType = ANIMATION.FROM_BOTTOM,
@@ -96,7 +93,7 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = DEFAULT_TOAST_WIDTH,
       this.height = MOTION_TOAST_HEIGHT,
-      this.iconSize = 40,
+      this.iconSize = DEFAULT_ICON_SIZE,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
       this.animationType = ANIMATION.FROM_BOTTOM,
@@ -130,7 +127,7 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = DEFAULT_TOAST_WIDTH,
       this.height = MOTION_TOAST_HEIGHT,
-      this.iconSize = 40,
+      this.iconSize = DEFAULT_ICON_SIZE,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
       this.animationType = ANIMATION.FROM_BOTTOM,
@@ -164,7 +161,7 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = DEFAULT_TOAST_WIDTH,
       this.height = MOTION_TOAST_HEIGHT,
-      this.iconSize = 40,
+      this.iconSize = DEFAULT_ICON_SIZE,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
       this.animationType = ANIMATION.FROM_BOTTOM,
@@ -198,7 +195,7 @@ class MotionToast extends StatefulWidget {
       this.iconType = ICON_TYPE.MATERIAL_DESIGN,
       this.width = DEFAULT_TOAST_WIDTH,
       this.height = MOTION_TOAST_HEIGHT,
-      this.iconSize = 40,
+      this.iconSize = DEFAULT_ICON_SIZE,
       this.enableAnimation = true,
       this.layoutOrientation = ORIENTATION.LTR,
       this.animationType = ANIMATION.FROM_BOTTOM,
