@@ -193,10 +193,8 @@ class HomePage extends StatelessWidget {
       color: Colors.pink,
       title: "Custom Toast",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: "You can customize the toast!",
-      animationType: ANIMATION.FROM_RIGHT,
-      position: MOTION_TOAST_POSITION.TOP,
-      width: 300,
+      height: 150,
+      description: "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.",
     ).show(context);
   }
 
@@ -206,8 +204,9 @@ class HomePage extends StatelessWidget {
       color: Colors.deepOrange,
       title: "Center Toast",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: "Center displayed motion toast",
-      width: 350,
+      height: 150,
+      description: "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.",
+      //description: "Center displayed motion toast",
       position: MOTION_TOAST_POSITION.CENTER,
     ).show(context);
   }
@@ -219,9 +218,9 @@ class HomePage extends StatelessWidget {
       title: "Top Motion Toast",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "Another motion toast example",
-      width: 400,
       position: MOTION_TOAST_POSITION.TOP,
       animationType: ANIMATION.FROM_TOP,
+      height: 100,
     ).show(context);
   }
 }
