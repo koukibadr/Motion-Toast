@@ -218,9 +218,9 @@ class HomePage extends StatelessWidget {
       title: "Top Motion Toast",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: "Another motion toast example",
-      width: 400,
       position: MOTION_TOAST_POSITION.TOP,
       animationType: ANIMATION.FROM_TOP,
+      height: 100,
     ).show(context);
   }
 }
