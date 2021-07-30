@@ -8,7 +8,7 @@ import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
 import 'package:motion_toast/resources/heart_beat_icon.dart';
 
-const double MOTION_TOAST_HEIGHT = 130;
+
 const double MOTION_TOAST_SIDE_BAR_WIDTH = 15;
 
 ///Render the motion toast widget
@@ -633,9 +633,13 @@ class _MotionToastState extends State<MotionToast>
             this.widget.title.isNotEmpty
                 ? Text(this.widget.title, style: this.widget.titleStyle)
                 : Container(),
-            Text(
-              this.widget.description,
-              style: this.widget.descriptionStyle,
+            Container(
+              width: this.widget.width * 0.7,
+              child: Text(
+                this.widget.description,
+                style: this.widget.descriptionStyle,
+                textAlign: TextAlign.end,
+              ),
             ),
           ],
         ),
@@ -659,7 +663,6 @@ class _MotionToastState extends State<MotionToast>
           width: 20,
         ),
         Container(
-          height: MOTION_TOAST_HEIGHT * 0.7,
           width: MOTION_TOAST_SIDE_BAR_WIDTH,
           decoration: BoxDecoration(
               color: this.widget.color,
