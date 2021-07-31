@@ -194,7 +194,8 @@ class HomePage extends StatelessWidget {
       title: "Custom Toast",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       height: 150,
-      description: "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.",
+      description:
+          "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.",
     ).show(context);
   }
 
@@ -205,7 +206,8 @@ class HomePage extends StatelessWidget {
       title: "Center Toast",
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       height: 150,
-      description: "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.",
+      description:
+          "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.",
       //description: "Center displayed motion toast",
       position: MOTION_TOAST_POSITION.CENTER,
     ).show(context);

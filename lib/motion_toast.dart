@@ -281,7 +281,6 @@ class MotionToast extends StatefulWidget {
   ///
   final double width;
 
-
   ///define the height of the motion toast
   ///
   final double height;
@@ -387,10 +386,9 @@ class _MotionToastState extends State<MotionToast>
     });
   }
 
-
   ///initialize the animation that will be applied when displaying the toast
   /// based on [this.widget.animationDuration], [this.widget.animationType] and [this.widget.animationCurve]
-  /// 
+  ///
   _initializeAnimation() {
     slideController = AnimationController(
       duration: this.widget.animationDuration,
