@@ -1,15 +1,10 @@
-
-  
-
-  
-
 #  Motion Toast
 
-![MOTION TOAST.gif](https://github.com/koukibadr/Motion-Toast/blob/main/MOTION%20TOAST.gif?raw=true)
-
-**A new well designed toast with animations and multiple built-in types**
-
-  
+<p  align="center">
+	<img  src="https://github.com/koukibadr/Motion-Toast/blob/main/MOTION%20TOAST.gif?raw=true"/>
+	<br>
+	<b>A new well designed toast with animations and multiple built-in types</b>
+</p>
 
 | ![motion_toast_from_right.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_right.gif?raw=true) | ![motion_toast_bounce.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_bounce.gif?raw=true) |
 |--|--|
@@ -20,7 +15,11 @@
 
   
 
+  
+
 ##  Features
+
+  
 
 - Animated toasts with animated icons
 - Built-in types (Success, Warning, Error, Info, Delete)
@@ -32,9 +31,14 @@
 - Customize toast layout (LTR/RTL)
 - Customize toast duration
 - Customize Motion toast position (Center, Bottom, Top)
+- Support long text
 
+  
+  
 
 ##  Getting Started
+
+  
 
 In order to add motion toast to your project add this line to your `pubspec.yaml` file
 
@@ -42,6 +46,8 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 dependencies:
 	motion_toast: ^1.2.0
 ```
+
+  
 
 Or you can reference the main repository directly by adding those lines
 
@@ -51,7 +57,11 @@ dependencies:
 		git: https://github.com/koukibadr/Motion-Toast.git
 ```
 
+  
+
 ##  Attributes
+
+  
 
 | Name | Type | Description | Required | Default Value |
 |--|--|--|--|--|
@@ -61,7 +71,8 @@ dependencies:
 | **titleStyle** | `TextStyle` | The text style applied on the title | false | `TextStyle(color: Colors.black)` |
 | **icon** | `IconData` | The toast icon | **required when creating a custom toast otherwise you don't have to pass it** | N/A |
 | **color** | `Color` | The motion toast background color (applied on the background, icon and side bar) | **required when creating a custom toast otherwise you don't have to pass it** | N/A |
-| **width** | `double` | The motion toast width | false | 250 |
+| **width** | `double` | The motion toast width | false | 350 |
+| **height** | `double` | The motion toast height | false | 80 |
 | **iconSize** | `double` | The icon size | false | 40 |
 | **iconType** | `ICON_TYPE` String | The design type of the icon (Material design or Cupertino) values: `ICON_TYPE.MATERIAL_DESIGN or ICON_TYPE.CUPERTINO` | false | `ICON_TYPE.MATERIAL_DESIGN` |
 | **enableAnimation** | `boolean`| Whether enable or disable the animation applied on the icon (heartbeat animation) | false | true |
@@ -76,14 +87,24 @@ dependencies:
 
 -  **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
 
+  
+
 -  **For bottom toast you can't set the animation `FROM_TOP` as well as for top displayed toast you can't set the animation to `FROM_BOTTOM`**
+
+  
 
 -  **for center motion toast it will be rendered without animations**
 
+  
+  
 
 ##  Implementation
 
+  
+
 -  **Success Motion Toast**
+
+  
 
 ```dart
 
@@ -99,26 +120,35 @@ MotionToast.success(
 
 -  **Warning Motion Toast**
 
+  
+
 ```dart
-	MotionToast.warning(
-		title:  "Warning Motion Toast",
-		titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
-		description:  "This is a Warning"
-	).show(context);
+
+MotionToast.warning(
+	title:  "Warning Motion Toast",
+	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
+	description:  "This is a Warning"
+).show(context);
 
 ```
+
+  
 
 -  **Error Motion Toast**
 
 ```dart
+
 MotionToast.error(
 	title:  "Error",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
 	description:  "Please enter your name"
 ).show(context);
+
 ```
 
 -  **Info Motion Toast**
+
+  
 
 ```dart
 MotionToast.info(
@@ -128,6 +158,8 @@ MotionToast.info(
 ).show(context);
 
 ```
+
+  
 
 -  **Delete Motion Toast**
 
@@ -140,13 +172,17 @@ MotionToast.delete(
 
 ```
 
--  **Custom Motion Toast**
-To create your custom toast just use the default constructor,
-**`icon`  `description` and `color` are required**
-
   
 
+-  **Custom Motion Toast**
+
+To create your custom toast just use the default constructor,
+
+**`icon`  `description` and `color` are required**
+
+
 ```dart
+
 MotionToast(
 	icon:  Icons.alarm,
 	color:  Colors.pink,
@@ -158,12 +194,16 @@ MotionToast(
 
 ```
 
+  
+
 -  **Right-Designed Motion Toast**
 
 To change the toast layout you need to use `layoutOrientation`,
+
 **`icon`  `description` and `color` are required**
 
 ```dart
+
 MotionToast.success(
 	title:  "من اليمين",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
@@ -172,11 +212,16 @@ MotionToast.success(
 	layoutOrientation:  ORIENTATION.RTL,
 	animationType:  ANIMATION.FROM_RIGHT,width:  300,
 ).show(context);
+
 ```
+
+  
 
 -  **Top-displayed Motion Toast**
 
 To change the display position of the motion toast use `position` attribute
+
+  
 
 ```dart
 MotionToast(
@@ -190,6 +235,8 @@ MotionToast(
 ).show(context);
 
 ```
+
+  
 
 -  **Center-displayed Motion Toast**
 
@@ -205,19 +252,34 @@ MotionToast(
 
 ```
 
+  
+
 ##  Contribution
 
+  
+  
 
 Of course the project is open source, and you can contribute to it [repository link](https://github.com/koukibadr/Motion-Toast)
 
+  
+
 - If you **found a bug**, open an issue.
+
 - If you **have a feature request**, open an issue.
+
 - If you **want to contribute**, submit a pull request.
 
+  
+  
 
 ##  Support The Community
 
+  
+
 If you like the package and want to support the dev team follow the donation link below.
+
 Thanks for your support!
+
+  
 
 [![BuyMeACoffee on CocoaPods.org](https://camo.githubusercontent.com/2ef5c63105d22716d9d093d2c8b77cd7aa9d540b/68747470733a2f2f63646e2e6275796d6561636f666665652e636f6d2f627574746f6e732f76322f64656661756c742d79656c6c6f772e706e67)](https://www.buymeacoffee.com/koukibadr)

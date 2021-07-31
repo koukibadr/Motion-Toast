@@ -1,3 +1,8 @@
+## [1.3.0] - 31/07/2021
+
+* Add support to long text in description
+* Add responsive rendering to text
+
 ## [1.2.0] - 13/07/2021
 
 * Add support to multiple displaying positions
