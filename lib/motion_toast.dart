@@ -23,7 +23,6 @@ class MotionToast extends StatefulWidget {
       this.title = "",
       this.descriptionStyle = const TextStyle(color: Colors.black),
       this.titleStyle = const TextStyle(color: Colors.black),
-      this.iconType,
       this.width = DEFAULT_TOAST_WIDTH,
       this.height = MOTION_TOAST_HEIGHT,
       this.iconSize = DEFAULT_ICON_SIZE,
@@ -41,6 +40,7 @@ class MotionToast extends StatefulWidget {
         (this.position == MOTION_TOAST_POSITION.TOP &&
             this.animationType != ANIMATION.FROM_BOTTOM) ||
         (this.position == MOTION_TOAST_POSITION.CENTER));
+    this.iconType = ICON_TYPE.MATERIAL_DESIGN;
   }
 
   ///Render a success motion toast
@@ -275,7 +275,7 @@ class MotionToast extends StatefulWidget {
   ///CUPERTINO
   ///}
   ///```
-  final ICON_TYPE? iconType;
+  late ICON_TYPE? iconType;
 
   ///The motion toast width by default it's set to 250
   ///
