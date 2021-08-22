@@ -3,6 +3,7 @@ library motion_toast;
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
@@ -33,7 +34,8 @@ class MotionToast extends StatefulWidget {
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
       this.position = MOTION_TOAST_POSITION.BOTTOM,
-      this.borderRadius = DEFAULT_RADIUS}) {
+      this.borderRadius = DEFAULT_RADIUS,
+      this.onClose}) {
     this.motionToastType = MOTION_TOAST_TYPE.CUSTOM;
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
             this.animationType != ANIMATION.FROM_TOP) ||
@@ -67,7 +69,8 @@ class MotionToast extends StatefulWidget {
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
       this.position = MOTION_TOAST_POSITION.BOTTOM,
-      this.borderRadius = DEFAULT_RADIUS}) {
+      this.borderRadius = DEFAULT_RADIUS,
+      this.onClose}) {
     this.motionToastType = MOTION_TOAST_TYPE.SUCCESS;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -101,7 +104,8 @@ class MotionToast extends StatefulWidget {
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
       this.position = MOTION_TOAST_POSITION.BOTTOM,
-      this.borderRadius = DEFAULT_RADIUS}) {
+      this.borderRadius = DEFAULT_RADIUS,
+      this.onClose}) {
     this.motionToastType = MOTION_TOAST_TYPE.WARNING;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -135,7 +139,8 @@ class MotionToast extends StatefulWidget {
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
       this.position = MOTION_TOAST_POSITION.BOTTOM,
-      this.borderRadius = DEFAULT_RADIUS}) {
+      this.borderRadius = DEFAULT_RADIUS,
+      this.onClose}) {
     this.motionToastType = MOTION_TOAST_TYPE.ERROR;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -169,7 +174,8 @@ class MotionToast extends StatefulWidget {
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
       this.position = MOTION_TOAST_POSITION.BOTTOM,
-      this.borderRadius = DEFAULT_RADIUS}) {
+      this.borderRadius = DEFAULT_RADIUS,
+      this.onClose}) {
     this.motionToastType = MOTION_TOAST_TYPE.INFO;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -203,7 +209,8 @@ class MotionToast extends StatefulWidget {
       this.toastDuration = const Duration(seconds: 3),
       this.animationCurve = Curves.ease,
       this.position = MOTION_TOAST_POSITION.BOTTOM,
-      this.borderRadius = DEFAULT_RADIUS}) {
+      this.borderRadius = DEFAULT_RADIUS,
+      this.onClose}) {
     this.motionToastType = MOTION_TOAST_TYPE.DELETE;
     _initializeParameters();
     assert((this.position == MOTION_TOAST_POSITION.BOTTOM &&
@@ -343,6 +350,8 @@ class MotionToast extends StatefulWidget {
   ///
   final double borderRadius;
 
+  final Function? onClose;
+
   ///Display the created motion toast based on the [position] attribute
   ///[context]: the actual context of the application
   ///
@@ -374,16 +383,17 @@ class _MotionToastState extends State<MotionToast>
     with TickerProviderStateMixin {
   late Animation<Offset> offsetAnimation;
   late AnimationController slideController;
-  late Timer toastTimer;
-
+  
   @override
   void initState() {
     super.initState();
     _initializeAnimation();
-    toastTimer = Timer(this.widget.toastDuration, () {
-      try {
-        Navigator.pop(context);
-      } catch (e) {}
+    Timer(this.widget.toastDuration, () {
+      slideController.dispose();
+      SchedulerBinding.instance!.addPostFrameCallback((_) {
+        Navigator.of(context, rootNavigator: true).pop();
+        this.widget.onClose?.call();
+      });
     });
   }
 
@@ -678,8 +688,6 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   void dispose() {
-    toastTimer.cancel();
-    slideController.dispose();
     super.dispose();
   }
 }

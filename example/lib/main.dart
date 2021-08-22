@@ -38,12 +38,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() { 
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      _displaySuccessMotionToast(context);
-    });
-    Timer(Duration(milliseconds: 5500),(){
-        _displayWarningMotionToast(context);
-    });
   }
   
   @override
@@ -162,6 +156,9 @@ class _HomePageState extends State<HomePage> {
       layoutOrientation: ORIENTATION.RTL,
       animationType: ANIMATION.FROM_RIGHT,
       width: 300,
+      onClose: (){
+         _displayWarningMotionToast(context);
+      },
     ).show(context);
   }
 
