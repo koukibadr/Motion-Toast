@@ -374,12 +374,13 @@ class _MotionToastState extends State<MotionToast>
     with TickerProviderStateMixin {
   late Animation<Offset> offsetAnimation;
   late AnimationController slideController;
+  late Timer toastTimer;
 
   @override
   void initState() {
     super.initState();
     _initializeAnimation();
-    Timer(this.widget.toastDuration, () {
+    toastTimer = Timer(this.widget.toastDuration, () {
       try {
         Navigator.pop(context);
       } catch (e) {}
@@ -673,5 +674,12 @@ class _MotionToastState extends State<MotionToast>
         )
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    toastTimer.cancel();
+    slideController.dispose();
+    super.dispose();
   }
 }
