@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
 import 'package:motion_toast/resources/arrays.dart';
@@ -22,11 +24,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({
     Key? key,
   }) : super(key: key);
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  
+  @override
+  void initState() { 
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _displaySuccessMotionToast(context);
+    });
+    Timer(Duration(milliseconds: 5500),(){
+        _displayWarningMotionToast(context);
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
