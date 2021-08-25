@@ -350,6 +350,9 @@ class MotionToast extends StatefulWidget {
   ///
   final double borderRadius;
 
+
+  ///Function invoked when the toast is closed
+  ///
   final Function? onClose;
 
   ///Display the created motion toast based on the [position] attribute
