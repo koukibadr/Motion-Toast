@@ -34,12 +34,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
   @override
-  void initState() { 
+  void initState() {
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -156,8 +155,8 @@ class _HomePageState extends State<HomePage> {
       layoutOrientation: ORIENTATION.RTL,
       animationType: ANIMATION.FROM_RIGHT,
       width: 300,
-      onClose: (){
-         _displayWarningMotionToast(context);
+      onClose: () {
+        _displayWarningMotionToast(context);
       },
     ).show(context);
   }
