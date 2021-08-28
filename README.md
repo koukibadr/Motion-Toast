@@ -1,10 +1,14 @@
 #  Motion Toast
 
+  
+
 <p  align="center">
-	<img  src="https://github.com/koukibadr/Motion-Toast/blob/main/MOTION%20TOAST.gif?raw=true"/>
-	<br>
-	<b>A new well designed toast with animations and multiple built-in types</b>
+<img  src="https://github.com/koukibadr/Motion-Toast/blob/main/MOTION%20TOAST.gif?raw=true"/>
+<br>
+<b>A new well designed toast with animations and multiple built-in types</b>
 </p>
+
+  
 
 | ![motion_toast_from_right.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_right.gif?raw=true) | ![motion_toast_bounce.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_bounce.gif?raw=true) |
 |--|--|
@@ -17,9 +21,9 @@
 
   
 
-##  Features
-
   
+
+##  Features
 
 - Animated toasts with animated icons
 - Built-in types (Success, Warning, Error, Info, Delete)
@@ -33,21 +37,14 @@
 - Customize Motion toast position (Center, Bottom, Top)
 - Support long text
 
-  
-  
-
 ##  Getting Started
-
-  
 
 In order to add motion toast to your project add this line to your `pubspec.yaml` file
 
 ```yaml
 dependencies:
-	motion_toast: ^1.2.0
+	motion_toast: ^1.4.0
 ```
-
-  
 
 Or you can reference the main repository directly by adding those lines
 
@@ -57,11 +54,7 @@ dependencies:
 		git: https://github.com/koukibadr/Motion-Toast.git
 ```
 
-  
-
 ##  Attributes
-
-  
 
 | Name | Type | Description | Required | Default Value |
 |--|--|--|--|--|
@@ -83,31 +76,18 @@ dependencies:
 | **animationCurve** | `Curves`| The toast animation curve | false | `Curves.ease` |
 | **position** | `MOTION_TOAST_POSITION`| The position where the toast will be displayed (TOP, BOTTOM, CENTER) | false | `MOTION_TOAST_POSITION.BOTTOM` |
 | **borderRadius** | `double`| define the radius of the toast | false | 20 |
-
+| **onClose** | `Function`| function invoked once the toast in closed | false | null |
 
 -  **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
 
-  
-
 -  **For bottom toast you can't set the animation `FROM_TOP` as well as for top displayed toast you can't set the animation to `FROM_BOTTOM`**
-
-  
 
 -  **for center motion toast it will be rendered without animations**
 
-  
-  
-
 ##  Implementation
 
-  
-
 -  **Success Motion Toast**
-
-  
-
 ```dart
-
 MotionToast.success(
 	title:  "Success Motion Toast",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
@@ -120,8 +100,6 @@ MotionToast.success(
 
 -  **Warning Motion Toast**
 
-  
-
 ```dart
 
 MotionToast.warning(
@@ -131,8 +109,6 @@ MotionToast.warning(
 ).show(context);
 
 ```
-
-  
 
 -  **Error Motion Toast**
 
@@ -148,8 +124,6 @@ MotionToast.error(
 
 -  **Info Motion Toast**
 
-  
-
 ```dart
 MotionToast.info(
 	title:  "Info Motion Toast",
@@ -159,11 +133,10 @@ MotionToast.info(
 
 ```
 
-  
-
 -  **Delete Motion Toast**
 
 ```dart
+
 MotionToast.delete(
 	title:  "Deleted",
 	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
@@ -172,17 +145,13 @@ MotionToast.delete(
 
 ```
 
-  
-
 -  **Custom Motion Toast**
 
 To create your custom toast just use the default constructor,
 
 **`icon`  `description` and `color` are required**
 
-
 ```dart
-
 MotionToast(
 	icon:  Icons.alarm,
 	color:  Colors.pink,
@@ -194,14 +163,12 @@ MotionToast(
 
 ```
 
-  
-
 -  **Right-Designed Motion Toast**
 
 To change the toast layout you need to use `layoutOrientation`,
+**`icon`  `description`** and **`color`** are required
 
-**`icon`  `description` and `color` are required**
-
+  
 ```dart
 
 MotionToast.success(
@@ -215,15 +182,12 @@ MotionToast.success(
 
 ```
 
-  
-
 -  **Top-displayed Motion Toast**
 
 To change the display position of the motion toast use `position` attribute
 
-  
-
 ```dart
+
 MotionToast(
 	icon:  Icons.zoom_out,
 	color:  Colors.deepOrange,
@@ -235,8 +199,6 @@ MotionToast(
 ).show(context);
 
 ```
-
-  
 
 -  **Center-displayed Motion Toast**
 
@@ -251,35 +213,36 @@ MotionToast(
 ).show(context);
 
 ```
+- **Using onClose parameter** (display two successive toasts)
+```dart
+MotionToast.success(
+	title:  "User Data",
+	titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
+	description:  "Your data has been deleted",
+	descriptionStyle:  TextStyle(fontSize:  12),
+	onClose: (){
+		MotionToast.error(
+			title:  "User Data",
+			titleStyle:  TextStyle(fontWeight:  FontWeight.bold),
+			description:  "Your data has been deleted",
+			descriptionStyle:  TextStyle(fontSize:  12),
+		).show(context);
+	},
+).show(context);
+```
 
-  
+
 
 ##  Contribution
 
-  
-  
-
 Of course the project is open source, and you can contribute to it [repository link](https://github.com/koukibadr/Motion-Toast)
 
-  
-
 - If you **found a bug**, open an issue.
-
 - If you **have a feature request**, open an issue.
-
 - If you **want to contribute**, submit a pull request.
 
-  
-  
-
 ##  Support The Community
-
-  
-
 If you like the package and want to support the dev team follow the donation link below.
-
 Thanks for your support!
-
-  
 
 [![BuyMeACoffee on CocoaPods.org](https://camo.githubusercontent.com/2ef5c63105d22716d9d093d2c8b77cd7aa9d540b/68747470733a2f2f63646e2e6275796d6561636f666665652e636f6d2f627574746f6e732f76322f64656661756c742d79656c6c6f772e706e67)](https://www.buymeacoffee.com/koukibadr)
