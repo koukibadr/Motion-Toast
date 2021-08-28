@@ -1,3 +1,8 @@
+## [1.4.0] - 28/08/2021
+
+* Add on close toast callback handler
+* Bug fixes
+
 ## [1.3.0] - 31/07/2021
 
 * Add support to long text in description
