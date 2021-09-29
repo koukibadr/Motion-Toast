@@ -1,3 +1,7 @@
+## [1.5.0] - 29/09/2021
+
+* Enhance motion toast dismiss
+
 ## [1.4.0] - 28/08/2021
 
 * Add on close toast callback handler
