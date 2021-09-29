@@ -3,7 +3,6 @@ library motion_toast;
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
@@ -393,7 +392,7 @@ class _MotionToastState extends State<MotionToast>
     _initializeAnimation();
     toastTimer = Timer(this.widget.toastDuration, () {
       slideController.dispose();
-      Navigator.of(context, rootNavigator: true).pop();
+      Navigator.of(context, rootNavigator: true).maybePop();
       toastTimer.cancel();
     });
   }
