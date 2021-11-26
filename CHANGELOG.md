@@ -1,4 +1,4 @@
-## [1.5.0] - 26/11/2021
+## [1.6.0] - 26/11/2021
 
 * Fix display in a scaffold widget
 
