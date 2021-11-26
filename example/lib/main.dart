@@ -17,12 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: HomePage(),
-      ),
+      home:  HomePage(),
     );
   }
 }
+
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -41,106 +40,108 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "Motion Toast Examples",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displaySuccessMotionToast(context);
-                  },
-                  child: Text("Success Motion Toast")),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displayWarningMotionToast(context);
-                  },
-                  child: Text("Warning Motion Toast")),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displayErrorMotionToast(context);
-                  },
-                  child: Text("Error Motion Toast")),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displayInfoMotionToast(context);
-                  },
-                  child: Text("Info Motion Toast")),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displayDeleteMotionToast(context);
-                  },
-                  child: Text("Delete Motion Toast")),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displayCustomMotionToast(context);
-                  },
-                  child: Text("Custom Motion Toast")),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displayCenterMotionToast(context);
-                  },
-                  child: Text("Center Motion Toast")),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    _displayTopMotionToast(context);
-                  },
-                  child: Text("Top Motion Toast")),
-            ),
-          ],
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "Motion Toast Examples",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displaySuccessMotionToast(context);
+                    },
+                    child: Text("Success Motion Toast")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displayWarningMotionToast(context);
+                    },
+                    child: Text("Warning Motion Toast")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displayErrorMotionToast(context);
+                    },
+                    child: Text("Error Motion Toast")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displayInfoMotionToast(context);
+                    },
+                    child: Text("Info Motion Toast")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displayDeleteMotionToast(context);
+                    },
+                    child: Text("Delete Motion Toast")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displayCustomMotionToast(context);
+                    },
+                    child: Text("Custom Motion Toast")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displayCenterMotionToast(context);
+                    },
+                    child: Text("Center Motion Toast")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      _displayTopMotionToast(context);
+                    },
+                    child: Text("Top Motion Toast")),
+              ),
+            ],
+          ),
         ),
       ),
     );

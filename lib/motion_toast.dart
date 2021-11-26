@@ -362,20 +362,22 @@ class MotionToast extends StatefulWidget {
       case MOTION_TOAST_POSITION.TOP:
         Navigator.of(context).push(
           PageRouteBuilder(
-              pageBuilder: (context, _, __) => Scaffold(
-                    backgroundColor: Colors.transparent,
-                    body: SafeArea(child: this),
-                  ),
-              opaque: false),
+            pageBuilder: (context, _, __) => Scaffold(
+              backgroundColor: Colors.transparent,
+              body: SafeArea(child: this),
+            ),
+            opaque: false,
+          ),
         );
         break;
       default:
-        showBottomSheet(
-            backgroundColor: Colors.transparent,
-            context: context,
-            builder: (context) {
-              return this;
-            });
+        showModalBottomSheet(
+          barrierColor: Colors.transparent,
+          context: context,
+          builder: (context) {
+            return this;
+          },
+        );
     }
   }
 }
