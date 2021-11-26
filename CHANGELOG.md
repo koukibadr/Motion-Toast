@@ -1,3 +1,7 @@
+## [1.5.0] - 26/11/2021
+
+* Fix display in a scaffold widget
+
 ## [1.5.0] - 29/09/2021
 
 * Enhance motion toast dismiss
