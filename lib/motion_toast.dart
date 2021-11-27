@@ -37,14 +37,8 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
+    _assertValidValues();
     motionToastType = MOTION_TOAST_TYPE.custom;
-    assert(
-      (position == MOTION_TOAST_POSITION.bottom &&
-              animationType != ANIMATION.fromTop) ||
-          (position == MOTION_TOAST_POSITION.top &&
-              animationType != ANIMATION.fromBottom) ||
-          (position == MOTION_TOAST_POSITION.center),
-    );
     iconType = ICON_TYPE.materialDesign;
   }
 
@@ -76,15 +70,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.success;
+    _assertValidValues();
     _initializeParameters();
-    assert(
-      (position == MOTION_TOAST_POSITION.bottom &&
-              animationType != ANIMATION.fromTop) ||
-          (position == MOTION_TOAST_POSITION.top &&
-              animationType != ANIMATION.fromBottom) ||
-          (position == MOTION_TOAST_POSITION.center),
-    );
+    motionToastType = MOTION_TOAST_TYPE.success;    
   }
 
   ///Render a warning motion toast
@@ -115,15 +103,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.warning;
+    _assertValidValues();
     _initializeParameters();
-    assert(
-      (position == MOTION_TOAST_POSITION.bottom &&
-              animationType != ANIMATION.fromTop) ||
-          (position == MOTION_TOAST_POSITION.top &&
-              animationType != ANIMATION.fromBottom) ||
-          (position == MOTION_TOAST_POSITION.center),
-    );
+    motionToastType = MOTION_TOAST_TYPE.warning;
   }
 
   ///Render an error motion toast
@@ -154,15 +136,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.error;
+    _assertValidValues();
     _initializeParameters();
-    assert(
-      (position == MOTION_TOAST_POSITION.bottom &&
-              animationType != ANIMATION.fromTop) ||
-          (position == MOTION_TOAST_POSITION.top &&
-              animationType != ANIMATION.fromBottom) ||
-          (position == MOTION_TOAST_POSITION.center),
-    );
+    motionToastType = MOTION_TOAST_TYPE.error;
   }
 
   ///Render Info motion toast
@@ -193,15 +169,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.info;
+    _assertValidValues();
     _initializeParameters();
-    assert(
-      (position == MOTION_TOAST_POSITION.bottom &&
-              animationType != ANIMATION.fromTop) ||
-          (position == MOTION_TOAST_POSITION.top &&
-              animationType != ANIMATION.fromBottom) ||
-          (position == MOTION_TOAST_POSITION.center),
-    );
+    motionToastType = MOTION_TOAST_TYPE.info;
   }
 
   ///Render delete motion toast
@@ -232,15 +202,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.delete;
+    _assertValidValues();
     _initializeParameters();
-    assert(
-      (position == MOTION_TOAST_POSITION.bottom &&
-              animationType != ANIMATION.fromTop) ||
-          (position == MOTION_TOAST_POSITION.top &&
-              animationType != ANIMATION.fromBottom) ||
-          (position == MOTION_TOAST_POSITION.center),
-    );
+    motionToastType = MOTION_TOAST_TYPE.delete;
   }
 
   ///initialize [icon] and [color] based on the selected [motionToastType]
@@ -252,6 +216,16 @@ class MotionToast extends StatefulWidget {
       icon = motionToastIconsMD[motionToastType]!;
     }
     color = motionToastColors[motionToastType] ?? successColor;
+  }
+
+  void _assertValidValues(){
+    assert(
+      (position == MOTION_TOAST_POSITION.bottom &&
+              animationType != ANIMATION.fromTop) ||
+          (position == MOTION_TOAST_POSITION.top &&
+              animationType != ANIMATION.fromBottom) ||
+          (position == MOTION_TOAST_POSITION.center),
+    );
   }
 
   ///String used as a description text
