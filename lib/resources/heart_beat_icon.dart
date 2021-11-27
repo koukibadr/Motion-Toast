@@ -14,8 +14,12 @@ class HeartBeatIcon extends StatefulWidget {
   ///
   final double size;
 
-  const HeartBeatIcon(
-      {required this.icon, required this.color, required this.size});
+  const HeartBeatIcon({
+    Key? key,
+    required this.icon,
+    required this.color,
+    required this.size,
+  }) : super(key: key);
 
   @override
   _HeartBeatIconState createState() => _HeartBeatIconState();
@@ -30,11 +34,18 @@ class _HeartBeatIconState extends State<HeartBeatIcon>
   void initState() {
     super.initState();
     _heartAnimationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1200));
-    _heartAnimation =
-        Tween(begin: this.widget.size * 0.7, end: this.widget.size * 0.85)
-            .animate(CurvedAnimation(
-                curve: Curves.bounceOut, parent: _heartAnimationController));
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    );
+    _heartAnimation = Tween(
+      begin: widget.size * 0.7,
+      end: widget.size * 0.85,
+    ).animate(
+      CurvedAnimation(
+        curve: Curves.bounceOut,
+        parent: _heartAnimationController,
+      ),
+    );
 
     _heartAnimationController.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.completed) {
@@ -50,8 +61,8 @@ class _HeartBeatIconState extends State<HeartBeatIcon>
       animation: _heartAnimationController,
       builder: (context, child) {
         return Icon(
-          this.widget.icon,
-          color: this.widget.color,
+          widget.icon,
+          color: widget.color,
           size: _heartAnimation.value,
         );
       },

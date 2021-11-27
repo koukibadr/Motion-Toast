@@ -1,38 +1,37 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/colors.dart';
 
-const MOTION_TOAST_COLORS = {
-  MOTION_TOAST_TYPE.SUCCESS: SUCCESS_COLOR,
-  MOTION_TOAST_TYPE.ERROR: ERROR_COLOR,
-  MOTION_TOAST_TYPE.WARNING: WARNING_COLOR,
-  MOTION_TOAST_TYPE.INFO: INFO_COLOR,
-  MOTION_TOAST_TYPE.DELETE: DELETE_COLOR
+const motionToastColors = {
+  MOTION_TOAST_TYPE.success: successColor,
+  MOTION_TOAST_TYPE.error: errorColor,
+  MOTION_TOAST_TYPE.warning: warningColor,
+  MOTION_TOAST_TYPE.info: infoColor,
+  MOTION_TOAST_TYPE.delete: deleteColor
 };
 
-const MOTION_TOAST_ICONS_MD = {
-  MOTION_TOAST_TYPE.SUCCESS: Icons.check_circle_outline,
-  MOTION_TOAST_TYPE.ERROR: Icons.error,
-  MOTION_TOAST_TYPE.WARNING: Icons.warning,
-  MOTION_TOAST_TYPE.INFO: Icons.info,
-  MOTION_TOAST_TYPE.DELETE: Icons.delete
+const motionToastIconsMD = {
+  MOTION_TOAST_TYPE.success: Icons.check_circle_outline,
+  MOTION_TOAST_TYPE.error: Icons.error,
+  MOTION_TOAST_TYPE.warning: Icons.warning,
+  MOTION_TOAST_TYPE.info: Icons.info,
+  MOTION_TOAST_TYPE.delete: Icons.delete
 };
 
-const MOTION_TOAST_ICONS_CUPERTINO = {
-  MOTION_TOAST_TYPE.SUCCESS: CupertinoIcons.checkmark_alt_circle,
-  MOTION_TOAST_TYPE.ERROR: CupertinoIcons.exclamationmark_circle_fill,
-  MOTION_TOAST_TYPE.WARNING: CupertinoIcons.exclamationmark_triangle_fill,
-  MOTION_TOAST_TYPE.INFO: CupertinoIcons.info_circle_fill,
-  MOTION_TOAST_TYPE.DELETE: CupertinoIcons.delete_simple,
+const motionToastIconsCupertino = {
+  MOTION_TOAST_TYPE.success: CupertinoIcons.checkmark_alt_circle,
+  MOTION_TOAST_TYPE.error: CupertinoIcons.exclamationmark_circle_fill,
+  MOTION_TOAST_TYPE.warning: CupertinoIcons.exclamationmark_triangle_fill,
+  MOTION_TOAST_TYPE.info: CupertinoIcons.info_circle_fill,
+  MOTION_TOAST_TYPE.delete: CupertinoIcons.delete_simple,
 };
 
-enum MOTION_TOAST_TYPE { SUCCESS, ERROR, WARNING, INFO, DELETE, CUSTOM }
+enum MOTION_TOAST_TYPE { success, error, warning, info, delete, custom }
 
-enum ICON_TYPE { MATERIAL_DESIGN, CUPERTINO }
+enum ICON_TYPE { materialDesign, cupertino }
 
-enum ORIENTATION { LTR, RTL }
+enum ORIENTATION { ltr, rtl }
 
-enum ANIMATION { FROM_BOTTOM, FROM_LEFT, FROM_RIGHT, FROM_TOP }
+enum ANIMATION { fromBottom, fromLeft, fromRight, fromTop }
 
-enum MOTION_TOAST_POSITION { CENTER, BOTTOM, TOP }
+enum MOTION_TOAST_POSITION { center, bottom, top }
