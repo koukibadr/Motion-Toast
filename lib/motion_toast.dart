@@ -7,6 +7,7 @@ import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
 import 'package:motion_toast/resources/heart_beat_icon.dart';
+import 'package:motion_toast/widgets/motion_toast_background.dart';
 
 ///Render the motion toast widget
 // ignore: must_be_immutable
@@ -70,9 +71,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
+    motionToastType = MOTION_TOAST_TYPE.success;
     _assertValidValues();
     _initializeParameters();
-    motionToastType = MOTION_TOAST_TYPE.success;    
   }
 
   ///Render a warning motion toast
@@ -103,9 +104,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
+    motionToastType = MOTION_TOAST_TYPE.warning;
     _assertValidValues();
     _initializeParameters();
-    motionToastType = MOTION_TOAST_TYPE.warning;
   }
 
   ///Render an error motion toast
@@ -136,9 +137,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
+    motionToastType = MOTION_TOAST_TYPE.error;
     _assertValidValues();
     _initializeParameters();
-    motionToastType = MOTION_TOAST_TYPE.error;
   }
 
   ///Render Info motion toast
@@ -169,9 +170,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
+    motionToastType = MOTION_TOAST_TYPE.info;
     _assertValidValues();
     _initializeParameters();
-    motionToastType = MOTION_TOAST_TYPE.info;
   }
 
   ///Render delete motion toast
@@ -202,9 +203,9 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
   }) : super(key: key) {
+    motionToastType = MOTION_TOAST_TYPE.delete;
     _assertValidValues();
     _initializeParameters();
-    motionToastType = MOTION_TOAST_TYPE.delete;
   }
 
   ///initialize [icon] and [color] based on the selected [motionToastType]
@@ -218,7 +219,8 @@ class MotionToast extends StatefulWidget {
     color = motionToastColors[motionToastType] ?? successColor;
   }
 
-  void _assertValidValues(){
+  //TODO add missing documentation
+  void _assertValidValues() {
     assert(
       (position == MOTION_TOAST_POSITION.bottom &&
               animationType != ANIMATION.fromTop) ||
@@ -407,6 +409,11 @@ class _MotionToastState extends State<MotionToast>
       vsync: this,
     );
 
+    var curveAnimation = CurvedAnimation(
+      parent: slideController,
+      curve: widget.animationCurve,
+    );
+
     switch (widget.animationType) {
       case ANIMATION.fromLeft:
         if (widget.position == MOTION_TOAST_POSITION.top) {
@@ -414,10 +421,7 @@ class _MotionToastState extends State<MotionToast>
             begin: const Offset(-0.3, 0.3),
             end: const Offset(0, 0.3),
           ).animate(
-            CurvedAnimation(
-              parent: slideController,
-              curve: widget.animationCurve,
-            ),
+            curveAnimation,
           );
           break;
         } else {
@@ -425,10 +429,7 @@ class _MotionToastState extends State<MotionToast>
             begin: const Offset(-0.3, -0.3),
             end: const Offset(0, -0.3),
           ).animate(
-            CurvedAnimation(
-              parent: slideController,
-              curve: widget.animationCurve,
-            ),
+            curveAnimation,
           );
         }
 
@@ -439,10 +440,7 @@ class _MotionToastState extends State<MotionToast>
             begin: const Offset(0.5, 0.3),
             end: const Offset(0, 0.3),
           ).animate(
-            CurvedAnimation(
-              parent: slideController,
-              curve: widget.animationCurve,
-            ),
+            curveAnimation,
           );
           break;
         } else {
@@ -450,10 +448,7 @@ class _MotionToastState extends State<MotionToast>
             begin: const Offset(1.3, -0.3),
             end: const Offset(0, -0.3),
           ).animate(
-            CurvedAnimation(
-              parent: slideController,
-              curve: widget.animationCurve,
-            ),
+            curveAnimation,
           );
         }
 
@@ -464,10 +459,7 @@ class _MotionToastState extends State<MotionToast>
           begin: const Offset(0, -0.3),
           end: const Offset(0, 0.3),
         ).animate(
-          CurvedAnimation(
-            parent: slideController,
-            curve: widget.animationCurve,
-          ),
+          curveAnimation,
         );
         break;
       default:
@@ -475,10 +467,7 @@ class _MotionToastState extends State<MotionToast>
           begin: Offset.zero,
           end: const Offset(0, -0.3),
         ).animate(
-          CurvedAnimation(
-            parent: slideController,
-            curve: widget.animationCurve,
-          ),
+          curveAnimation,
         );
     }
 
@@ -512,28 +501,12 @@ class _MotionToastState extends State<MotionToast>
           child: Center(
             child: SlideTransition(
               position: offsetAnimation,
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(widget.borderRadius),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: widget.color.withOpacity(0.3),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(widget.borderRadius),
-                      ),
-                    ),
-                    child: widget.layoutOrientation == ORIENTATION.ltr
-                        ? _renderMotionToastContent()
-                        : _renderReversedMotionToastContent(),
-                  ),
-                ],
+              child: MotionToastBackground(
+                borderRadius: widget.borderRadius,
+                backgroundColor: widget.color,
+                child: widget.layoutOrientation == ORIENTATION.ltr
+                    ? _renderMotionToastContent()
+                    : _renderReversedMotionToastContent(),
               ),
             ),
           ),
@@ -550,30 +523,12 @@ class _MotionToastState extends State<MotionToast>
         width: widget.width,
         height: widget.height,
         color: Colors.transparent,
-        child: Stack(
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(widget.borderRadius),
-                ),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: widget.color.withOpacity(0.3),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    widget.borderRadius,
-                  ),
-                ),
-              ),
-              child: widget.layoutOrientation == ORIENTATION.ltr
-                  ? _renderMotionToastContent()
-                  : _renderReversedMotionToastContent(),
-            ),
-          ],
+        child: MotionToastBackground(
+          backgroundColor: widget.color,
+          borderRadius: widget.borderRadius,
+          child: widget.layoutOrientation == ORIENTATION.ltr
+              ? _renderMotionToastContent()
+              : _renderReversedMotionToastContent(),
         ),
       ),
     );
@@ -592,32 +547,12 @@ class _MotionToastState extends State<MotionToast>
             child: Center(
               child: SlideTransition(
                 position: offsetAnimation,
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            widget.borderRadius,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: widget.color.withOpacity(0.3),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            widget.borderRadius,
-                          ),
-                        ),
-                      ),
-                      child: widget.layoutOrientation == ORIENTATION.ltr
-                          ? _renderMotionToastContent()
-                          : _renderReversedMotionToastContent(),
-                    ),
-                  ],
+                child: MotionToastBackground(
+                  backgroundColor: widget.color,
+                  borderRadius: widget.borderRadius,
+                  child: widget.layoutOrientation == ORIENTATION.ltr
+                      ? _renderMotionToastContent()
+                      : _renderReversedMotionToastContent(),
                 ),
               ),
             ),
