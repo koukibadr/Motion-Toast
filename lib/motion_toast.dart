@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
-import 'package:motion_toast/resources/heart_beat_icon.dart';
+import 'package:motion_toast/widgets/heart_beat_icon.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
 import 'package:motion_toast/widgets/motion_toast_side_bar.dart';
+import 'package:motion_toast/widgets/seperator.dart';
 
 ///Render the motion toast widget
 // ignore: must_be_immutable
@@ -574,9 +575,7 @@ class _MotionToastState extends State<MotionToast>
           color: widget.color,
           radius: widget.borderRadius,
         ),
-        const SizedBox(
-          width: 20,
-        ),
+        const Seperator.double(20),
         SizedBox(
           width: widget.iconSize,
           child: widget.enableAnimation
@@ -591,9 +590,7 @@ class _MotionToastState extends State<MotionToast>
                   size: widget.iconSize,
                 ),
         ),
-        const SizedBox(
-          width: 10,
-        ),
+        const Seperator.double(10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -642,9 +639,7 @@ class _MotionToastState extends State<MotionToast>
             ),
           ],
         ),
-        const SizedBox(
-          width: 10,
-        ),
+        const Seperator.double(10),
         SizedBox(
           width: widget.iconSize,
           child: widget.enableAnimation
@@ -659,9 +654,7 @@ class _MotionToastState extends State<MotionToast>
                   size: widget.iconSize,
                 ),
         ),
-        const SizedBox(
-          width: 20,
-        ),
+        const Seperator.double(20),
         MotionToastSideBar(
           color: widget.color,
           radius: widget.borderRadius,
