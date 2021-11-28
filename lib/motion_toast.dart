@@ -8,6 +8,7 @@ import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
 import 'package:motion_toast/widgets/heart_beat_icon.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
+import 'package:motion_toast/widgets/motion_toast_content.dart';
 import 'package:motion_toast/widgets/motion_toast_icon.dart';
 import 'package:motion_toast/widgets/motion_toast_side_bar.dart';
 import 'package:motion_toast/widgets/seperator.dart';
@@ -508,8 +509,30 @@ class _MotionToastState extends State<MotionToast>
                 borderRadius: widget.borderRadius,
                 backgroundColor: widget.color,
                 child: widget.layoutOrientation == ORIENTATION.ltr
-                    ? _renderMotionToastContent()
-                    : _renderReversedMotionToastContent(),
+                    ? MotionToastContent(
+                        color: widget.color,
+                        description: widget.description,
+                        descriptionTextStyle: widget.descriptionStyle,
+                        icon: widget.icon,
+                        iconSize: widget.iconSize,
+                        radius: widget.borderRadius,
+                        title: widget.title,
+                        titleTextStyle: widget.titleStyle,
+                        width: widget.width,
+                        withAnimation: widget.enableAnimation,
+                      )
+                    : MotionToastContent.reversed(
+                        color: widget.color,
+                        description: widget.description,
+                        descriptionTextStyle: widget.descriptionStyle,
+                        icon: widget.icon,
+                        iconSize: widget.iconSize,
+                        radius: widget.borderRadius,
+                        title: widget.title,
+                        titleTextStyle: widget.titleStyle,
+                        width: widget.width,
+                        withAnimation: widget.enableAnimation,
+                      ),
               ),
             ),
           ),
@@ -530,8 +553,30 @@ class _MotionToastState extends State<MotionToast>
           backgroundColor: widget.color,
           borderRadius: widget.borderRadius,
           child: widget.layoutOrientation == ORIENTATION.ltr
-              ? _renderMotionToastContent()
-              : _renderReversedMotionToastContent(),
+              ? MotionToastContent(
+                  color: widget.color,
+                  description: widget.description,
+                  descriptionTextStyle: widget.descriptionStyle,
+                  icon: widget.icon,
+                  iconSize: widget.iconSize,
+                  radius: widget.borderRadius,
+                  title: widget.title,
+                  titleTextStyle: widget.titleStyle,
+                  width: widget.width,
+                  withAnimation: widget.enableAnimation,
+                )
+              : MotionToastContent.reversed(
+                  color: widget.color,
+                  description: widget.description,
+                  descriptionTextStyle: widget.descriptionStyle,
+                  icon: widget.icon,
+                  iconSize: widget.iconSize,
+                  radius: widget.borderRadius,
+                  title: widget.title,
+                  titleTextStyle: widget.titleStyle,
+                  width: widget.width,
+                  withAnimation: widget.enableAnimation,
+                ),
         ),
       ),
     );
@@ -554,97 +599,36 @@ class _MotionToastState extends State<MotionToast>
                   backgroundColor: widget.color,
                   borderRadius: widget.borderRadius,
                   child: widget.layoutOrientation == ORIENTATION.ltr
-                      ? _renderMotionToastContent()
-                      : _renderReversedMotionToastContent(),
+                      ? MotionToastContent(
+                          color: widget.color,
+                          description: widget.description,
+                          descriptionTextStyle: widget.descriptionStyle,
+                          icon: widget.icon,
+                          iconSize: widget.iconSize,
+                          radius: widget.borderRadius,
+                          title: widget.title,
+                          titleTextStyle: widget.titleStyle,
+                          width: widget.width,
+                          withAnimation: widget.enableAnimation,
+                        )
+                      : MotionToastContent.reversed(
+                          color: widget.color,
+                          description: widget.description,
+                          descriptionTextStyle: widget.descriptionStyle,
+                          icon: widget.icon,
+                          iconSize: widget.iconSize,
+                          radius: widget.borderRadius,
+                          title: widget.title,
+                          titleTextStyle: widget.titleStyle,
+                          width: widget.width,
+                          withAnimation: widget.enableAnimation,
+                        ),
                 ),
               ),
             ),
           ),
         ],
       ),
-    );
-  }
-
-  /// render the content of the motion toast
-  /// the rendering will be used for [ORIENTATION.ltr] orientation
-  ///
-  Row _renderMotionToastContent() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        MotionToastSideBar(
-          color: widget.color,
-          radius: widget.borderRadius,
-        ),
-        const Seperator.double(20),
-        MotionToastIcon(
-          iconSize: widget.iconSize,
-          color: widget.color,
-          icon: widget.icon,
-          withAnimation: widget.enableAnimation,
-        ),
-        const Seperator.double(10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            if (widget.title.isNotEmpty)
-              Text(
-                widget.title,
-                style: widget.titleStyle,
-              ),
-            SizedBox(
-              width: widget.width * 0.7,
-              child: Text(
-                widget.description,
-                style: widget.descriptionStyle,
-              ),
-            ),
-          ],
-        )
-      ],
-    );
-  }
-
-  /// render a reversed content for the motion toast
-  /// the orientation will be used for [ORIENTATION.rtl]
-  ///
-  Row _renderReversedMotionToastContent() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            if (widget.title.isNotEmpty)
-              Text(
-                widget.title,
-                style: widget.titleStyle,
-              ),
-            SizedBox(
-              width: widget.width * 0.7,
-              child: Text(
-                widget.description,
-                style: widget.descriptionStyle,
-                textAlign: TextAlign.end,
-              ),
-            ),
-          ],
-        ),
-        const Seperator.double(10),
-        MotionToastIcon(
-          iconSize: widget.iconSize,
-          color: widget.color,
-          icon: widget.icon,
-          withAnimation: widget.enableAnimation,
-        ),
-        const Seperator.double(20),
-        MotionToastSideBar(
-          color: widget.color,
-          radius: widget.borderRadius,
-        ),
-      ],
     );
   }
 

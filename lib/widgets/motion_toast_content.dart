@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+import 'package:motion_toast/widgets/seperator.dart';
+
+import 'motion_toast_icon.dart';
+import 'motion_toast_side_bar.dart';
+
+enum CONTENT_LAYOUT_TYPE { normal, reversed }
+
+// ignore: must_be_immutable
+class MotionToastContent extends StatelessWidget {
+  MotionToastContent({
+    Key? key,
+    required this.color,
+    required this.description,
+    required this.descriptionTextStyle,
+    required this.icon,
+    required this.iconSize,
+    required this.radius,
+    required this.title,
+    required this.titleTextStyle,
+    required this.width,
+    required this.withAnimation,
+  }) : super(key: key) {
+    contentLayoutType = CONTENT_LAYOUT_TYPE.normal;
+  }
+  MotionToastContent.reversed({
+    Key? key,
+    required this.color,
+    required this.description,
+    required this.descriptionTextStyle,
+    required this.icon,
+    required this.iconSize,
+    required this.radius,
+    required this.title,
+    required this.titleTextStyle,
+    required this.width,
+    required this.withAnimation,
+  }) : super(key: key) {
+    contentLayoutType = CONTENT_LAYOUT_TYPE.reversed;
+  }
+
+  late CONTENT_LAYOUT_TYPE contentLayoutType;
+
+  final Color color;
+  final double radius;
+  final double iconSize;
+  final IconData icon;
+  final bool withAnimation;
+  final String title;
+  final TextStyle titleTextStyle;
+  final double width;
+  final String description;
+  final TextStyle descriptionTextStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    if (contentLayoutType == CONTENT_LAYOUT_TYPE.reversed) {}
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        MotionToastSideBar(
+          color: color,
+          radius: radius,
+        ),
+        const Seperator.double(20),
+        MotionToastIcon(
+          iconSize: iconSize,
+          color: color,
+          icon: icon,
+          withAnimation: withAnimation,
+        ),
+        const Seperator.double(10),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            if (title.isNotEmpty)
+              Text(
+                title,
+                style: titleTextStyle,
+              ),
+            SizedBox(
+              width: width * 0.7,
+              child: Text(
+                description,
+                style: descriptionTextStyle,
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
