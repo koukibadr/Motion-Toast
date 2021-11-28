@@ -6,12 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
-import 'package:motion_toast/widgets/heart_beat_icon.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
 import 'package:motion_toast/widgets/motion_toast_content.dart';
-import 'package:motion_toast/widgets/motion_toast_icon.dart';
-import 'package:motion_toast/widgets/motion_toast_side_bar.dart';
-import 'package:motion_toast/widgets/seperator.dart';
 
 ///Render the motion toast widget
 // ignore: must_be_immutable
