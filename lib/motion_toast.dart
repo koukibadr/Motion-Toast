@@ -8,6 +8,7 @@ import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
 import 'package:motion_toast/widgets/heart_beat_icon.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
+import 'package:motion_toast/widgets/motion_toast_icon.dart';
 import 'package:motion_toast/widgets/motion_toast_side_bar.dart';
 import 'package:motion_toast/widgets/seperator.dart';
 
@@ -576,19 +577,11 @@ class _MotionToastState extends State<MotionToast>
           radius: widget.borderRadius,
         ),
         const Seperator.double(20),
-        SizedBox(
-          width: widget.iconSize,
-          child: widget.enableAnimation
-              ? HeartBeatIcon(
-                  icon: widget.icon,
-                  color: widget.color,
-                  size: widget.iconSize,
-                )
-              : Icon(
-                  widget.icon,
-                  color: widget.color,
-                  size: widget.iconSize,
-                ),
+        MotionToastIcon(
+          iconSize: widget.iconSize,
+          color: widget.color,
+          icon: widget.icon,
+          withAnimation: widget.enableAnimation,
         ),
         const Seperator.double(10),
         Column(
@@ -640,19 +633,11 @@ class _MotionToastState extends State<MotionToast>
           ],
         ),
         const Seperator.double(10),
-        SizedBox(
-          width: widget.iconSize,
-          child: widget.enableAnimation
-              ? HeartBeatIcon(
-                  icon: widget.icon,
-                  color: widget.color,
-                  size: widget.iconSize,
-                )
-              : Icon(
-                  widget.icon,
-                  color: widget.color,
-                  size: widget.iconSize,
-                ),
+        MotionToastIcon(
+          iconSize: widget.iconSize,
+          color: widget.color,
+          icon: widget.icon,
+          withAnimation: widget.enableAnimation,
         ),
         const Seperator.double(20),
         MotionToastSideBar(
