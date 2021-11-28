@@ -8,6 +8,7 @@ import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/resources/constants.dart';
 import 'package:motion_toast/resources/heart_beat_icon.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
+import 'package:motion_toast/widgets/motion_toast_side_bar.dart';
 
 ///Render the motion toast widget
 // ignore: must_be_immutable
@@ -569,14 +570,9 @@ class _MotionToastState extends State<MotionToast>
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
-        Container(
-          width: motionToastSideBarWidth,
-          decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.all(
-              Radius.circular(widget.borderRadius),
-            ),
-          ),
+        MotionToastSideBar(
+          color: widget.color,
+          radius: widget.borderRadius,
         ),
         const SizedBox(
           width: 20,
@@ -666,15 +662,10 @@ class _MotionToastState extends State<MotionToast>
         const SizedBox(
           width: 20,
         ),
-        Container(
-          width: motionToastSideBarWidth,
-          decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.all(
-              Radius.circular(widget.borderRadius),
-            ),
-          ),
-        )
+        MotionToastSideBar(
+          color: widget.color,
+          radius: widget.borderRadius,
+        ),
       ],
     );
   }
