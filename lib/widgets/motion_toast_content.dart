@@ -54,7 +54,44 @@ class MotionToastContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (contentLayoutType == CONTENT_LAYOUT_TYPE.reversed) {}
+    if (contentLayoutType == CONTENT_LAYOUT_TYPE.reversed) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              if (title.isNotEmpty)
+                Text(
+                  title,
+                  style: titleTextStyle,
+                ),
+              SizedBox(
+                width: width * 0.7,
+                child: Text(
+                  description,
+                  style: descriptionTextStyle,
+                  textAlign: TextAlign.end,
+                ),
+              ),
+            ],
+          ),
+          const Seperator.double(10),
+          MotionToastIcon(
+            iconSize: iconSize,
+            color: color,
+            icon: icon,
+            withAnimation: withAnimation,
+          ),
+          const Seperator.double(20),
+          MotionToastSideBar(
+            color: color,
+            radius: radius,
+          ),
+        ],
+      );
+    }
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
