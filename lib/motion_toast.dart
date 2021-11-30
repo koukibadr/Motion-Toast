@@ -362,17 +362,13 @@ class MotionToast extends StatefulWidget {
       case MOTION_TOAST_POSITION.top:
         Navigator.of(context).push(
           PageRouteBuilder<Widget>(
-            pageBuilder: (BuildContext context, _, __) => Scaffold(
-              backgroundColor: Colors.transparent,
-              body: SafeArea(child: this),
-            ),
+            pageBuilder: (BuildContext context, _, __) => this,
             opaque: false,
           ),
         );
         break;
       default:
         showModalBottomSheet(
-          isDismissible: false,
           barrierColor: Colors.transparent,
           context: context,
           builder: (BuildContext context) {
@@ -479,12 +475,17 @@ class _MotionToastState extends State<MotionToast>
   @override
   Widget build(BuildContext context) {
     switch (widget.position) {
-      case MOTION_TOAST_POSITION.center:
-        return _renderCenterMotionToast();
-      case MOTION_TOAST_POSITION.top:
-        return _renderTopMotionToast();
-      default:
+      case MOTION_TOAST_POSITION.bottom:
         return _renderBottomMotionToast();
+      default:
+        return Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SafeArea(
+            child: widget.position == MOTION_TOAST_POSITION.top
+                ? _renderTopMotionToast()
+                : _renderCenterMotionToast(),
+          ),
+        );
     }
   }
 
@@ -630,6 +631,10 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   void dispose() {
+    if (toastTimer.isActive) {
+      slideController.dispose();
+      toastTimer.cancel();
+    }
     super.dispose();
   }
 }
