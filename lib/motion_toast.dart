@@ -37,6 +37,7 @@ class MotionToast extends StatefulWidget {
     this.position = MOTION_TOAST_POSITION.bottom,
     this.borderRadius = defaultRadius,
     this.onClose,
+    this.dismissable = false,
   }) : super(key: key) {
     _assertValidValues();
     motionToastType = MOTION_TOAST_TYPE.custom;
@@ -70,6 +71,7 @@ class MotionToast extends StatefulWidget {
     this.position = MOTION_TOAST_POSITION.bottom,
     this.borderRadius = defaultRadius,
     this.onClose,
+    this.dismissable = false,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.success;
     _assertValidValues();
@@ -103,6 +105,7 @@ class MotionToast extends StatefulWidget {
     this.position = MOTION_TOAST_POSITION.bottom,
     this.borderRadius = defaultRadius,
     this.onClose,
+    this.dismissable = false,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.warning;
     _assertValidValues();
@@ -136,6 +139,7 @@ class MotionToast extends StatefulWidget {
     this.position = MOTION_TOAST_POSITION.bottom,
     this.borderRadius = defaultRadius,
     this.onClose,
+    this.dismissable = false,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.error;
     _assertValidValues();
@@ -169,6 +173,7 @@ class MotionToast extends StatefulWidget {
     this.position = MOTION_TOAST_POSITION.bottom,
     this.borderRadius = defaultRadius,
     this.onClose,
+    this.dismissable = false,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.info;
     _assertValidValues();
@@ -202,6 +207,7 @@ class MotionToast extends StatefulWidget {
     this.position = MOTION_TOAST_POSITION.bottom,
     this.borderRadius = defaultRadius,
     this.onClose,
+    this.dismissable = false,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.delete;
     _assertValidValues();
@@ -353,6 +359,9 @@ class MotionToast extends StatefulWidget {
   ///
   final Function? onClose;
 
+  //TODO add missing code documentation
+  final bool dismissable;
+
   ///Display the created motion toast based on the [position] attribute
   ///[context]: the actual context of the application
   ///
@@ -369,6 +378,7 @@ class MotionToast extends StatefulWidget {
         break;
       default:
         showModalBottomSheet(
+          isDismissible: dismissable,
           barrierColor: Colors.transparent,
           context: context,
           builder: (BuildContext context) {
