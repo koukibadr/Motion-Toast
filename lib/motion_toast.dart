@@ -381,9 +381,7 @@ class MotionToast extends StatefulWidget {
           isDismissible: dismissable,
           barrierColor: Colors.transparent,
           context: context,
-          builder: (BuildContext context) {
-            return this;
-          },
+          builder: (_) => this,
         );
     }
   }
@@ -429,7 +427,6 @@ class _MotionToastState extends State<MotionToast>
           ).animate(
             curveAnimation,
           );
-          break;
         } else {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(-0.3, -0.3),
@@ -438,7 +435,6 @@ class _MotionToastState extends State<MotionToast>
             curveAnimation,
           );
         }
-
         break;
       case ANIMATION.fromRight:
         if (widget.position == MOTION_TOAST_POSITION.top) {
@@ -448,7 +444,6 @@ class _MotionToastState extends State<MotionToast>
           ).animate(
             curveAnimation,
           );
-          break;
         } else {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(1.3, -0.3),
@@ -457,9 +452,7 @@ class _MotionToastState extends State<MotionToast>
             curveAnimation,
           );
         }
-
         break;
-
       case ANIMATION.fromTop:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(0, -0.3),
@@ -477,9 +470,7 @@ class _MotionToastState extends State<MotionToast>
         );
     }
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      slideController.forward();
-    });
+    WidgetsBinding.instance!.addPostFrameCallback((_) => slideController.forward());
   }
 
   @override
