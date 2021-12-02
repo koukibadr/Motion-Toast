@@ -15,13 +15,13 @@ class MotionToast extends StatefulWidget {
   @override
   _MotionToastState createState() => _MotionToastState();
 
-  ///Used to create a custom motion toast with given [icon], [description] and  [color]
+  ///Used to create a custom motion toast with given [icon], [description] and  [primaryColor]
   ///
   MotionToast({
     Key? key,
     required this.icon,
     required this.description,
-    required this.color,
+    required this.primaryColor,
     this.title = '',
     this.descriptionStyle = const TextStyle(color: Colors.black),
     this.titleStyle = const TextStyle(color: Colors.black),
@@ -38,6 +38,7 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = defaultRadius,
     this.onClose,
     this.dismissable = false,
+    this.secondaryColor,
   }) : super(key: key) {
     _assertValidValues();
     motionToastType = MOTION_TOAST_TYPE.custom;
@@ -45,7 +46,7 @@ class MotionToast extends StatefulWidget {
   }
 
   ///Render a success motion toast
-  ///[color] is set to [successColor]
+  ///[primaryColor] is set to [successColor]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.SUCCESS]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.SUCCESS]`
   ///[description] is required
@@ -79,7 +80,7 @@ class MotionToast extends StatefulWidget {
   }
 
   ///Render a warning motion toast
-  ///[color] is set to [warningColor]
+  ///[primaryColor] is set to [warningColor]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.WARNING]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.WARNING]`
   ///[description] is required
@@ -113,7 +114,7 @@ class MotionToast extends StatefulWidget {
   }
 
   ///Render an error motion toast
-  ///[color] is set to [errorColor]
+  ///[primaryColor] is set to [errorColor]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.ERROR]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.ERROR]`
   ///[description] is required
@@ -147,7 +148,7 @@ class MotionToast extends StatefulWidget {
   }
 
   ///Render Info motion toast
-  ///[color] is set to [infoColor]
+  ///[primaryColor] is set to [infoColor]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.INFO]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.INFO]`
   ///[description] is required
@@ -181,7 +182,7 @@ class MotionToast extends StatefulWidget {
   }
 
   ///Render delete motion toast
-  ///[color] is set to [deleteColor]
+  ///[primaryColor] is set to [deleteColor]
   ///[icon] is set to `MOTION_TOAST_ICONS_MD[MOTION_TOAST_TYPE.DELETE]`
   ///or `MOTION_TOAST_ICONS_CUPERTINO[MOTION_TOAST_TYPE.DELETE]`
   ///[description] is required
@@ -214,7 +215,7 @@ class MotionToast extends StatefulWidget {
     _initializeParameters();
   }
 
-  ///initialize [icon] and [color] based on the selected [motionToastType]
+  ///initialize [icon] and [primaryColor] based on the selected [motionToastType]
   ///
   void _initializeParameters() {
     if (iconType == ICON_TYPE.cupertino) {
@@ -222,7 +223,8 @@ class MotionToast extends StatefulWidget {
     } else {
       icon = motionToastIconsMD[motionToastType]!;
     }
-    color = motionToastColors[motionToastType] ?? successColor;
+    primaryColor = motionToastColors[motionToastType]!;
+    secondaryColor = motionToastColors[motionToastType]!;
   }
 
   //TODO add missing documentation
@@ -276,7 +278,9 @@ class MotionToast extends StatefulWidget {
   ///if `motionToastType == MOTION_TOAST_TYPE.CUSTOM` color parameter is required
   ///else the color will get the default type color from [motionToastColors]
   ///
-  late Color color;
+  late Color primaryColor;
+
+  late Color? secondaryColor;
 
   ///The design type icon (Material design or Cupertino)
   ///if [motionToastType] set to [MOTION_TOAST_TYPE.CUSTOM] [iconType] will not be used
@@ -506,10 +510,10 @@ class _MotionToastState extends State<MotionToast>
               position: offsetAnimation,
               child: MotionToastBackground(
                 borderRadius: widget.borderRadius,
-                backgroundColor: widget.color,
+                backgroundColor: widget.primaryColor,
                 child: widget.layoutOrientation == ORIENTATION.ltr
                     ? MotionToastContent(
-                        color: widget.color,
+                        color: widget.secondaryColor ?? widget.primaryColor,
                         description: widget.description,
                         descriptionTextStyle: widget.descriptionStyle,
                         icon: widget.icon,
@@ -521,7 +525,7 @@ class _MotionToastState extends State<MotionToast>
                         withAnimation: widget.enableAnimation,
                       )
                     : MotionToastContent.reversed(
-                        color: widget.color,
+                        color: widget.secondaryColor ?? widget.primaryColor,
                         description: widget.description,
                         descriptionTextStyle: widget.descriptionStyle,
                         icon: widget.icon,
@@ -549,11 +553,11 @@ class _MotionToastState extends State<MotionToast>
         height: widget.height,
         color: Colors.transparent,
         child: MotionToastBackground(
-          backgroundColor: widget.color,
+          backgroundColor: widget.primaryColor,
           borderRadius: widget.borderRadius,
           child: widget.layoutOrientation == ORIENTATION.ltr
               ? MotionToastContent(
-                  color: widget.color,
+                  color: widget.secondaryColor ?? widget.primaryColor,
                   description: widget.description,
                   descriptionTextStyle: widget.descriptionStyle,
                   icon: widget.icon,
@@ -565,7 +569,7 @@ class _MotionToastState extends State<MotionToast>
                   withAnimation: widget.enableAnimation,
                 )
               : MotionToastContent.reversed(
-                  color: widget.color,
+                  color: widget.secondaryColor ?? widget.primaryColor,
                   description: widget.description,
                   descriptionTextStyle: widget.descriptionStyle,
                   icon: widget.icon,
@@ -595,11 +599,11 @@ class _MotionToastState extends State<MotionToast>
               child: SlideTransition(
                 position: offsetAnimation,
                 child: MotionToastBackground(
-                  backgroundColor: widget.color,
+                  backgroundColor: widget.primaryColor,
                   borderRadius: widget.borderRadius,
                   child: widget.layoutOrientation == ORIENTATION.ltr
                       ? MotionToastContent(
-                          color: widget.color,
+                          color: widget.secondaryColor ?? widget.primaryColor,
                           description: widget.description,
                           descriptionTextStyle: widget.descriptionStyle,
                           icon: widget.icon,
@@ -611,7 +615,7 @@ class _MotionToastState extends State<MotionToast>
                           withAnimation: widget.enableAnimation,
                         )
                       : MotionToastContent.reversed(
-                          color: widget.color,
+                          color: widget.secondaryColor ?? widget.primaryColor,
                           description: widget.description,
                           descriptionTextStyle: widget.descriptionStyle,
                           icon: widget.icon,

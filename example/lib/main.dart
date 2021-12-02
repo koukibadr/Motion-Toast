@@ -211,7 +211,8 @@ class _HomePageState extends State<HomePage> {
   void _displayCustomMotionToast(BuildContext context) {
     MotionToast(
       icon: Icons.alarm,
-      color: Colors.pink,
+      primaryColor: Colors.pink,
+      secondaryColor: Colors.black,
       title: 'Custom Toast',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       height: 150,
@@ -223,7 +224,7 @@ class _HomePageState extends State<HomePage> {
   void _displayCenterMotionToast(BuildContext context) {
     MotionToast(
       icon: Icons.alarm,
-      color: Colors.deepOrange,
+      primaryColor: Colors.deepOrange,
       title: 'Center Toast',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       height: 150,
@@ -237,7 +238,7 @@ class _HomePageState extends State<HomePage> {
   void _displayTopMotionToast(BuildContext context) {
     MotionToast(
       icon: Icons.zoom_out,
-      color: Colors.deepOrange,
+      primaryColor: Colors.deepOrange,
       title: 'Top Motion Toast',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       description: 'Another motion toast example',
