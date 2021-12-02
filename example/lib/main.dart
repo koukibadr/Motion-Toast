@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displaySuccessMotionToast(context);
+                    _displaySuccessMotionToast();
                   },
                   child: Text('Success Motion Toast'),
                 ),
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displayWarningMotionToast(context);
+                    _displayWarningMotionToast();
                   },
                   child: Text('Warning Motion Toast'),
                 ),
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displayErrorMotionToast(context);
+                    _displayErrorMotionToast();
                   },
                   child: Text('Error Motion Toast'),
                 ),
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displayInfoMotionToast(context);
+                    _displayInfoMotionToast();
                   },
                   child: Text('Info Motion Toast'),
                 ),
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displayDeleteMotionToast(context);
+                    _displayDeleteMotionToast();
                   },
                   child: Text('Delete Motion Toast'),
                 ),
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displayCustomMotionToast(context);
+                    _displayCustomMotionToast();
                   },
                   child: Text('Custom Motion Toast'),
                 ),
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displayCenterMotionToast(context);
+                    _displayCenterMotionToast();
                   },
                   child: Text('Center Motion Toast'),
                 ),
@@ -140,9 +140,33 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displayTopMotionToast(context);
+                    _displayTopMotionToast();
                   },
                   child: Text('Top Motion Toast'),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    _displayTwoColorsMotionToast();
+                  },
+                  child: Text('Two-color Motion Toast'),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    _displayTransparentMotionToast();
+                  },
+                  child: Text('Transparent Motion Toast'),
                 ),
               ),
             ],
@@ -152,7 +176,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _displaySuccessMotionToast(BuildContext context) {
+  void _displaySuccessMotionToast() {
     MotionToast.success(
       title: 'من اليمين',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -162,12 +186,12 @@ class _HomePageState extends State<HomePage> {
       animationType: ANIMATION.fromRight,
       width: 300,
       onClose: () {
-        _displayWarningMotionToast(context);
+        _displayWarningMotionToast();
       },
     ).show(context);
   }
 
-  void _displayWarningMotionToast(BuildContext context) {
+  void _displayWarningMotionToast() {
     MotionToast.warning(
       title: 'Warning Motion Toast',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -178,7 +202,7 @@ class _HomePageState extends State<HomePage> {
     ).show(context);
   }
 
-  void _displayErrorMotionToast(BuildContext context) {
+  void _displayErrorMotionToast() {
     MotionToast.error(
       title: 'Error',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -189,7 +213,7 @@ class _HomePageState extends State<HomePage> {
     ).show(context);
   }
 
-  void _displayInfoMotionToast(BuildContext context) {
+  void _displayInfoMotionToast() {
     MotionToast.info(
       title: 'Info Motion Toast',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -198,7 +222,7 @@ class _HomePageState extends State<HomePage> {
     ).show(context);
   }
 
-  void _displayDeleteMotionToast(BuildContext context) {
+  void _displayDeleteMotionToast() {
     MotionToast.delete(
       title: 'Deleted',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -208,12 +232,10 @@ class _HomePageState extends State<HomePage> {
     ).show(context);
   }
 
-  void _displayCustomMotionToast(BuildContext context) {
+  void _displayCustomMotionToast() {
     MotionToast(
       icon: Icons.alarm,
       primaryColor: Colors.pink,
-      secondaryColor: Colors.black,
-      backgroundType: BACKGROUND_TYPE.solid,
       title: 'Custom Toast',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       height: 150,
@@ -222,7 +244,7 @@ class _HomePageState extends State<HomePage> {
     ).show(context);
   }
 
-  void _displayCenterMotionToast(BuildContext context) {
+  void _displayCenterMotionToast() {
     MotionToast(
       icon: Icons.alarm,
       primaryColor: Colors.deepOrange,
@@ -236,7 +258,7 @@ class _HomePageState extends State<HomePage> {
     ).show(context);
   }
 
-  void _displayTopMotionToast(BuildContext context) {
+  void _displayTopMotionToast() {
     MotionToast(
       icon: Icons.zoom_out,
       primaryColor: Colors.deepOrange,
@@ -245,6 +267,41 @@ class _HomePageState extends State<HomePage> {
       description: 'Another motion toast example',
       position: MOTION_TOAST_POSITION.top,
       animationType: ANIMATION.fromTop,
+      height: 100,
+    ).show(context);
+  }
+
+  void _displayTwoColorsMotionToast() {
+    MotionToast(
+      icon: Icons.zoom_out,
+      primaryColor: Colors.orange[500]!,
+      secondaryColor: Colors.grey,
+      backgroundType: BACKGROUND_TYPE.solid,
+      title: 'Two Color Motion Toast',
+      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      description: 'Another motion toast example',
+      position: MOTION_TOAST_POSITION.top,
+      animationType: ANIMATION.fromTop,
+      height: 100,
+    ).show(context);
+  }
+
+  void _displayTransparentMotionToast() {
+    MotionToast(
+      icon: Icons.zoom_out,
+      primaryColor: Colors.grey[700]!,
+      secondaryColor: Colors.yellow,
+      backgroundType: BACKGROUND_TYPE.transparent,
+      title: 'Two Color Motion Toast',
+      titleStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Colors.yellow,
+      ),
+      description: 'Another motion toast example',
+      descriptionStyle: TextStyle(
+        color: Colors.yellow,
+      ),
+      position: MOTION_TOAST_POSITION.center,
       height: 100,
     ).show(context);
   }
