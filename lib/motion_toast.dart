@@ -379,6 +379,7 @@ class MotionToast extends StatefulWidget {
       default:
         showModalBottomSheet(
           isDismissible: dismissable,
+          backgroundColor: Colors.white.withOpacity(0),
           barrierColor: Colors.transparent,
           context: context,
           builder: (_) => this,
