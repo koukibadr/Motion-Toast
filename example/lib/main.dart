@@ -213,6 +213,7 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.alarm,
       primaryColor: Colors.pink,
       secondaryColor: Colors.black,
+      backgroundType: BACKGROUND_TYPE.solid,
       title: 'Custom Toast',
       titleStyle: TextStyle(fontWeight: FontWeight.bold),
       height: 150,

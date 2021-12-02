@@ -35,3 +35,5 @@ enum ORIENTATION { ltr, rtl }
 enum ANIMATION { fromBottom, fromLeft, fromRight, fromTop }
 
 enum MOTION_TOAST_POSITION { center, bottom, top }
+
+enum BACKGROUND_TYPE { transparent, solid, lighter }

@@ -39,6 +39,7 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = false,
     this.secondaryColor,
+    this.backgroundType = BACKGROUND_TYPE.lighter,
   }) : super(key: key) {
     _assertValidValues();
     motionToastType = MOTION_TOAST_TYPE.custom;
@@ -225,6 +226,7 @@ class MotionToast extends StatefulWidget {
     }
     primaryColor = motionToastColors[motionToastType]!;
     secondaryColor = motionToastColors[motionToastType]!;
+    backgroundType = BACKGROUND_TYPE.lighter;
   }
 
   //TODO add missing documentation
@@ -280,7 +282,10 @@ class MotionToast extends StatefulWidget {
   ///
   late Color primaryColor;
 
+  //TODO add missing documentation
   late Color? secondaryColor;
+
+  late BACKGROUND_TYPE backgroundType;
 
   ///The design type icon (Material design or Cupertino)
   ///if [motionToastType] set to [MOTION_TOAST_TYPE.CUSTOM] [iconType] will not be used
@@ -511,6 +516,7 @@ class _MotionToastState extends State<MotionToast>
               child: MotionToastBackground(
                 borderRadius: widget.borderRadius,
                 backgroundColor: widget.primaryColor,
+                backgroundType: widget.backgroundType,
                 child: widget.layoutOrientation == ORIENTATION.ltr
                     ? MotionToastContent(
                         color: widget.secondaryColor ?? widget.primaryColor,
@@ -555,6 +561,7 @@ class _MotionToastState extends State<MotionToast>
         child: MotionToastBackground(
           backgroundColor: widget.primaryColor,
           borderRadius: widget.borderRadius,
+          backgroundType: widget.backgroundType,
           child: widget.layoutOrientation == ORIENTATION.ltr
               ? MotionToastContent(
                   color: widget.secondaryColor ?? widget.primaryColor,
@@ -601,6 +608,7 @@ class _MotionToastState extends State<MotionToast>
                 child: MotionToastBackground(
                   backgroundColor: widget.primaryColor,
                   borderRadius: widget.borderRadius,
+                  backgroundType: widget.backgroundType,
                   child: widget.layoutOrientation == ORIENTATION.ltr
                       ? MotionToastContent(
                           color: widget.secondaryColor ?? widget.primaryColor,
