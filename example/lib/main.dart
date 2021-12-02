@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(

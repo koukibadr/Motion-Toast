@@ -14,16 +14,18 @@ class MotionToastBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var test = false;
     return Stack(
       children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(borderRadius),
+        if(test)
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(borderRadius),
+              ),
             ),
           ),
-        ),
         Container(
           decoration: BoxDecoration(
             color: backgroundColor.withOpacity(0.3),
