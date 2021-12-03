@@ -229,7 +229,8 @@ class MotionToast extends StatefulWidget {
     backgroundType = BACKGROUND_TYPE.lighter;
   }
 
-  //TODO add missing documentation
+
+  ///assert valid values when creating a motion toast widget
   void _assertValidValues() {
     assert(
       (position == MOTION_TOAST_POSITION.bottom &&
@@ -282,9 +283,17 @@ class MotionToast extends StatefulWidget {
   ///
   late Color primaryColor;
 
-  //TODO add missing documentation
+  ///Color applied on the motion toast side widget (sidebar) and the icon
+  ///if it's null secondary color will be the primary color
+  ///can be customized when using the default constructor
   late Color? secondaryColor;
 
+
+  ///the type  of the background that will be applied on the motion toast content
+  ///available values:
+  ///- solid: the primary color will be applied as it is on the content background
+  ///- transparent: an opacity will be added to the primary color
+  ///- lighter: a white background added to the motion toast with little opacity added to the primary color
   late BACKGROUND_TYPE backgroundType;
 
   ///The design type icon (Material design or Cupertino)
@@ -368,7 +377,8 @@ class MotionToast extends StatefulWidget {
   ///
   final Function? onClose;
 
-  //TODO add missing code documentation
+  ///define whether the motion toast can be dismissed or not
+  ///applied on bottom motion toast
   final bool dismissable;
 
   ///Display the created motion toast based on the [position] attribute
