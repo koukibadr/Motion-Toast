@@ -289,9 +289,9 @@ class _HomePageState extends State<HomePage> {
   void _displayTransparentMotionToast() {
     MotionToast(
       icon: Icons.zoom_out,
-      primaryColor: Colors.grey[700]!,
+      primaryColor: Colors.grey[400]!,
       secondaryColor: Colors.yellow,
-      backgroundType: BACKGROUND_TYPE.transparent,
+      backgroundType: BACKGROUND_TYPE.solid,
       title: 'Two Color Motion Toast',
       titleStyle: TextStyle(
         fontWeight: FontWeight.bold,
