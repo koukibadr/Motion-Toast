@@ -1,3 +1,10 @@
+## [2.0.0] - 03/12/2021
+
+* Two colors support
+* multiple background style effects
+* dismiss motion toast
+* enhance performance
+
 ## [1.6.0] - 26/11/2021
 
 * Fix display in a scaffold widget
