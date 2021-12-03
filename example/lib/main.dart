@@ -291,16 +291,12 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.zoom_out,
       primaryColor: Colors.grey[400]!,
       secondaryColor: Colors.yellow,
-      backgroundType: BACKGROUND_TYPE.solid,
+      backgroundType: BACKGROUND_TYPE.transparent,
       title: 'Two Color Motion Toast',
       titleStyle: TextStyle(
         fontWeight: FontWeight.bold,
-        color: Colors.yellow,
       ),
       description: 'Another motion toast example',
-      descriptionStyle: TextStyle(
-        color: Colors.yellow,
-      ),
       position: MOTION_TOAST_POSITION.center,
       height: 100,
     ).show(context);
