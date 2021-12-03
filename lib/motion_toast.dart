@@ -229,7 +229,6 @@ class MotionToast extends StatefulWidget {
     backgroundType = BACKGROUND_TYPE.lighter;
   }
 
-
   ///assert valid values when creating a motion toast widget
   void _assertValidValues() {
     assert(
@@ -287,7 +286,6 @@ class MotionToast extends StatefulWidget {
   ///if it's null secondary color will be the primary color
   ///can be customized when using the default constructor
   late Color? secondaryColor;
-
 
   ///the type  of the background that will be applied on the motion toast content
   ///available values:
@@ -490,7 +488,8 @@ class _MotionToastState extends State<MotionToast>
         );
     }
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) => slideController.forward());
+    WidgetsBinding.instance!
+        .addPostFrameCallback((_) => slideController.forward());
   }
 
   @override
