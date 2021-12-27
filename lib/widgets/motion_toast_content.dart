@@ -17,7 +17,6 @@ class MotionToastContent extends StatelessWidget {
     required this.iconSize,
     required this.radius,
     required this.title,
-    required this.titleTextStyle,
     required this.width,
     required this.withAnimation,
   }) : super(key: key) {
@@ -32,7 +31,6 @@ class MotionToastContent extends StatelessWidget {
     required this.iconSize,
     required this.radius,
     required this.title,
-    required this.titleTextStyle,
     required this.width,
     required this.withAnimation,
   }) : super(key: key) {
@@ -46,8 +44,7 @@ class MotionToastContent extends StatelessWidget {
   final double iconSize;
   final IconData icon;
   final bool withAnimation;
-  final String title;
-  final TextStyle titleTextStyle;
+  final Text? title;
   final double width;
   final String description;
   final TextStyle descriptionTextStyle;
@@ -62,11 +59,8 @@ class MotionToastContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              if (title.isNotEmpty)
-                Text(
-                  title,
-                  style: titleTextStyle,
-                ),
+              if (title != null)
+                title!,
               SizedBox(
                 width: width * 0.7,
                 child: Text(
@@ -111,11 +105,8 @@ class MotionToastContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (title.isNotEmpty)
-              Text(
-                title,
-                style: titleTextStyle,
-              ),
+            if (title != null)
+                title!,
             SizedBox(
               width: width * 0.7,
               child: Text(

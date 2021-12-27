@@ -21,9 +21,8 @@ class MotionToast extends StatefulWidget {
     required this.icon,
     required this.description,
     required this.primaryColor,
-    this.title = '',
+    this.title,
     this.descriptionStyle = const TextStyle(color: Colors.black),
-    this.titleStyle = const TextStyle(color: Colors.black),
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
     this.iconSize = defaultIconSize,
@@ -56,9 +55,8 @@ class MotionToast extends StatefulWidget {
   MotionToast.success({
     Key? key,
     required this.description,
-    this.title = '',
+    this.title,
     this.descriptionStyle = const TextStyle(color: Colors.black),
-    this.titleStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -90,9 +88,8 @@ class MotionToast extends StatefulWidget {
   MotionToast.warning({
     Key? key,
     required this.description,
-    this.title = '',
+    this.title,
     this.descriptionStyle = const TextStyle(color: Colors.black),
-    this.titleStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -124,9 +121,8 @@ class MotionToast extends StatefulWidget {
   MotionToast.error({
     Key? key,
     required this.description,
-    this.title = '',
+    this.title,
     this.descriptionStyle = const TextStyle(color: Colors.black),
-    this.titleStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -158,9 +154,8 @@ class MotionToast extends StatefulWidget {
   MotionToast.info({
     Key? key,
     required this.description,
-    this.title = '',
+    this.title,
     this.descriptionStyle = const TextStyle(color: Colors.black),
-    this.titleStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -192,9 +187,8 @@ class MotionToast extends StatefulWidget {
   MotionToast.delete({
     Key? key,
     required this.description,
-    this.title = '',
+    this.title,
     this.descriptionStyle = const TextStyle(color: Colors.black),
-    this.titleStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -246,15 +240,11 @@ class MotionToast extends StatefulWidget {
   ///The title of the motion toast
   ///if it's empty text it will not be rendered in the widget
   ///
-  final String title;
+  final Text? title;
 
   ///The text style that will be applied on the description text
   ///
   final TextStyle descriptionStyle;
-
-  ///The text style that will be applied on the title text
-  ///
-  final TextStyle titleStyle;
 
   ///The motion toast type possible values:
   ///```dart
@@ -534,7 +524,6 @@ class _MotionToastState extends State<MotionToast>
                         iconSize: widget.iconSize,
                         radius: widget.borderRadius,
                         title: widget.title,
-                        titleTextStyle: widget.titleStyle,
                         width: widget.width,
                         withAnimation: widget.enableAnimation,
                       )
@@ -546,7 +535,6 @@ class _MotionToastState extends State<MotionToast>
                         iconSize: widget.iconSize,
                         radius: widget.borderRadius,
                         title: widget.title,
-                        titleTextStyle: widget.titleStyle,
                         width: widget.width,
                         withAnimation: widget.enableAnimation,
                       ),
@@ -579,7 +567,6 @@ class _MotionToastState extends State<MotionToast>
                   iconSize: widget.iconSize,
                   radius: widget.borderRadius,
                   title: widget.title,
-                  titleTextStyle: widget.titleStyle,
                   width: widget.width,
                   withAnimation: widget.enableAnimation,
                 )
@@ -591,7 +578,6 @@ class _MotionToastState extends State<MotionToast>
                   iconSize: widget.iconSize,
                   radius: widget.borderRadius,
                   title: widget.title,
-                  titleTextStyle: widget.titleStyle,
                   width: widget.width,
                   withAnimation: widget.enableAnimation,
                 ),
@@ -626,7 +612,6 @@ class _MotionToastState extends State<MotionToast>
                           iconSize: widget.iconSize,
                           radius: widget.borderRadius,
                           title: widget.title,
-                          titleTextStyle: widget.titleStyle,
                           width: widget.width,
                           withAnimation: widget.enableAnimation,
                         )
@@ -638,7 +623,6 @@ class _MotionToastState extends State<MotionToast>
                           iconSize: widget.iconSize,
                           radius: widget.borderRadius,
                           title: widget.title,
-                          titleTextStyle: widget.titleStyle,
                           width: widget.width,
                           withAnimation: widget.enableAnimation,
                         ),
