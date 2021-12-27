@@ -178,10 +178,14 @@ class _HomePageState extends State<HomePage> {
 
   void _displaySuccessMotionToast() {
     MotionToast.success(
-      title: 'من اليمين',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: 'هذا مثال بالعربية',
-      descriptionStyle: TextStyle(fontSize: 12),
+      title: Text(
+        'من اليمين',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      description: Text(
+        'هذا مثال بالعربية',
+        style: TextStyle(fontSize: 12),
+      ),
       layoutOrientation: ORIENTATION.rtl,
       animationType: ANIMATION.fromRight,
       width: 300,
@@ -193,9 +197,13 @@ class _HomePageState extends State<HomePage> {
 
   void _displayWarningMotionToast() {
     MotionToast.warning(
-      title: 'Warning Motion Toast',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: 'This is a Warning',
+      title: Text(
+        'Warning Motion Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('This is a Warning'),
       animationCurve: Curves.bounceIn,
       borderRadius: 0,
       animationDuration: Duration(milliseconds: 1000),
@@ -204,9 +212,13 @@ class _HomePageState extends State<HomePage> {
 
   void _displayErrorMotionToast() {
     MotionToast.error(
-      title: 'Error',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: 'Please enter your name',
+      title: Text(
+        'Error',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('Please enter your name'),
       animationType: ANIMATION.fromLeft,
       position: MOTION_TOAST_POSITION.top,
       width: 300,
@@ -215,18 +227,26 @@ class _HomePageState extends State<HomePage> {
 
   void _displayInfoMotionToast() {
     MotionToast.info(
-      title: 'Info Motion Toast',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      title: Text(
+        'Info Motion Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       position: MOTION_TOAST_POSITION.center,
-      description: 'Example of Info Toast',
+      description: Text('Example of Info Toast'),
     ).show(context);
   }
 
   void _displayDeleteMotionToast() {
     MotionToast.delete(
-      title: 'Deleted',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: 'The item is deleted',
+      title: Text(
+        'Deleted',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('The item is deleted'),
       animationType: ANIMATION.fromTop,
       position: MOTION_TOAST_POSITION.top,
     ).show(context);
@@ -236,11 +256,15 @@ class _HomePageState extends State<HomePage> {
     MotionToast(
       icon: Icons.alarm,
       primaryColor: Colors.pink,
-      title: 'Custom Toast',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      title: Text(
+        'Custom Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       height: 150,
-      description:
-          'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
+      description: Text(
+          'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.'),
     ).show(context);
   }
 
@@ -248,11 +272,15 @@ class _HomePageState extends State<HomePage> {
     MotionToast(
       icon: Icons.alarm,
       primaryColor: Colors.deepOrange,
-      title: 'Center Toast',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
+      title: Text(
+        'Center Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       height: 150,
-      description:
-          'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
+      description: Text(
+          'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.'),
       //description: "Center displayed motion toast",
       position: MOTION_TOAST_POSITION.center,
     ).show(context);
@@ -262,9 +290,8 @@ class _HomePageState extends State<HomePage> {
     MotionToast(
       icon: Icons.zoom_out,
       primaryColor: Colors.deepOrange,
-      title: 'Top Motion Toast',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: 'Another motion toast example',
+      title: Text('Top Motion Toast'),
+      description: Text('Another motion toast example'),
       position: MOTION_TOAST_POSITION.top,
       animationType: ANIMATION.fromTop,
       height: 100,
@@ -277,9 +304,13 @@ class _HomePageState extends State<HomePage> {
       primaryColor: Colors.orange[500]!,
       secondaryColor: Colors.grey,
       backgroundType: BACKGROUND_TYPE.solid,
-      title: 'Two Color Motion Toast',
-      titleStyle: TextStyle(fontWeight: FontWeight.bold),
-      description: 'Another motion toast example',
+      title: Text(
+        'Two Color Motion Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('Another motion toast example'),
       position: MOTION_TOAST_POSITION.top,
       animationType: ANIMATION.fromTop,
       height: 100,
@@ -292,11 +323,13 @@ class _HomePageState extends State<HomePage> {
       primaryColor: Colors.grey[400]!,
       secondaryColor: Colors.yellow,
       backgroundType: BACKGROUND_TYPE.transparent,
-      title: 'Two Color Motion Toast',
-      titleStyle: TextStyle(
-        fontWeight: FontWeight.bold,
+      title: Text(
+        'Two Color Motion Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
       ),
-      description: 'Another motion toast example',
+      description: Text('Another motion toast example'),
       position: MOTION_TOAST_POSITION.center,
       height: 100,
     ).show(context);
