@@ -12,7 +12,6 @@ class MotionToastContent extends StatelessWidget {
     Key? key,
     required this.color,
     required this.description,
-    required this.descriptionTextStyle,
     required this.icon,
     required this.iconSize,
     required this.radius,
@@ -26,7 +25,6 @@ class MotionToastContent extends StatelessWidget {
     Key? key,
     required this.color,
     required this.description,
-    required this.descriptionTextStyle,
     required this.icon,
     required this.iconSize,
     required this.radius,
@@ -46,8 +44,7 @@ class MotionToastContent extends StatelessWidget {
   final bool withAnimation;
   final Text? title;
   final double width;
-  final String description;
-  final TextStyle descriptionTextStyle;
+  final Text description;
 
   @override
   Widget build(BuildContext context) {
@@ -63,11 +60,7 @@ class MotionToastContent extends StatelessWidget {
                 title!,
               SizedBox(
                 width: width * 0.7,
-                child: Text(
-                  description,
-                  style: descriptionTextStyle,
-                  textAlign: TextAlign.end,
-                ),
+                child: description,
               ),
             ],
           ),
@@ -109,10 +102,7 @@ class MotionToastContent extends StatelessWidget {
                 title!,
             SizedBox(
               width: width * 0.7,
-              child: Text(
-                description,
-                style: descriptionTextStyle,
-              ),
+              child: description,
             ),
           ],
         )

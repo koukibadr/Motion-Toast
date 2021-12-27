@@ -22,7 +22,6 @@ class MotionToast extends StatefulWidget {
     required this.description,
     required this.primaryColor,
     this.title,
-    this.descriptionStyle = const TextStyle(color: Colors.black),
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
     this.iconSize = defaultIconSize,
@@ -56,7 +55,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.descriptionStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -89,7 +87,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.descriptionStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -122,7 +119,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.descriptionStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -155,7 +151,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.descriptionStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -188,7 +183,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.descriptionStyle = const TextStyle(color: Colors.black),
     this.iconType = ICON_TYPE.materialDesign,
     this.width = defaultToastWidth,
     this.height = motionToastHeight,
@@ -233,28 +227,23 @@ class MotionToast extends StatefulWidget {
     );
   }
 
-  ///String used as a description text
+  ///the text widget used for description message
   ///
-  final String description;
+  final Text description;
 
   ///The title of the motion toast
-  ///if it's empty text it will not be rendered in the widget
-  ///
+  ///if it's null it will not be rendered in the widget
   final Text? title;
-
-  ///The text style that will be applied on the description text
-  ///
-  final TextStyle descriptionStyle;
 
   ///The motion toast type possible values:
   ///```dart
   ///{
-  /// SUCCESS
-  /// ERROR
-  /// WARNING
-  /// INFO
-  /// DELETE
-  /// CUSTOM
+  /// sucess
+  /// error
+  /// warning
+  /// info
+  /// delete
+  /// custom
   ///}
   ///```
   late MOTION_TOAST_TYPE motionToastType;
@@ -519,7 +508,6 @@ class _MotionToastState extends State<MotionToast>
                     ? MotionToastContent(
                         color: widget.secondaryColor ?? widget.primaryColor,
                         description: widget.description,
-                        descriptionTextStyle: widget.descriptionStyle,
                         icon: widget.icon,
                         iconSize: widget.iconSize,
                         radius: widget.borderRadius,
@@ -530,7 +518,6 @@ class _MotionToastState extends State<MotionToast>
                     : MotionToastContent.reversed(
                         color: widget.secondaryColor ?? widget.primaryColor,
                         description: widget.description,
-                        descriptionTextStyle: widget.descriptionStyle,
                         icon: widget.icon,
                         iconSize: widget.iconSize,
                         radius: widget.borderRadius,
@@ -562,7 +549,6 @@ class _MotionToastState extends State<MotionToast>
               ? MotionToastContent(
                   color: widget.secondaryColor ?? widget.primaryColor,
                   description: widget.description,
-                  descriptionTextStyle: widget.descriptionStyle,
                   icon: widget.icon,
                   iconSize: widget.iconSize,
                   radius: widget.borderRadius,
@@ -573,7 +559,6 @@ class _MotionToastState extends State<MotionToast>
               : MotionToastContent.reversed(
                   color: widget.secondaryColor ?? widget.primaryColor,
                   description: widget.description,
-                  descriptionTextStyle: widget.descriptionStyle,
                   icon: widget.icon,
                   iconSize: widget.iconSize,
                   radius: widget.borderRadius,
@@ -607,7 +592,6 @@ class _MotionToastState extends State<MotionToast>
                       ? MotionToastContent(
                           color: widget.secondaryColor ?? widget.primaryColor,
                           description: widget.description,
-                          descriptionTextStyle: widget.descriptionStyle,
                           icon: widget.icon,
                           iconSize: widget.iconSize,
                           radius: widget.borderRadius,
@@ -618,7 +602,6 @@ class _MotionToastState extends State<MotionToast>
                       : MotionToastContent.reversed(
                           color: widget.secondaryColor ?? widget.primaryColor,
                           description: widget.description,
-                          descriptionTextStyle: widget.descriptionStyle,
                           icon: widget.icon,
                           iconSize: widget.iconSize,
                           radius: widget.borderRadius,
