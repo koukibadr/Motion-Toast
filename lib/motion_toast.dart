@@ -1,7 +1,6 @@
 library motion_toast;
 
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
