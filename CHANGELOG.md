@@ -1,3 +1,10 @@
+## [2.1.0] - 15/01/2022
+
+* Remove titleStyle attribute
+* Remove descriptionStyle attribute
+* Change title and description from String to Text widget
+* Bug fixes
+
 ## [2.0.0] - 03/12/2021
 
 * Two colors support
