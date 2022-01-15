@@ -58,10 +58,7 @@ class MotionToastContent extends StatelessWidget {
             children: <Widget>[
               if (title != null)
                 title!,
-              SizedBox(
-                width: width * 0.7,
-                child: description,
-              ),
+              description,
             ],
           ),
           const Seperator.double(10),
