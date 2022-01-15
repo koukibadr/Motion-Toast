@@ -56,8 +56,7 @@ class MotionToastContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              if (title != null)
-                title!,
+              if (title != null) title!,
               description,
             ],
           ),
@@ -95,8 +94,7 @@ class MotionToastContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (title != null)
-                title!,
+            if (title != null) title!,
             SizedBox(
               width: width * 0.7,
               child: description,
