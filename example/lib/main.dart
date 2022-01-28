@@ -35,33 +35,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  void test() {
-    MotionToast.warning(
-      title: Text(
-        'Warning Motion Toast',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      description: Text('This is a Warning'),
-      animationCurve: Curves.bounceIn,
-      borderRadius: 0,
-      animationDuration: Duration(milliseconds: 1000),
-    ).show(context);
-    MotionToast.error(
-      title: Text(
-        'Error',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      description: Text('Please enter your name'),
-      animationType: ANIMATION.fromLeft,
-      position: MOTION_TOAST_POSITION.top,
-      width: 300,
-    ).show(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    test();
+                    _displaySuccessMotionToast();
                   },
                   child: Text('Success Motion Toast'),
                 ),
@@ -195,6 +168,21 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Text('Transparent Motion Toast'),
                 ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    _displaySimultaneouslyToasts();
+                  },
+                  child: Text('Simultaneously taosts'),
+                ),
+              ),
+              SizedBox(
+                height: 10,
               ),
             ],
           ),
@@ -359,6 +347,33 @@ class _HomePageState extends State<HomePage> {
       description: Text('Another motion toast example'),
       position: MOTION_TOAST_POSITION.center,
       height: 100,
+    ).show(context);
+  }
+
+  void _displaySimultaneouslyToasts() {
+    MotionToast.warning(
+      title: Text(
+        'Warning Motion Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('This is a Warning'),
+      animationCurve: Curves.bounceIn,
+      borderRadius: 0,
+      animationDuration: Duration(milliseconds: 1000),
+    ).show(context);
+    MotionToast.error(
+      title: Text(
+        'Error',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('Please enter your name'),
+      animationType: ANIMATION.fromLeft,
+      position: MOTION_TOAST_POSITION.top,
+      width: 300,
     ).show(context);
   }
 }
