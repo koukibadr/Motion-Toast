@@ -1,3 +1,7 @@
+## [2.1.1] - 28/01/2022
+
+* Fix simultaneous toasts dismiss bug
+
 ## [2.1.0] - 15/01/2022
 
 * Remove titleStyle attribute

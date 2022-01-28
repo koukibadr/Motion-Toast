@@ -45,6 +45,7 @@
 -  Support long text
 -  Background style customization
 -  Customize dismission of the toast
+-  Display simultaneous toasts
 
   
   
@@ -61,7 +62,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.1.0
+	motion_toast: ^2.1.1
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -325,6 +326,6 @@ Thanks for your support!
 
 
 ##  Contributors
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+<a href = "https://github.com/koukibadr/Motion-Toast/graphs/contributors">
 <img src = "https://contrib.rocks/image?repo=koukibadr/Motion-Toast"/>
 </a>
