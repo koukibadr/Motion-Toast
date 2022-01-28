@@ -35,6 +35,33 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  void test() {
+    MotionToast.warning(
+      title: Text(
+        'Warning Motion Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('This is a Warning'),
+      animationCurve: Curves.bounceIn,
+      borderRadius: 0,
+      animationDuration: Duration(milliseconds: 1000),
+    ).show(context);
+    MotionToast.error(
+      title: Text(
+        'Error',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: Text('Please enter your name'),
+      animationType: ANIMATION.fromLeft,
+      position: MOTION_TOAST_POSITION.top,
+      width: 300,
+    ).show(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    _displaySuccessMotionToast();
+                    test();
                   },
                   child: Text('Success Motion Toast'),
                 ),
