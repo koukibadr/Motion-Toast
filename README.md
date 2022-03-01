@@ -62,7 +62,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.1.1
+	motion_toast: ^2.1.2
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -116,10 +116,8 @@ dependencies:
 -  **Success Motion Toast**
 ```dart
 MotionToast.success(
-	title:  "Success Motion Toast",
-	titleStyle: TextStyle(fontWeight: FontWeight.bold),
-	description:  "Example of success motion toast",
-	descriptionStyle: TextStyle(fontSize:  12),
+	title:  Text("Success Motion Toast"),
+	description:  Text("Example of success motion toast"),
 	width:  300
 ).show(context);
 
@@ -128,9 +126,8 @@ MotionToast.success(
 -  **Warning Motion Toast**
 ```dart
 MotionToast.warning(
-	title:  "Warning Motion Toast",
-	titleStyle: TextStyle(fontWeight: FontWeight.bold),
-	description:  "This is a Warning"
+	title:  Text("Warning Motion Toast"),
+	description:  Text("This is a Warning")
 ).show(context);
 
 ```
@@ -138,9 +135,8 @@ MotionToast.warning(
 -  **Error Motion Toast**
 ```dart
 MotionToast.error(
-	title:  "Error",
-	titleStyle: TextStyle(fontWeight: FontWeight.bold),
-	description:  "Please enter your name"
+	title:  Text("Error"),
+	description:  Text("Please enter your name")
 ).show(context);
 
 ```
@@ -148,9 +144,8 @@ MotionToast.error(
 -  **Info Motion Toast**
 ```dart
 MotionToast.info(
-	title:  "Info Motion Toast",
-	titleStyle: TextStyle(fontWeight: FontWeight.bold),
-	description:  "Example of Info Toast"
+	title:  Text("Info Motion Toast"),
+	description:  Text("Example of Info Toast")
 ).show(context);
 
 ```
@@ -158,9 +153,8 @@ MotionToast.info(
 -  **Delete Motion Toast**
 ```dart
 MotionToast.delete(
-	title:  "Deleted",
-	titleStyle: TextStyle(fontWeight: FontWeight.bold),
-	description:  "The item is deleted"
+	title:  Text("Deleted"),
+	description:  Text("The item is deleted")
 ).show(context);
 
 ```
@@ -174,9 +168,8 @@ To create your custom toast just use the default constructor,
 MotionToast(
 	icon: Icons.alarm,
 	primaryColor: Colors.pink,
-	title:  "Custom Toast",
-	titleStyle: TextStyle(fontWeight: FontWeight.bold),
-	description:  "You can customize the toast!",
+	title:  Text("Custom Toast"),
+	description:  Text("You can customize the toast!"),
 	width:  300
 ).show(context);
 
@@ -188,10 +181,8 @@ To change the toast layout you need to use `layoutOrientation`,
 **`icon`  `description`** and **`color`** are required
 ```dart
 MotionToast.success(
-	title:  "من اليمين",
-	titleStyle: TextStyle(fontWeight: FontWeight.bold),
-	description:  "هذا مثال بالعربية",
-	descriptionStyle: TextStyle(fontSize:  12),
+	title:  Text("من اليمين"),
+	description:  Text("هذا مثال بالعربية"),
 	layoutOrientation: ORIENTATION.RTL,
 	animationType: ANIMATION.FROM_RIGHT,width:  300,
 ).show(context);
