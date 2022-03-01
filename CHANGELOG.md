@@ -1,3 +1,7 @@
+## [2.1.2] - 01/03/2022
+
+* Fix simultaneous toasts dismiss bug
+
 ## [2.1.1] - 28/01/2022
 
 * Fix simultaneous toasts dismiss bug
