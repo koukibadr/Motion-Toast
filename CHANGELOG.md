@@ -1,3 +1,7 @@
+## [2.1.3] - 08/03/2022
+
+* Update dismissable default value
+
 ## [2.1.2] - 01/03/2022
 
 * Update project documentation
