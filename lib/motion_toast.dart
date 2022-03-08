@@ -364,10 +364,13 @@ class MotionToast extends StatefulWidget {
     switch (position) {
       case MOTION_TOAST_POSITION.center:
       case MOTION_TOAST_POSITION.top:
-        Navigator.of(context).push(
+        Navigator.of(context).push(  
           PageRouteBuilder<Widget>(
+            fullscreenDialog: false,
+            barrierColor: Colors.white,
             pageBuilder: (BuildContext context, _, __) => this,
             opaque: false,
+            barrierDismissible: true,
           ),
         );
         break;

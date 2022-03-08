@@ -203,10 +203,8 @@ class _HomePageState extends State<HomePage> {
       ),
       layoutOrientation: ORIENTATION.rtl,
       animationType: ANIMATION.fromRight,
+      dismissable: true,
       width: 300,
-      onClose: () {
-        _displayWarningMotionToast();
-      },
     ).show(context);
   }
 

@@ -8,7 +8,7 @@ const double motionToastSideBarWidth = 15;
 const double defaultIconSize = 40;
 
 const bool defaultEnableAnimationValue = true;
-const bool defaultDismissableValue = false;
+const bool defaultDismissableValue = true;
 
 const Duration defaultToastDuration = Duration(
   seconds: 3,
