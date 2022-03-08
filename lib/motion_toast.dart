@@ -364,7 +364,7 @@ class MotionToast extends StatefulWidget {
     switch (position) {
       case MOTION_TOAST_POSITION.center:
       case MOTION_TOAST_POSITION.top:
-        Navigator.of(context).push(  
+        Navigator.of(context).push(
           PageRouteBuilder<Widget>(
             fullscreenDialog: false,
             barrierColor: Colors.white,
@@ -396,12 +396,15 @@ class _MotionToastState extends State<MotionToast>
   void initState() {
     super.initState();
     _initializeAnimation();
-    toastTimer = Timer(widget.toastDuration, () {
-      slideController.dispose();
-      Navigator.of(context, rootNavigator: true).pop();
-      toastTimer.cancel();
-      widget.onClose?.call();
-    });
+    toastTimer = Timer(
+      widget.toastDuration,
+      () {
+        slideController.dispose();
+        Navigator.of(context, rootNavigator: true).pop();
+        toastTimer.cancel();
+        widget.onClose?.call();
+      },
+    );
   }
 
   ///initialize the animation that will be applied when displaying the toast
@@ -470,8 +473,9 @@ class _MotionToastState extends State<MotionToast>
         );
     }
 
-    WidgetsBinding.instance!
-        .addPostFrameCallback((_) => slideController.forward());
+    WidgetsBinding.instance!.addPostFrameCallback(
+      (_) => slideController.forward(),
+    );
   }
 
   @override
