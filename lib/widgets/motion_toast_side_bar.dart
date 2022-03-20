@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:motion_toast/resources/constants.dart';
 
 class MotionToastSideBar extends StatelessWidget {
   final Color color;
@@ -14,7 +13,7 @@ class MotionToastSideBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: motionToastSideBarWidth,
+      width: 15,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.all(
