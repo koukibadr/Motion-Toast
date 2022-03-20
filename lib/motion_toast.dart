@@ -386,7 +386,8 @@ class MotionToast extends StatefulWidget {
   ///applied on bottom motion toast
   final bool dismissable;
 
-  //TODO add missing code documentation
+  ///The barrier color applied to the dialog display
+  ///by default the barrier is transparent [Colors.transparent]
   final Color barrierColor;
 
   ///Display the created motion toast based on the [position] attribute
