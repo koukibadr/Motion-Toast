@@ -46,6 +46,7 @@
 -  Background style customization
 -  Customize dismission of the toast
 -  Display simultaneous toasts
+-  Customizable barrier color
 
   
   
@@ -62,7 +63,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.1.3
+	motion_toast: ^2.1.4
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -101,6 +102,7 @@ dependencies:
 | **dismissable** | `bool`| define whether the toast can be dismissed or not (applied only on bottom motion taost) | false | true |
 | **secondaryColor** | `Color`| Secondary color applied on the sidebar and the icon (available when using the default constructor) | false | null |
 | **backgroundType** | `BACKGROUND_TYPE`| define the background style transparent, solid or lighter | false | `BACKGROUND_TYPE.lighter` |
+| **barrierColor** | `Color`| the barrier color | false | `Colors.transparent` |
 
 
 -  **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**

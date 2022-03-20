@@ -1,3 +1,8 @@
+## [2.1.4] - 20/03/2022
+
+* Add barrier color attribute
+* Update code style declaration
+
 ## [2.1.3] - 08/03/2022
 
 * Update dismissable default value
