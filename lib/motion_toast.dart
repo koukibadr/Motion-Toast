@@ -40,6 +40,7 @@ class MotionToast extends StatefulWidget {
     this.dismissable = true,
     this.secondaryColor,
     this.backgroundType = BACKGROUND_TYPE.lighter,
+    this.barrierColor = Colors.transparent,
   }) : super(key: key) {
     _assertValidValues();
     motionToastType = MOTION_TOAST_TYPE.custom;
@@ -76,6 +77,7 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
+    this.barrierColor = Colors.transparent,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.success;
     _assertValidValues();
@@ -112,6 +114,7 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
+    this.barrierColor = Colors.transparent,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.warning;
     _assertValidValues();
@@ -148,6 +151,7 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
+    this.barrierColor = Colors.transparent,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.error;
     _assertValidValues();
@@ -184,6 +188,7 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
+    this.barrierColor = Colors.transparent,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.info;
     _assertValidValues();
@@ -220,6 +225,7 @@ class MotionToast extends StatefulWidget {
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
+    this.barrierColor = Colors.transparent,
   }) : super(key: key) {
     motionToastType = MOTION_TOAST_TYPE.delete;
     _assertValidValues();
@@ -380,6 +386,9 @@ class MotionToast extends StatefulWidget {
   ///applied on bottom motion toast
   final bool dismissable;
 
+  //TODO add missing code documentation
+  final Color barrierColor;
+
   ///Display the created motion toast based on the [position] attribute
   ///[context]: the actual context of the application
   ///
@@ -390,7 +399,7 @@ class MotionToast extends StatefulWidget {
         Navigator.of(context).push(
           PageRouteBuilder<Widget>(
             fullscreenDialog: false,
-            barrierColor: Colors.white,
+            barrierColor: barrierColor,
             pageBuilder: (BuildContext context, _, __) => this,
             opaque: false,
             barrierDismissible: true,
@@ -401,7 +410,7 @@ class MotionToast extends StatefulWidget {
         showModalBottomSheet(
           isDismissible: dismissable,
           backgroundColor: Colors.white.withOpacity(0),
-          barrierColor: Colors.transparent,
+          barrierColor: barrierColor,
           context: context,
           builder: (_) => this,
         );
