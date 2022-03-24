@@ -401,7 +401,12 @@ class MotionToast extends StatefulWidget {
           PageRouteBuilder<Widget>(
             fullscreenDialog: false,
             barrierColor: barrierColor,
-            pageBuilder: (BuildContext context, _, __) => this,
+            pageBuilder: (BuildContext context, _, __) => GestureDetector(
+              child: this,
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
             opaque: false,
             barrierDismissible: true,
           ),
