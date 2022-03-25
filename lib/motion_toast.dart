@@ -403,9 +403,9 @@ class MotionToast extends StatefulWidget {
             barrierColor: barrierColor,
             pageBuilder: (BuildContext context, _, __) => GestureDetector(
               child: this,
-              onTap: () {
+              onTap: dismissable ? () {
                 Navigator.of(context).pop();
-              },
+              } : null,
             ),
             opaque: false,
             barrierDismissible: true,
