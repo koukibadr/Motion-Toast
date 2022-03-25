@@ -1,3 +1,9 @@
+## [2.1.5] - 25/03/2022
+
+* Enable dismiss in top and center displayed toasts
+* Dismiss customization for top and center displayed toasts
+* Bug fixes
+
 ## [2.1.4] - 20/03/2022
 
 * Add barrier color attribute
