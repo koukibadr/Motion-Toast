@@ -44,9 +44,9 @@
 -  Customize Motion toast position (Center, Bottom, Top)
 -  Support long text
 -  Background style customization
--  Customize dismission of the toast
 -  Display simultaneous toasts
 -  Customizable barrier color
+-  Enable dismiss when toast is displayed (top, center, bottom)
 
   
   
@@ -63,7 +63,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.1.4
+	motion_toast: ^2.1.5
 ```
 
 Or you can reference the main repository directly by adding those lines
