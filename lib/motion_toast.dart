@@ -440,7 +440,7 @@ class _MotionToastState extends State<MotionToast>
       widget.toastDuration,
       () {
         slideController.dispose();
-        Navigator.of(context, rootNavigator: true).pop();
+        Navigator.of(context).pop();
         toastTimer.cancel();
         widget.onClose?.call();
       },
