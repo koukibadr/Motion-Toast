@@ -3,10 +3,12 @@ import 'package:motion_toast/motion_toast.dart';
 import 'package:motion_toast/resources/arrays.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -39,149 +41,149 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Motion Toast Examples',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displaySuccessMotionToast();
                   },
-                  child: Text('Success Motion Toast'),
+                  child: const Text('Success Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayWarningMotionToast();
                   },
-                  child: Text('Warning Motion Toast'),
+                  child: const Text('Warning Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayErrorMotionToast();
                   },
-                  child: Text('Error Motion Toast'),
+                  child: const Text('Error Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayInfoMotionToast();
                   },
-                  child: Text('Info Motion Toast'),
+                  child: const Text('Info Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayDeleteMotionToast();
                   },
-                  child: Text('Delete Motion Toast'),
+                  child: const Text('Delete Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayCustomMotionToast();
                   },
-                  child: Text('Custom Motion Toast'),
+                  child: const Text('Custom Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayCenterMotionToast();
                   },
-                  child: Text('Center Motion Toast'),
+                  child: const Text('Center Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayTopMotionToast();
                   },
-                  child: Text('Top Motion Toast'),
+                  child: const Text('Top Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayTwoColorsMotionToast();
                   },
-                  child: Text('Two-color Motion Toast'),
+                  child: const Text('Two-color Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displayTransparentMotionToast();
                   },
-                  child: Text('Transparent Motion Toast'),
+                  child: const Text('Transparent Motion Toast'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
                     _displaySimultaneouslyToasts();
                   },
-                  child: Text('Simultaneously taosts'),
+                  child: const Text('Simultaneously taosts'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],
@@ -193,11 +195,11 @@ class _HomePageState extends State<HomePage> {
 
   void _displaySuccessMotionToast() {
     MotionToast.success(
-      title: Text(
+      title: const Text(
         'من اليمين',
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
-      description: Text(
+      description: const Text(
         'هذا مثال بالعربية',
         style: TextStyle(fontSize: 12),
       ),
@@ -210,28 +212,28 @@ class _HomePageState extends State<HomePage> {
 
   void _displayWarningMotionToast() {
     MotionToast.warning(
-      title: Text(
+      title: const Text(
         'Warning Motion Toast',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Text('This is a Warning'),
+      description: const Text('This is a Warning'),
       animationCurve: Curves.bounceIn,
       borderRadius: 0,
-      animationDuration: Duration(milliseconds: 1000),
+      animationDuration: const Duration(milliseconds: 1000),
     ).show(context);
   }
 
   void _displayErrorMotionToast() {
     MotionToast.error(
-      title: Text(
+      title: const Text(
         'Error',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Text('Please enter your name'),
+      description: const Text('Please enter your name'),
       animationType: ANIMATION.fromLeft,
       position: MOTION_TOAST_POSITION.top,
       barrierColor: Colors.black.withOpacity(0.3),
@@ -242,26 +244,26 @@ class _HomePageState extends State<HomePage> {
 
   void _displayInfoMotionToast() {
     MotionToast.info(
-      title: Text(
+      title: const Text(
         'Info Motion Toast',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
       position: MOTION_TOAST_POSITION.center,
-      description: Text('Example of Info Toast'),
+      description: const Text('Example of Info Toast'),
     ).show(context);
   }
 
   void _displayDeleteMotionToast() {
     MotionToast.delete(
-      title: Text(
+      title: const Text(
         'Deleted',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Text('The item is deleted'),
+      description: const Text('The item is deleted'),
       animationType: ANIMATION.fromTop,
       position: MOTION_TOAST_POSITION.top,
     ).show(context);
@@ -271,14 +273,14 @@ class _HomePageState extends State<HomePage> {
     MotionToast(
       icon: Icons.alarm,
       primaryColor: Colors.pink,
-      title: Text(
+      title: const Text(
         'Custom Toast',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
       height: 150,
-      description: Text(
+      description: const Text(
         'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
       ),
     ).show(context);
@@ -288,14 +290,14 @@ class _HomePageState extends State<HomePage> {
     MotionToast(
       icon: Icons.alarm,
       primaryColor: Colors.deepOrange,
-      title: Text(
+      title: const Text(
         'Center Toast',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
       height: 150,
-      description: Text(
+      description: const Text(
         'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
       ),
       //description: "Center displayed motion toast",
@@ -307,8 +309,8 @@ class _HomePageState extends State<HomePage> {
     MotionToast(
       icon: Icons.zoom_out,
       primaryColor: Colors.deepOrange,
-      title: Text('Top Motion Toast'),
-      description: Text('Another motion toast example'),
+      title: const Text('Top Motion Toast'),
+      description: const Text('Another motion toast example'),
       position: MOTION_TOAST_POSITION.top,
       animationType: ANIMATION.fromTop,
       height: 100,
@@ -321,13 +323,13 @@ class _HomePageState extends State<HomePage> {
       primaryColor: Colors.orange[500]!,
       secondaryColor: Colors.grey,
       backgroundType: BACKGROUND_TYPE.solid,
-      title: Text(
+      title: const Text(
         'Two Color Motion Toast',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Text('Another motion toast example'),
+      description: const Text('Another motion toast example'),
       position: MOTION_TOAST_POSITION.top,
       animationType: ANIMATION.fromTop,
       height: 100,
@@ -340,13 +342,13 @@ class _HomePageState extends State<HomePage> {
       primaryColor: Colors.grey[400]!,
       secondaryColor: Colors.yellow,
       backgroundType: BACKGROUND_TYPE.transparent,
-      title: Text(
+      title: const Text(
         'Two Color Motion Toast',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Text('Another motion toast example'),
+      description: const Text('Another motion toast example'),
       position: MOTION_TOAST_POSITION.center,
       height: 100,
     ).show(context);
@@ -354,25 +356,25 @@ class _HomePageState extends State<HomePage> {
 
   void _displaySimultaneouslyToasts() {
     MotionToast.warning(
-      title: Text(
+      title: const Text(
         'Warning Motion Toast',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Text('This is a Warning'),
+      description: const Text('This is a Warning'),
       animationCurve: Curves.bounceIn,
       borderRadius: 0,
-      animationDuration: Duration(milliseconds: 1000),
+      animationDuration: const Duration(milliseconds: 1000),
     ).show(context);
     MotionToast.error(
-      title: Text(
+      title: const Text(
         'Error',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Text('Please enter your name'),
+      description: const Text('Please enter your name'),
       animationType: ANIMATION.fromLeft,
       position: MOTION_TOAST_POSITION.top,
       width: 300,
