@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-///Render a heartbeat animated icon
-///
+/// Render a heartbeat animated icon
 class HeartBeatIcon extends StatefulWidget {
-  ///The icon that will be animated
+  /// The icon that will be animated
   final IconData icon;
 
-  ///The icon color
-  ///
+  /// The icon color
   final Color color;
 
-  ///The default icon size
-  ///
+  /// The default icon size
   final double size;
 
+  /// Creates a stateful widget that renders a heartbeat animated icon
   const HeartBeatIcon({
     Key? key,
     required this.icon,

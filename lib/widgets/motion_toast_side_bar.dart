@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MotionToastSideBar extends StatelessWidget {
+  /// The color of the background.
   final Color color;
+
+  /// Radius of the toast side bar.
   final double radius;
 
   const MotionToastSideBar({
