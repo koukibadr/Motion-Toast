@@ -7,7 +7,7 @@ const Color successColor = Color(0xff28A745);
 
 /// The default color of the warning motion toast.
 ///
-/// Equals to `Color(0xff28A745)`.
+/// Equals to `Color(0xffFFC107)`.
 const Color warningColor = Color(0xffFFC107);
 
 /// The default color of the error motion toast.
