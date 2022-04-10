@@ -4,9 +4,9 @@ import 'package:motion_toast/widgets/seperator.dart';
 import 'motion_toast_icon.dart';
 import 'motion_toast_side_bar.dart';
 
+/// Flow of the contents in the motion toast.
 enum CONTENT_LAYOUT_TYPE { normal, reversed }
 
-// ignore: must_be_immutable
 class MotionToastContent extends StatelessWidget {
   MotionToastContent({
     Key? key,
@@ -19,7 +19,7 @@ class MotionToastContent extends StatelessWidget {
     required this.width,
     required this.withAnimation,
   }) : super(key: key) {
-    contentLayoutType = CONTENT_LAYOUT_TYPE.normal;
+    _contentLayoutType = CONTENT_LAYOUT_TYPE.normal;
   }
   MotionToastContent.reversed({
     Key? key,
@@ -32,23 +32,39 @@ class MotionToastContent extends StatelessWidget {
     required this.width,
     required this.withAnimation,
   }) : super(key: key) {
-    contentLayoutType = CONTENT_LAYOUT_TYPE.reversed;
+    _contentLayoutType = CONTENT_LAYOUT_TYPE.reversed;
   }
 
-  late CONTENT_LAYOUT_TYPE contentLayoutType;
+  /// The flow of the contents in the motion toast.
+  late final CONTENT_LAYOUT_TYPE _contentLayoutType;
 
+  /// The color of the toast background.
   final Color color;
+
+  /// Border radius of the toast.
   final double radius;
+
+  /// Size of the toast icon.
   final double iconSize;
+
+  /// Icon to display on the toast.
   final IconData icon;
+
+  /// Set to `true` to show animation of the toast.
   final bool withAnimation;
+
+  /// Title [Text] widget of the toast.
   final Text? title;
+
+  /// Width of the toast.
   final double width;
+
+  /// Description [Text] widget of the toast.
   final Text description;
 
   @override
   Widget build(BuildContext context) {
-    if (contentLayoutType == CONTENT_LAYOUT_TYPE.reversed) {
+    if (_contentLayoutType == CONTENT_LAYOUT_TYPE.reversed) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
