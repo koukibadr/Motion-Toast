@@ -1,3 +1,8 @@
+## [2.1.6] - 10/04/2022
+
+* Fix toast dismiss bug
+* Enhanced package documentation
+
 ## [2.1.5] - 25/03/2022
 
 * Enable dismiss in top and center displayed toasts
