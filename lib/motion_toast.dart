@@ -496,7 +496,7 @@ class _MotionToastState extends State<MotionToast>
         );
     }
 
-    WidgetsBinding.instance!.addPostFrameCallback(
+    WidgetsBinding.instance?.addPostFrameCallback(
       (_) => slideController.forward(),
     );
   }
