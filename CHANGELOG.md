@@ -1,3 +1,8 @@
+## [2.1.8] - 26/05/2022
+
+- Fix WidgetBiding warning
+- rename package enums
+
 ## [2.1.7] - 25/05/2022
 
 - Fix flutter 3 upgrade error
