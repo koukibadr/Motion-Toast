@@ -13,7 +13,7 @@ class MotionToastBackground extends StatelessWidget {
   final Widget child;
 
   /// Appearance type of the background.
-  final BACKGROUND_TYPE backgroundType;
+  final BackgroundType backgroundType;
 
   /// Creates a widget that renders the child
   /// on top of customizable background.
@@ -27,7 +27,7 @@ class MotionToastBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (backgroundType == BACKGROUND_TYPE.lighter) {
+    if (backgroundType == BackgroundType.lighter) {
       return Stack(
         children: <Widget>[
           Container(
@@ -50,7 +50,7 @@ class MotionToastBackground extends StatelessWidget {
   Widget _renderWidgetChild({double opacity = 0.8}) {
     return Container(
       decoration: BoxDecoration(
-        color: backgroundType == BACKGROUND_TYPE.solid
+        color: backgroundType == BackgroundType.solid
             ? backgroundColor
             : backgroundColor.withOpacity(opacity),
         borderRadius: BorderRadius.all(

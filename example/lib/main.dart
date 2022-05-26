@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
         'هذا مثال بالعربية',
         style: TextStyle(fontSize: 12),
       ),
-      layoutOrientation: ORIENTATION.rtl,
+      layoutOrientation: ToastOrientation.rtl,
       animationType: ANIMATION.fromRight,
       dismissable: true,
       width: 300,
@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
       ),
       description: const Text('Please enter your name'),
       animationType: ANIMATION.fromLeft,
-      position: MOTION_TOAST_POSITION.top,
+      position: MotionToastPosition.top,
       barrierColor: Colors.black.withOpacity(0.3),
       width: 300,
       dismissable: false,
@@ -250,7 +250,7 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      position: MOTION_TOAST_POSITION.center,
+      position: MotionToastPosition.center,
       description: const Text('Example of Info Toast'),
     ).show(context);
   }
@@ -265,7 +265,7 @@ class _HomePageState extends State<HomePage> {
       ),
       description: const Text('The item is deleted'),
       animationType: ANIMATION.fromTop,
-      position: MOTION_TOAST_POSITION.top,
+      position: MotionToastPosition.top,
     ).show(context);
   }
 
@@ -301,7 +301,7 @@ class _HomePageState extends State<HomePage> {
         'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
       ),
       //description: "Center displayed motion toast",
-      position: MOTION_TOAST_POSITION.center,
+      position: MotionToastPosition.center,
     ).show(context);
   }
 
@@ -311,7 +311,7 @@ class _HomePageState extends State<HomePage> {
       primaryColor: Colors.deepOrange,
       title: const Text('Top Motion Toast'),
       description: const Text('Another motion toast example'),
-      position: MOTION_TOAST_POSITION.top,
+      position: MotionToastPosition.top,
       animationType: ANIMATION.fromTop,
       height: 100,
     ).show(context);
@@ -322,7 +322,7 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.zoom_out,
       primaryColor: Colors.orange[500]!,
       secondaryColor: Colors.grey,
-      backgroundType: BACKGROUND_TYPE.solid,
+      backgroundType: BackgroundType.solid,
       title: const Text(
         'Two Color Motion Toast',
         style: TextStyle(
@@ -330,7 +330,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Another motion toast example'),
-      position: MOTION_TOAST_POSITION.top,
+      position: MotionToastPosition.top,
       animationType: ANIMATION.fromTop,
       height: 100,
     ).show(context);
@@ -341,7 +341,7 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.zoom_out,
       primaryColor: Colors.grey[400]!,
       secondaryColor: Colors.yellow,
-      backgroundType: BACKGROUND_TYPE.transparent,
+      backgroundType: BackgroundType.transparent,
       title: const Text(
         'Two Color Motion Toast',
         style: TextStyle(
@@ -349,7 +349,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Another motion toast example'),
-      position: MOTION_TOAST_POSITION.center,
+      position: MotionToastPosition.center,
       height: 100,
     ).show(context);
   }
@@ -376,7 +376,7 @@ class _HomePageState extends State<HomePage> {
       ),
       description: const Text('Please enter your name'),
       animationType: ANIMATION.fromLeft,
-      position: MOTION_TOAST_POSITION.top,
+      position: MotionToastPosition.top,
       width: 300,
     ).show(context);
   }

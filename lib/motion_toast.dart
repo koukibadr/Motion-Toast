@@ -23,7 +23,7 @@ class MotionToast extends StatefulWidget {
     this.height = 80,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ORIENTATION.ltr,
+    this.layoutOrientation = ToastOrientation.ltr,
     this.animationType = ANIMATION.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -32,17 +32,17 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
-    this.position = MOTION_TOAST_POSITION.bottom,
+    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
     this.secondaryColor,
-    this.backgroundType = BACKGROUND_TYPE.lighter,
+    this.backgroundType = BackgroundType.lighter,
     this.barrierColor = Colors.transparent,
   }) : super(key: key) {
     _assertValidValues();
-    motionToastType = MOTION_TOAST_TYPE.custom;
-    iconType = ICON_TYPE.materialDesign;
+    motionToastType = MotionToastType.custom;
+    iconType = IconType.materialDesign;
   }
 
   /// Render a success motion toast
@@ -56,12 +56,12 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = ICON_TYPE.materialDesign,
+    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ORIENTATION.ltr,
+    this.layoutOrientation = ToastOrientation.ltr,
     this.animationType = ANIMATION.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -70,13 +70,13 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
-    this.position = MOTION_TOAST_POSITION.bottom,
+    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.success;
+    motionToastType = MotionToastType.success;
     _assertValidValues();
     _initializeParameters();
   }
@@ -92,12 +92,12 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = ICON_TYPE.materialDesign,
+    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ORIENTATION.ltr,
+    this.layoutOrientation = ToastOrientation.ltr,
     this.animationType = ANIMATION.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -106,13 +106,13 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
-    this.position = MOTION_TOAST_POSITION.bottom,
+    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.warning;
+    motionToastType = MotionToastType.warning;
     _assertValidValues();
     _initializeParameters();
   }
@@ -128,12 +128,12 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = ICON_TYPE.materialDesign,
+    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ORIENTATION.ltr,
+    this.layoutOrientation = ToastOrientation.ltr,
     this.animationType = ANIMATION.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -142,13 +142,13 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
-    this.position = MOTION_TOAST_POSITION.bottom,
+    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.error;
+    motionToastType = MotionToastType.error;
     _assertValidValues();
     _initializeParameters();
   }
@@ -164,12 +164,12 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = ICON_TYPE.materialDesign,
+    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ORIENTATION.ltr,
+    this.layoutOrientation = ToastOrientation.ltr,
     this.animationType = ANIMATION.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -178,13 +178,13 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
-    this.position = MOTION_TOAST_POSITION.bottom,
+    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.info;
+    motionToastType = MotionToastType.info;
     _assertValidValues();
     _initializeParameters();
   }
@@ -200,12 +200,12 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = ICON_TYPE.materialDesign,
+    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ORIENTATION.ltr,
+    this.layoutOrientation = ToastOrientation.ltr,
     this.animationType = ANIMATION.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -214,37 +214,37 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
-    this.position = MOTION_TOAST_POSITION.bottom,
+    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
   }) : super(key: key) {
-    motionToastType = MOTION_TOAST_TYPE.delete;
+    motionToastType = MotionToastType.delete;
     _assertValidValues();
     _initializeParameters();
   }
 
   /// initialize [icon] and [primaryColor] based on the selected [motionToastType]
   void _initializeParameters() {
-    if (iconType == ICON_TYPE.cupertino) {
+    if (iconType == IconType.cupertino) {
       icon = motionToastIconsCupertino[motionToastType]!;
     } else {
       icon = motionToastIconsMD[motionToastType]!;
     }
     primaryColor = motionToastColors[motionToastType]!;
     secondaryColor = motionToastColors[motionToastType]!;
-    backgroundType = BACKGROUND_TYPE.lighter;
+    backgroundType = BackgroundType.lighter;
   }
 
   /// assert valid values when creating a motion toast widget
   void _assertValidValues() {
     assert(
-      (position == MOTION_TOAST_POSITION.bottom &&
+      (position == MotionToastPosition.bottom &&
               animationType != ANIMATION.fromTop) ||
-          (position == MOTION_TOAST_POSITION.top &&
+          (position == MotionToastPosition.top &&
               animationType != ANIMATION.fromBottom) ||
-          (position == MOTION_TOAST_POSITION.center),
+          (position == MotionToastPosition.center),
     );
   }
 
@@ -266,12 +266,12 @@ class MotionToast extends StatefulWidget {
   ///  custom
   /// }
   /// ```
-  late final MOTION_TOAST_TYPE motionToastType;
+  late final MotionToastType motionToastType;
 
   /// The motion toast icon, for types other than custom
   /// the icon will get the default type icon
   ///
-  /// if [motionToastType] set to [MOTION_TOAST_TYPE.custom] the icon parameter is required
+  /// if [motionToastType] set to [MotionToastType.custom] the icon parameter is required
   late final IconData icon;
 
   /// The motion toast background color
@@ -290,7 +290,7 @@ class MotionToast extends StatefulWidget {
   /// - solid: the primary color will be applied as it is on the content background
   /// - transparent: an opacity will be added to the primary color
   /// - lighter: a white background added to the motion toast with little opacity added to the primary color
-  late final BACKGROUND_TYPE backgroundType;
+  late final BackgroundType backgroundType;
 
   /// The design type icon (Material design or Cupertino)
   /// if [motionToastType] set to [MOTION_TOAST_TYPE.CUSTOM] [iconType] will not be used
@@ -301,7 +301,7 @@ class MotionToast extends StatefulWidget {
   /// CUPERTINO
   /// }
   /// ```
-  late final ICON_TYPE? iconType;
+  late final IconType? iconType;
 
   /// The motion toast width by default it's set to 250
   final double width;
@@ -317,14 +317,14 @@ class MotionToast extends StatefulWidget {
   /// by default the animation is enabled
   final bool enableAnimation;
 
-  /// The layout orientation (from right to left or from left to right)
+  /// The layout ToastOrientation (from right to left or from left to right)
   /// ```dart
   /// {
   /// LTR,
   /// RTL
   /// }
   /// ```
-  final ORIENTATION layoutOrientation;
+  final ToastOrientation layoutOrientation;
 
   /// The type of animation, by default it's [ANIMATION.fromBottom]
   /// ```dart
@@ -357,7 +357,7 @@ class MotionToast extends StatefulWidget {
   /// BOTTOM
   /// }
   /// ```
-  final MOTION_TOAST_POSITION position;
+  final MotionToastPosition position;
 
   /// Define the border radius of the toast
   /// by default it's 20
@@ -378,8 +378,8 @@ class MotionToast extends StatefulWidget {
   /// [context]: the actual context of the application
   void show(BuildContext context) {
     switch (position) {
-      case MOTION_TOAST_POSITION.center:
-      case MOTION_TOAST_POSITION.top:
+      case MotionToastPosition.center:
+      case MotionToastPosition.top:
         Navigator.of(context).push(
           PageRouteBuilder<Widget>(
             fullscreenDialog: false,
@@ -446,7 +446,7 @@ class _MotionToastState extends State<MotionToast>
 
     switch (widget.animationType) {
       case ANIMATION.fromLeft:
-        if (widget.position == MOTION_TOAST_POSITION.top) {
+        if (widget.position == MotionToastPosition.top) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(-0.3, 0.3),
             end: const Offset(0, 0.3),
@@ -463,7 +463,7 @@ class _MotionToastState extends State<MotionToast>
         }
         break;
       case ANIMATION.fromRight:
-        if (widget.position == MOTION_TOAST_POSITION.top) {
+        if (widget.position == MotionToastPosition.top) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(0.5, 0.3),
             end: const Offset(0, 0.3),
@@ -496,7 +496,7 @@ class _MotionToastState extends State<MotionToast>
         );
     }
 
-    WidgetsBinding.instance?.addPostFrameCallback(
+    WidgetsBinding.instance.addPostFrameCallback(
       (_) => slideController.forward(),
     );
   }
@@ -504,13 +504,13 @@ class _MotionToastState extends State<MotionToast>
   @override
   Widget build(BuildContext context) {
     switch (widget.position) {
-      case MOTION_TOAST_POSITION.bottom:
+      case MotionToastPosition.bottom:
         return _renderBottomMotionToast();
       default:
         return Scaffold(
           backgroundColor: Colors.transparent,
           body: SafeArea(
-            child: widget.position == MOTION_TOAST_POSITION.top
+            child: widget.position == MotionToastPosition.top
                 ? _renderTopMotionToast()
                 : _renderCenterMotionToast(),
           ),
@@ -534,7 +534,7 @@ class _MotionToastState extends State<MotionToast>
                 borderRadius: widget.borderRadius,
                 backgroundColor: widget.primaryColor,
                 backgroundType: widget.backgroundType,
-                child: widget.layoutOrientation == ORIENTATION.ltr
+                child: widget.layoutOrientation == ToastOrientation.ltr
                     ? MotionToastContent(
                         color: widget.secondaryColor ?? widget.primaryColor,
                         description: widget.description,
@@ -574,7 +574,7 @@ class _MotionToastState extends State<MotionToast>
           backgroundColor: widget.primaryColor,
           borderRadius: widget.borderRadius,
           backgroundType: widget.backgroundType,
-          child: widget.layoutOrientation == ORIENTATION.ltr
+          child: widget.layoutOrientation == ToastOrientation.ltr
               ? MotionToastContent(
                   color: widget.secondaryColor ?? widget.primaryColor,
                   description: widget.description,
@@ -616,7 +616,7 @@ class _MotionToastState extends State<MotionToast>
                   backgroundColor: widget.primaryColor,
                   borderRadius: widget.borderRadius,
                   backgroundType: widget.backgroundType,
-                  child: widget.layoutOrientation == ORIENTATION.ltr
+                  child: widget.layoutOrientation == ToastOrientation.ltr
                       ? MotionToastContent(
                           color: widget.secondaryColor ?? widget.primaryColor,
                           description: widget.description,
