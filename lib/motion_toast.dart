@@ -24,7 +24,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
-    this.animationType = ANIMATION.fromBottom,
+    this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -62,7 +62,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
-    this.animationType = ANIMATION.fromBottom,
+    this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -98,7 +98,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
-    this.animationType = ANIMATION.fromBottom,
+    this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -134,7 +134,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
-    this.animationType = ANIMATION.fromBottom,
+    this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -170,7 +170,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
-    this.animationType = ANIMATION.fromBottom,
+    this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -206,7 +206,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
-    this.animationType = ANIMATION.fromBottom,
+    this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -241,9 +241,9 @@ class MotionToast extends StatefulWidget {
   void _assertValidValues() {
     assert(
       (position == MotionToastPosition.bottom &&
-              animationType != ANIMATION.fromTop) ||
+              animationType != AnimationType.fromTop) ||
           (position == MotionToastPosition.top &&
-              animationType != ANIMATION.fromBottom) ||
+              animationType != AnimationType.fromBottom) ||
           (position == MotionToastPosition.center),
     );
   }
@@ -326,7 +326,7 @@ class MotionToast extends StatefulWidget {
   /// ```
   final ToastOrientation layoutOrientation;
 
-  /// The type of animation, by default it's [ANIMATION.fromBottom]
+  /// The type of animation, by default it's [AnimationType.fromBottom]
   /// ```dart
   /// {
   /// FROM_BOTTOM,
@@ -334,7 +334,7 @@ class MotionToast extends StatefulWidget {
   /// FROM_RIGHT
   /// }
   /// ```
-  final ANIMATION animationType;
+  final AnimationType animationType;
 
   /// the Duration of the toast animation
   /// by default it's 1.5 seconds
@@ -445,7 +445,7 @@ class _MotionToastState extends State<MotionToast>
     );
 
     switch (widget.animationType) {
-      case ANIMATION.fromLeft:
+      case AnimationType.fromLeft:
         if (widget.position == MotionToastPosition.top) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(-0.3, 0.3),
@@ -462,7 +462,7 @@ class _MotionToastState extends State<MotionToast>
           );
         }
         break;
-      case ANIMATION.fromRight:
+      case AnimationType.fromRight:
         if (widget.position == MotionToastPosition.top) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(0.5, 0.3),
@@ -479,7 +479,7 @@ class _MotionToastState extends State<MotionToast>
           );
         }
         break;
-      case ANIMATION.fromTop:
+      case AnimationType.fromTop:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(0, -0.3),
           end: const Offset(0, 0.3),

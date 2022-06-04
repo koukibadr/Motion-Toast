@@ -39,7 +39,7 @@ enum IconType { materialDesign, cupertino }
 enum ToastOrientation { ltr, rtl }
 
 /// The fade in animation direction of the toast.
-enum ANIMATION { fromBottom, fromLeft, fromRight, fromTop }
+enum AnimationType { fromBottom, fromLeft, fromRight, fromTop }
 
 /// The position of the toast on the screen.
 enum MotionToastPosition { center, bottom, top }

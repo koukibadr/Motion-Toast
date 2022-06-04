@@ -5,7 +5,7 @@ import 'motion_toast_icon.dart';
 import 'motion_toast_side_bar.dart';
 
 /// Flow of the contents in the motion toast.
-enum CONTENT_LAYOUT_TYPE { normal, reversed }
+enum ContentLayoutType { normal, reversed }
 
 class MotionToastContent extends StatelessWidget {
   MotionToastContent({
@@ -19,7 +19,7 @@ class MotionToastContent extends StatelessWidget {
     required this.width,
     required this.withAnimation,
   }) : super(key: key) {
-    _contentLayoutType = CONTENT_LAYOUT_TYPE.normal;
+    _contentLayoutType = ContentLayoutType.normal;
   }
   MotionToastContent.reversed({
     Key? key,
@@ -32,11 +32,11 @@ class MotionToastContent extends StatelessWidget {
     required this.width,
     required this.withAnimation,
   }) : super(key: key) {
-    _contentLayoutType = CONTENT_LAYOUT_TYPE.reversed;
+    _contentLayoutType = ContentLayoutType.reversed;
   }
 
   /// The flow of the contents in the motion toast.
-  late final CONTENT_LAYOUT_TYPE _contentLayoutType;
+  late final ContentLayoutType _contentLayoutType;
 
   /// The color of the toast background.
   final Color color;
@@ -64,7 +64,7 @@ class MotionToastContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (_contentLayoutType == CONTENT_LAYOUT_TYPE.reversed) {
+    if (_contentLayoutType == ContentLayoutType.reversed) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[

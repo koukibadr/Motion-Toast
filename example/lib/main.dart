@@ -204,7 +204,7 @@ class _HomePageState extends State<HomePage> {
         style: TextStyle(fontSize: 12),
       ),
       layoutOrientation: ToastOrientation.rtl,
-      animationType: ANIMATION.fromRight,
+      animationType: AnimationType.fromRight,
       dismissable: true,
       width: 300,
     ).show(context);
@@ -234,7 +234,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Please enter your name'),
-      animationType: ANIMATION.fromLeft,
+      animationType: AnimationType.fromLeft,
       position: MotionToastPosition.top,
       barrierColor: Colors.black.withOpacity(0.3),
       width: 300,
@@ -264,7 +264,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('The item is deleted'),
-      animationType: ANIMATION.fromTop,
+      animationType: AnimationType.fromTop,
       position: MotionToastPosition.top,
     ).show(context);
   }
@@ -312,7 +312,7 @@ class _HomePageState extends State<HomePage> {
       title: const Text('Top Motion Toast'),
       description: const Text('Another motion toast example'),
       position: MotionToastPosition.top,
-      animationType: ANIMATION.fromTop,
+      animationType: AnimationType.fromTop,
       height: 100,
     ).show(context);
   }
@@ -331,7 +331,7 @@ class _HomePageState extends State<HomePage> {
       ),
       description: const Text('Another motion toast example'),
       position: MotionToastPosition.top,
-      animationType: ANIMATION.fromTop,
+      animationType: AnimationType.fromTop,
       height: 100,
     ).show(context);
   }
@@ -375,7 +375,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Please enter your name'),
-      animationType: ANIMATION.fromLeft,
+      animationType: AnimationType.fromLeft,
       position: MotionToastPosition.top,
       width: 300,
     ).show(context);

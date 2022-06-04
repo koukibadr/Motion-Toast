@@ -91,9 +91,9 @@ packages:
   motion_toast:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
+      name: motion_toast
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "2.1.8"
   path:
     dependency: transitive
