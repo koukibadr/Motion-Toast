@@ -1,3 +1,7 @@
+## [2.1.9] - 04/06/2022
+
+- Fix WidgetBiding warning
+- rename package enums
 ## [2.1.8] - 26/05/2022
 
 - Fix WidgetBiding warning
