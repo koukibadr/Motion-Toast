@@ -196,17 +196,18 @@ class _HomePageState extends State<HomePage> {
   void _displaySuccessMotionToast() {
     MotionToast.success(
       title: const Text(
-        'من اليمين',
+        'Lorum Ipsum',
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       description: const Text(
-        'هذا مثال بالعربية',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor, sed do eiusmod tempor',
         style: TextStyle(fontSize: 12),
       ),
       layoutOrientation: ToastOrientation.rtl,
       animationType: AnimationType.fromRight,
       dismissable: true,
       width: 300,
+      height: 100,
     ).show(context);
   }
 

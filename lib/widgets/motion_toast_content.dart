@@ -73,7 +73,10 @@ class MotionToastContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               if (title != null) title!,
-              description,
+              SizedBox(
+                width: width * 0.7,
+                child: description,
+              ),
             ],
           ),
           const Seperator.double(10),
