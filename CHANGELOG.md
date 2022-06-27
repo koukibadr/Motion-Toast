@@ -1,3 +1,7 @@
+## [2.2.0] - 27/06/2022
+
+- Fix RTL long text display
+- Fix bugs
 ## [2.1.9] - 04/06/2022
 
 - Fix WidgetBiding warning
