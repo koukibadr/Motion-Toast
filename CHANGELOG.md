@@ -1,3 +1,7 @@
+## [2.2.1] - 28/06/2022
+
+- Convert title and description to widget type
+
 ## [2.2.0] - 27/06/2022
 
 - Fix RTL long text display
