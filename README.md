@@ -63,7 +63,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.2.0
+	motion_toast: ^2.2.1
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -82,8 +82,8 @@ dependencies:
 
 | Name | Type | Description | Required | Default Value |
 |--|--|--|--|--|
-| **description** | `Text` | The description text | true | N/A |
-| **title** | `Text` | The toast title | false | empty string |
+| **description** | `Widget` | The description text | true | N/A |
+| **title** | `Widget` | The toast title | false | empty string |
 | **icon** | `IconData` | The toast icon | **required when creating a custom toast otherwise you don't have to pass it** | N/A |
 | **primaryColor** | `Color` | The motion toast background color (applied on the background) | **required when creating a custom toast otherwise you don't have to pass it** | N/A |
 | **width** | `double` | The motion toast width | false | 350 |
