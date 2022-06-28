@@ -54,13 +54,13 @@ class MotionToastContent extends StatelessWidget {
   final bool withAnimation;
 
   /// Title [Text] widget of the toast.
-  final Text? title;
+  final Widget? title;
 
   /// Width of the toast.
   final double width;
 
   /// Description [Text] widget of the toast.
-  final Text description;
+  final Widget description;
 
   @override
   Widget build(BuildContext context) {

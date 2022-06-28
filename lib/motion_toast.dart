@@ -249,11 +249,11 @@ class MotionToast extends StatefulWidget {
   }
 
   /// the text widget used for description message
-  final Text description;
+  final Widget description;
 
   /// The title of the motion toast
   /// if it's null it will not be rendered in the widget
-  final Text? title;
+  final Widget? title;
 
   /// The motion toast type possible values:
   /// ```dart
