@@ -70,13 +70,16 @@ class MotionToastContent extends StatelessWidget {
         children: <Widget>[
           const Seperator.double(10),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                if (title != null) title!,
-                description,
-              ],
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  if (title != null) title!,
+                  description,
+                ],
+              ),
             ),
           ),
           const Seperator.double(15),
@@ -110,16 +113,23 @@ class MotionToastContent extends StatelessWidget {
         ),
         const Seperator.double(15),
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              if (title != null) title!,
-              description,
-            ],
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              right: 8,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (title != null) title!,
+                description,
+              ],
+            ),
           ),
         ),
-        const Seperator.double(10),
+        const Seperator.double(7),
       ],
     );
   }
