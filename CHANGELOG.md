@@ -1,3 +1,8 @@
+## [2.2.2] - 12/07/2022
+
+- removes warnings for Flutter < 3.0.0
+- Updated dependencies
+
 ## [2.2.1] - 28/06/2022
 
 - Convert title and description to widget type
