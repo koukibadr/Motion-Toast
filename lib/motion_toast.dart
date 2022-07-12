@@ -21,6 +21,7 @@ class MotionToast extends StatefulWidget {
     this.title,
     this.width = 350,
     this.height = 80,
+    this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
@@ -59,6 +60,7 @@ class MotionToast extends StatefulWidget {
     this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
+    this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
@@ -95,6 +97,7 @@ class MotionToast extends StatefulWidget {
     this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
+    this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
@@ -131,6 +134,7 @@ class MotionToast extends StatefulWidget {
     this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
+    this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
@@ -167,6 +171,7 @@ class MotionToast extends StatefulWidget {
     this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
+    this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
@@ -203,6 +208,7 @@ class MotionToast extends StatefulWidget {
     this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
+    this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = ToastOrientation.ltr,
@@ -308,6 +314,12 @@ class MotionToast extends StatefulWidget {
 
   /// define the height of the motion toast
   final double height;
+
+  /// The constraint of the motion toast to size itself to the content
+  /// for responsive design
+  ///
+  /// If it's `null`, then [width] and [height] will be used as it is.
+  final BoxConstraints? constraints;
 
   /// the motion toast icon size
   /// by default it's 40
@@ -521,8 +533,9 @@ class _MotionToastState extends State<MotionToast>
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          height: widget.height,
-          width: widget.width,
+          height: widget.constraints == null ? widget.height : null,
+          width: widget.constraints == null ? widget.width : null,
+          constraints: widget.constraints,
           color: Colors.transparent,
           child: Center(
             child: SlideTransition(
@@ -539,8 +552,9 @@ class _MotionToastState extends State<MotionToast>
   Widget _renderCenterMotionToast() {
     return Center(
       child: Container(
-        width: widget.width,
-        height: widget.height,
+        height: widget.constraints == null ? widget.height : null,
+        width: widget.constraints == null ? widget.width : null,
+        constraints: widget.constraints,
         color: Colors.transparent,
         child: _buildMotionToast(),
       ),
@@ -553,9 +567,10 @@ class _MotionToastState extends State<MotionToast>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
-            height: widget.height,
-            width: widget.width,
+          Container(
+            height: widget.constraints == null ? widget.height : null,
+            width: widget.constraints == null ? widget.width : null,
+            constraints: widget.constraints,
             child: Center(
               child: SlideTransition(
                 position: offsetAnimation,
