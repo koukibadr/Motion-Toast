@@ -10,7 +10,7 @@ import 'package:motion_toast/widgets/motion_toast_content.dart';
 /// Render the motion toast widget
 class MotionToast extends StatefulWidget {
   @override
-  _MotionToastState createState() => _MotionToastState();
+  State<MotionToast> createState() => _MotionToastState();
 
   /// Used to create a custom motion toast with given [icon], [description] and  [primaryColor]
   MotionToast({
@@ -385,12 +385,12 @@ class MotionToast extends StatefulWidget {
             fullscreenDialog: false,
             barrierColor: barrierColor,
             pageBuilder: (BuildContext context, _, __) => GestureDetector(
-              child: this,
               onTap: dismissable
                   ? () {
                       Navigator.of(context).pop();
                     }
                   : null,
+              child: this,
             ),
             opaque: false,
             barrierDismissible: true,

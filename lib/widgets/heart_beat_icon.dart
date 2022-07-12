@@ -20,7 +20,7 @@ class HeartBeatIcon extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _HeartBeatIconState createState() => _HeartBeatIconState();
+  State<HeartBeatIcon> createState() => _HeartBeatIconState();
 }
 
 class _HeartBeatIconState extends State<HeartBeatIcon>
