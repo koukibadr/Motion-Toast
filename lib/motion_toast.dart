@@ -543,9 +543,7 @@ class _MotionToastState extends State<MotionToast>
                 borderRadius: widget.borderRadius,
                 backgroundColor: widget.primaryColor,
                 backgroundType: widget.backgroundType,
-                child: widget.layoutOrientation == ToastOrientation.ltr
-                    ? _buildMotionToastContent()
-                    : _buildMotionToastContentReversed(),
+                child: _buildMotionToastContent(),
               ),
             ),
           ),
@@ -565,9 +563,7 @@ class _MotionToastState extends State<MotionToast>
           backgroundColor: widget.primaryColor,
           borderRadius: widget.borderRadius,
           backgroundType: widget.backgroundType,
-          child: widget.layoutOrientation == ToastOrientation.ltr
-              ? _buildMotionToastContent()
-              : _buildMotionToastContentReversed(),
+          child: _buildMotionToastContent(),
         ),
       ),
     );
@@ -589,9 +585,7 @@ class _MotionToastState extends State<MotionToast>
                   backgroundColor: widget.primaryColor,
                   borderRadius: widget.borderRadius,
                   backgroundType: widget.backgroundType,
-                  child: widget.layoutOrientation == ToastOrientation.ltr
-                      ? _buildMotionToastContent()
-                      : _buildMotionToastContentReversed(),
+                  child: _buildMotionToastContent(),
                 ),
               ),
             ),
@@ -611,19 +605,7 @@ class _MotionToastState extends State<MotionToast>
       title: widget.title,
       width: widget.width,
       withAnimation: widget.enableAnimation,
-    );
-  }
-
-  Widget _buildMotionToastContentReversed() {
-    return MotionToastContent.reversed(
-      color: widget.secondaryColor ?? widget.primaryColor,
-      description: widget.description,
-      icon: widget.icon,
-      iconSize: widget.iconSize,
-      radius: widget.borderRadius,
-      title: widget.title,
-      width: widget.width,
-      withAnimation: widget.enableAnimation,
+      isReversed: widget.layoutOrientation == ToastOrientation.rtl,
     );
   }
 
