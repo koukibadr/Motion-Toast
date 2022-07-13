@@ -544,26 +544,8 @@ class _MotionToastState extends State<MotionToast>
                 backgroundColor: widget.primaryColor,
                 backgroundType: widget.backgroundType,
                 child: widget.layoutOrientation == ToastOrientation.ltr
-                    ? MotionToastContent(
-                        color: widget.secondaryColor ?? widget.primaryColor,
-                        description: widget.description,
-                        icon: widget.icon,
-                        iconSize: widget.iconSize,
-                        radius: widget.borderRadius,
-                        title: widget.title,
-                        width: widget.width,
-                        withAnimation: widget.enableAnimation,
-                      )
-                    : MotionToastContent.reversed(
-                        color: widget.secondaryColor ?? widget.primaryColor,
-                        description: widget.description,
-                        icon: widget.icon,
-                        iconSize: widget.iconSize,
-                        radius: widget.borderRadius,
-                        title: widget.title,
-                        width: widget.width,
-                        withAnimation: widget.enableAnimation,
-                      ),
+                    ? _buildMotionToastContent()
+                    : _buildMotionToastContentReversed(),
               ),
             ),
           ),
@@ -584,26 +566,8 @@ class _MotionToastState extends State<MotionToast>
           borderRadius: widget.borderRadius,
           backgroundType: widget.backgroundType,
           child: widget.layoutOrientation == ToastOrientation.ltr
-              ? MotionToastContent(
-                  color: widget.secondaryColor ?? widget.primaryColor,
-                  description: widget.description,
-                  icon: widget.icon,
-                  iconSize: widget.iconSize,
-                  radius: widget.borderRadius,
-                  title: widget.title,
-                  width: widget.width,
-                  withAnimation: widget.enableAnimation,
-                )
-              : MotionToastContent.reversed(
-                  color: widget.secondaryColor ?? widget.primaryColor,
-                  description: widget.description,
-                  icon: widget.icon,
-                  iconSize: widget.iconSize,
-                  radius: widget.borderRadius,
-                  title: widget.title,
-                  width: widget.width,
-                  withAnimation: widget.enableAnimation,
-                ),
+              ? _buildMotionToastContent()
+              : _buildMotionToastContentReversed(),
         ),
       ),
     );
@@ -626,32 +590,40 @@ class _MotionToastState extends State<MotionToast>
                   borderRadius: widget.borderRadius,
                   backgroundType: widget.backgroundType,
                   child: widget.layoutOrientation == ToastOrientation.ltr
-                      ? MotionToastContent(
-                          color: widget.secondaryColor ?? widget.primaryColor,
-                          description: widget.description,
-                          icon: widget.icon,
-                          iconSize: widget.iconSize,
-                          radius: widget.borderRadius,
-                          title: widget.title,
-                          width: widget.width,
-                          withAnimation: widget.enableAnimation,
-                        )
-                      : MotionToastContent.reversed(
-                          color: widget.secondaryColor ?? widget.primaryColor,
-                          description: widget.description,
-                          icon: widget.icon,
-                          iconSize: widget.iconSize,
-                          radius: widget.borderRadius,
-                          title: widget.title,
-                          width: widget.width,
-                          withAnimation: widget.enableAnimation,
-                        ),
+                      ? _buildMotionToastContent()
+                      : _buildMotionToastContentReversed(),
                 ),
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildMotionToastContent() {
+    return MotionToastContent(
+      color: widget.secondaryColor ?? widget.primaryColor,
+      description: widget.description,
+      icon: widget.icon,
+      iconSize: widget.iconSize,
+      radius: widget.borderRadius,
+      title: widget.title,
+      width: widget.width,
+      withAnimation: widget.enableAnimation,
+    );
+  }
+
+  Widget _buildMotionToastContentReversed() {
+    return MotionToastContent.reversed(
+      color: widget.secondaryColor ?? widget.primaryColor,
+      description: widget.description,
+      icon: widget.icon,
+      iconSize: widget.iconSize,
+      radius: widget.borderRadius,
+      title: widget.title,
+      width: widget.width,
+      withAnimation: widget.enableAnimation,
     );
   }
 
