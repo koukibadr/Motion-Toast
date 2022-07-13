@@ -450,16 +450,12 @@ class _MotionToastState extends State<MotionToast>
           offsetAnimation = Tween<Offset>(
             begin: const Offset(-0.3, 0.3),
             end: const Offset(0, 0.3),
-          ).animate(
-            curveAnimation,
-          );
+          ).animate(curveAnimation);
         } else {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(-0.3, -0.3),
             end: const Offset(0, -0.3),
-          ).animate(
-            curveAnimation,
-          );
+          ).animate(curveAnimation);
         }
         break;
       case AnimationType.fromRight:
@@ -467,33 +463,25 @@ class _MotionToastState extends State<MotionToast>
           offsetAnimation = Tween<Offset>(
             begin: const Offset(0.5, 0.3),
             end: const Offset(0, 0.3),
-          ).animate(
-            curveAnimation,
-          );
+          ).animate(curveAnimation);
         } else {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(1.3, -0.3),
             end: const Offset(0, -0.3),
-          ).animate(
-            curveAnimation,
-          );
+          ).animate(curveAnimation);
         }
         break;
       case AnimationType.fromTop:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(0, -0.3),
           end: const Offset(0, 0.3),
-        ).animate(
-          curveAnimation,
-        );
+        ).animate(curveAnimation);
         break;
       default:
         offsetAnimation = Tween<Offset>(
           begin: Offset.zero,
           end: const Offset(0, -0.3),
-        ).animate(
-          curveAnimation,
-        );
+        ).animate(curveAnimation);
     }
 
     /// ! To support Flutter < 3.0.0
@@ -539,12 +527,7 @@ class _MotionToastState extends State<MotionToast>
           child: Center(
             child: SlideTransition(
               position: offsetAnimation,
-              child: MotionToastBackground(
-                borderRadius: widget.borderRadius,
-                backgroundColor: widget.primaryColor,
-                backgroundType: widget.backgroundType,
-                child: _buildMotionToastContent(),
-              ),
+              child: _buildMotionToast(),
             ),
           ),
         ),
@@ -559,12 +542,7 @@ class _MotionToastState extends State<MotionToast>
         width: widget.width,
         height: widget.height,
         color: Colors.transparent,
-        child: MotionToastBackground(
-          backgroundColor: widget.primaryColor,
-          borderRadius: widget.borderRadius,
-          backgroundType: widget.backgroundType,
-          child: _buildMotionToastContent(),
-        ),
+        child: _buildMotionToast(),
       ),
     );
   }
@@ -581,12 +559,7 @@ class _MotionToastState extends State<MotionToast>
             child: Center(
               child: SlideTransition(
                 position: offsetAnimation,
-                child: MotionToastBackground(
-                  backgroundColor: widget.primaryColor,
-                  borderRadius: widget.borderRadius,
-                  backgroundType: widget.backgroundType,
-                  child: _buildMotionToastContent(),
-                ),
+                child: _buildMotionToast(),
               ),
             ),
           ),
@@ -595,17 +568,22 @@ class _MotionToastState extends State<MotionToast>
     );
   }
 
-  Widget _buildMotionToastContent() {
-    return MotionToastContent(
-      color: widget.secondaryColor ?? widget.primaryColor,
-      description: widget.description,
-      icon: widget.icon,
-      iconSize: widget.iconSize,
-      radius: widget.borderRadius,
-      title: widget.title,
-      width: widget.width,
-      withAnimation: widget.enableAnimation,
-      isReversed: widget.layoutOrientation == ToastOrientation.rtl,
+  Widget _buildMotionToast() {
+    return MotionToastBackground(
+      backgroundColor: widget.primaryColor,
+      borderRadius: widget.borderRadius,
+      backgroundType: widget.backgroundType,
+      child: MotionToastContent(
+        color: widget.secondaryColor ?? widget.primaryColor,
+        description: widget.description,
+        icon: widget.icon,
+        iconSize: widget.iconSize,
+        radius: widget.borderRadius,
+        title: widget.title,
+        width: widget.width,
+        withAnimation: widget.enableAnimation,
+        isReversed: widget.layoutOrientation == ToastOrientation.rtl,
+      ),
     );
   }
 
