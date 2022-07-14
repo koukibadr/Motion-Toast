@@ -18,21 +18,9 @@ class MotionToastContent extends StatelessWidget {
     required this.title,
     required this.width,
     required this.withAnimation,
+    bool isReversed = false,
   }) : super(key: key) {
-    _contentLayoutType = ContentLayoutType.normal;
-  }
-  MotionToastContent.reversed({
-    Key? key,
-    required this.color,
-    required this.description,
-    required this.icon,
-    required this.iconSize,
-    required this.radius,
-    required this.title,
-    required this.width,
-    required this.withAnimation,
-  }) : super(key: key) {
-    _contentLayoutType = ContentLayoutType.reversed;
+    _contentLayoutType = ContentLayoutType.values[isReversed ? 1 : 0];
   }
 
   /// The flow of the contents in the motion toast.
