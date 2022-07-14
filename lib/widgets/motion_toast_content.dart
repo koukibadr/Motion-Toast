@@ -68,25 +68,28 @@ class MotionToastContent extends StatelessWidget {
       return Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              if (title != null) title!,
-              SizedBox(
-                width: width * 0.7,
-                child: description,
-              ),
-            ],
-          ),
           const Seperator.double(10),
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  if (title != null) title!,
+                  description,
+                ],
+              ),
+            ),
+          ),
+          const Seperator.double(15),
           MotionToastIcon(
             iconSize: iconSize,
             color: color,
             icon: icon,
             withAnimation: withAnimation,
           ),
-          const Seperator.double(20),
+          const Seperator.double(15),
           MotionToastSideBar(
             color: color,
             radius: radius,
@@ -101,25 +104,32 @@ class MotionToastContent extends StatelessWidget {
           color: color,
           radius: radius,
         ),
-        const Seperator.double(20),
+        const Seperator.double(15),
         MotionToastIcon(
           iconSize: iconSize,
           color: color,
           icon: icon,
           withAnimation: withAnimation,
         ),
-        const Seperator.double(10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            if (title != null) title!,
-            SizedBox(
-              width: width * 0.7,
-              child: description,
+        const Seperator.double(15),
+        Expanded(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              right: 8,
             ),
-          ],
-        )
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (title != null) title!,
+                description,
+              ],
+            ),
+          ),
+        ),
+        const Seperator.double(7),
       ],
     );
   }
