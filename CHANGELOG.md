@@ -1,4 +1,4 @@
-## [2.2.2] - 12/07/2022
+## [2.2.3] - 14/07/2022
 
 - Fix description overflows horizontally
 - Fix description overflows vertically
