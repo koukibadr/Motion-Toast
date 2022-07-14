@@ -1,5 +1,11 @@
 ## [2.2.2] - 12/07/2022
 
+- Fix description overflows horizontally
+- Fix description overflows vertically
+- Test to check if only toast pops and not the parent
+
+## [2.2.2] - 12/07/2022
+
 - removes warnings for Flutter < 3.0.0
 - Updated dependencies
 
