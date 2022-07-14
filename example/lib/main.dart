@@ -43,150 +43,152 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                'Motion Toast Examples',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displaySuccessMotionToast();
-                  },
-                  child: const Text('Success Motion Toast'),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'Motion Toast Examples',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayWarningMotionToast();
-                  },
-                  child: const Text('Warning Motion Toast'),
+                const SizedBox(
+                  height: 30,
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayErrorMotionToast();
-                  },
-                  child: const Text('Error Motion Toast'),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displaySuccessMotionToast();
+                    },
+                    child: const Text('Success Motion Toast'),
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayInfoMotionToast();
-                  },
-                  child: const Text('Info Motion Toast'),
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayDeleteMotionToast();
-                  },
-                  child: const Text('Delete Motion Toast'),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayWarningMotionToast();
+                    },
+                    child: const Text('Warning Motion Toast'),
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayCustomMotionToast();
-                  },
-                  child: const Text('Custom Motion Toast'),
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayCenterMotionToast();
-                  },
-                  child: const Text('Center Motion Toast'),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayErrorMotionToast();
+                    },
+                    child: const Text('Error Motion Toast'),
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayTopMotionToast();
-                  },
-                  child: const Text('Top Motion Toast'),
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayTwoColorsMotionToast();
-                  },
-                  child: const Text('Two-color Motion Toast'),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayInfoMotionToast();
+                    },
+                    child: const Text('Info Motion Toast'),
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displayTransparentMotionToast();
-                  },
-                  child: const Text('Transparent Motion Toast'),
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _displaySimultaneouslyToasts();
-                  },
-                  child: const Text('Simultaneously taosts'),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayDeleteMotionToast();
+                    },
+                    child: const Text('Delete Motion Toast'),
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayCustomMotionToast();
+                    },
+                    child: const Text('Custom Motion Toast'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayCenterMotionToast();
+                    },
+                    child: const Text('Center Motion Toast'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayTopMotionToast();
+                    },
+                    child: const Text('Top Motion Toast'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayTwoColorsMotionToast();
+                    },
+                    child: const Text('Two-color Motion Toast'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displayTransparentMotionToast();
+                    },
+                    child: const Text('Transparent Motion Toast'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _displaySimultaneouslyToasts();
+                    },
+                    child: const Text('Simultaneously taosts'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
           ),
         ),
       ),
