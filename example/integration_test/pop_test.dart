@@ -7,7 +7,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('Only toast pops: 1', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
     await tester.pumpAndSettle();
 
     // Tap the button with the text 'Custom Motion Toast'
@@ -25,7 +25,7 @@ void main() {
   });
 
   testWidgets('Only toast pops: 2', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
     await tester.pumpAndSettle();
 
     // Tap the button with the text 'Custom Motion Toast'
