@@ -536,12 +536,9 @@ class _MotionToastState extends State<MotionToast>
           height: widget.constraints == null ? widget.height : null,
           width: widget.constraints == null ? widget.width : null,
           constraints: widget.constraints,
-          color: Colors.transparent,
-          child: Center(
-            child: SlideTransition(
-              position: offsetAnimation,
-              child: _buildMotionToast(),
-            ),
+          child: SlideTransition(
+            position: offsetAnimation,
+            child: _buildMotionToast(),
           ),
         ),
       ],
@@ -555,7 +552,6 @@ class _MotionToastState extends State<MotionToast>
         height: widget.constraints == null ? widget.height : null,
         width: widget.constraints == null ? widget.width : null,
         constraints: widget.constraints,
-        color: Colors.transparent,
         child: _buildMotionToast(),
       ),
     );
@@ -564,21 +560,17 @@ class _MotionToastState extends State<MotionToast>
   /// render a top positionned motion toast with all the given attributes
   Widget _renderTopMotionToast() {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            height: widget.constraints == null ? widget.height : null,
-            width: widget.constraints == null ? widget.width : null,
-            constraints: widget.constraints,
-            child: Center(
-              child: SlideTransition(
-                position: offsetAnimation,
-                child: _buildMotionToast(),
-              ),
-            ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Container(
+          height: widget.constraints == null ? widget.height : null,
+          width: widget.constraints == null ? widget.width : null,
+          constraints: widget.constraints,
+          child: SlideTransition(
+            position: offsetAnimation,
+            child: _buildMotionToast(),
           ),
-        ],
+        ),
       ),
     );
   }
