@@ -55,9 +55,10 @@ class MotionToastContent extends StatelessWidget {
     if (_contentLayoutType == ContentLayoutType.reversed) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const Seperator.double(10),
-          Expanded(
+          Flexible(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Column(
@@ -87,6 +88,7 @@ class MotionToastContent extends StatelessWidget {
     }
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         MotionToastSideBar(
           color: color,
@@ -100,7 +102,7 @@ class MotionToastContent extends StatelessWidget {
           withAnimation: withAnimation,
         ),
         const Seperator.double(15),
-        Expanded(
+        Flexible(
           child: SingleChildScrollView(
             padding: const EdgeInsets.only(
               top: 10,
