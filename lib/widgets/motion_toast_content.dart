@@ -16,7 +16,6 @@ class MotionToastContent extends StatelessWidget {
     required this.iconSize,
     required this.radius,
     required this.title,
-    required this.width,
     required this.withAnimation,
     bool isReversed = false,
   }) : super(key: key) {
@@ -43,9 +42,6 @@ class MotionToastContent extends StatelessWidget {
 
   /// Title [Text] widget of the toast.
   final Widget? title;
-
-  /// Width of the toast.
-  final double width;
 
   /// Description [Text] widget of the toast.
   final Widget description;

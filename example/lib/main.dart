@@ -221,9 +221,8 @@ class _HomePageState extends State<HomePage> {
       ),
       layoutOrientation: ToastOrientation.rtl,
       animationType: AnimationType.fromRight,
-      dismissable: true,
       width: 300,
-      height: 100,
+      dismissable: true,
     ).show(context);
   }
 
@@ -296,13 +295,8 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      constraints: BoxConstraints(
-        maxWidth: MediaQuery.of(context).size.width * 0.75,
-        minWidth: 200,
-        maxHeight: 100,
-      ),
       description: const Text(
-        'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
+        'Hello my name is bullshit',
       ),
     ).show(context);
   }

@@ -19,8 +19,8 @@ class MotionToast extends StatefulWidget {
     required this.description,
     required this.primaryColor,
     this.title,
-    this.width = 350,
-    this.height = 80,
+    this.width,
+    this.height,
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
@@ -58,8 +58,8 @@ class MotionToast extends StatefulWidget {
     required this.description,
     this.title,
     this.iconType = IconType.materialDesign,
-    this.width = 350,
-    this.height = 80,
+    this.width,
+    this.height,
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
@@ -245,6 +245,9 @@ class MotionToast extends StatefulWidget {
 
   /// assert valid values when creating a motion toast widget
   void _assertValidValues() {
+    if(width != null || height != null){
+      assert(width != null && height != null,'You need to provide both width and height or use constraints attribute');
+    }
     assert(
       (position == MotionToastPosition.bottom &&
               animationType != AnimationType.fromTop) ||
@@ -310,10 +313,10 @@ class MotionToast extends StatefulWidget {
   late final IconType? iconType;
 
   /// The motion toast width by default it's set to 250
-  final double width;
+  final double? width;
 
   /// define the height of the motion toast
-  final double height;
+  final double? height;
 
   /// The constraint of the motion toast to size itself to the content
   /// for responsive design
@@ -533,9 +536,16 @@ class _MotionToastState extends State<MotionToast>
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          height: widget.constraints == null ? widget.height : null,
-          width: widget.constraints == null ? widget.width : null,
-          constraints: widget.constraints,
+          height: widget.height,
+          width: widget.width,
+          constraints: widget.height == null && widget.width == null
+              ? widget.constraints ??
+                  BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.75,
+                    minWidth: 200,
+                    maxHeight: 100,
+                  )
+              : null,
           child: SlideTransition(
             position: offsetAnimation,
             child: _buildMotionToast(),
@@ -549,9 +559,16 @@ class _MotionToastState extends State<MotionToast>
   Widget _renderCenterMotionToast() {
     return Center(
       child: Container(
-        height: widget.constraints == null ? widget.height : null,
-        width: widget.constraints == null ? widget.width : null,
-        constraints: widget.constraints,
+        height: widget.height,
+          width: widget.width,
+          constraints: widget.height == null && widget.width == null
+              ? widget.constraints ??
+                  BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.75,
+                    minWidth: 200,
+                    maxHeight: 100,
+                  )
+              : null,
         child: _buildMotionToast(),
       ),
     );
@@ -563,9 +580,16 @@ class _MotionToastState extends State<MotionToast>
       child: Align(
         alignment: Alignment.topCenter,
         child: Container(
-          height: widget.constraints == null ? widget.height : null,
-          width: widget.constraints == null ? widget.width : null,
-          constraints: widget.constraints,
+          height: widget.height,
+          width: widget.width,
+          constraints: widget.height == null && widget.width == null
+              ? widget.constraints ??
+                  BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.75,
+                    minWidth: 200,
+                    maxHeight: 100,
+                  )
+              : null,
           child: SlideTransition(
             position: offsetAnimation,
             child: _buildMotionToast(),
@@ -587,7 +611,6 @@ class _MotionToastState extends State<MotionToast>
         iconSize: widget.iconSize,
         radius: widget.borderRadius,
         title: widget.title,
-        width: widget.width,
         withAnimation: widget.enableAnimation,
         isReversed: widget.layoutOrientation == ToastOrientation.rtl,
       ),
