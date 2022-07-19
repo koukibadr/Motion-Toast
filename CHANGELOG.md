@@ -1,3 +1,8 @@
+## [2.3.0] - 19/07/2022
+
+- Support responsive UI
+- Add constraints attribute
+
 ## [2.2.3] - 14/07/2022
 
 - Fix description overflows horizontally

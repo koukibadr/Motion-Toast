@@ -245,8 +245,9 @@ class MotionToast extends StatefulWidget {
 
   /// assert valid values when creating a motion toast widget
   void _assertValidValues() {
-    if(width != null || height != null){
-      assert(width != null && height != null,'You need to provide both width and height or use constraints attribute');
+    if (width != null || height != null) {
+      assert(width != null && height != null,
+          'You need to provide both width and height or use constraints attribute');
     }
     assert(
       (position == MotionToastPosition.bottom &&
@@ -560,15 +561,15 @@ class _MotionToastState extends State<MotionToast>
     return Center(
       child: Container(
         height: widget.height,
-          width: widget.width,
-          constraints: widget.height == null && widget.width == null
-              ? widget.constraints ??
-                  BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.75,
-                    minWidth: 200,
-                    maxHeight: 100,
-                  )
-              : null,
+        width: widget.width,
+        constraints: widget.height == null && widget.width == null
+            ? widget.constraints ??
+                BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.75,
+                  minWidth: 200,
+                  maxHeight: 100,
+                )
+            : null,
         child: _buildMotionToast(),
       ),
     );
