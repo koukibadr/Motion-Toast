@@ -436,9 +436,11 @@ class _MotionToastState extends State<MotionToast>
     toastTimer = Timer(
       widget.toastDuration,
       () {
-        slideController.dispose();
-        Navigator.of(context).pop();
-        toastTimer.cancel();
+        if (mounted) {
+          Navigator.of(context).popUntil(
+            (route) => route.isCurrent,
+          );
+        }
         widget.onClose?.call();
       },
     );
@@ -515,7 +517,15 @@ class _MotionToastState extends State<MotionToast>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.dismissable ? Navigator.of(context).pop : null,
+      onTap: widget.dismissable
+          ? () {
+              if (mounted) {
+                Navigator.of(context).popUntil(
+                  (route) => route.isCurrent,
+                );
+              }
+            }
+          : null,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(child: _buildToast()),
@@ -623,10 +633,8 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   void dispose() {
-    if (toastTimer.isActive) {
-      slideController.dispose();
-      toastTimer.cancel();
-    }
+    slideController.dispose();
+    toastTimer.cancel();
     super.dispose();
   }
 }
