@@ -411,7 +411,10 @@ class MotionToast extends StatefulWidget {
       default:
         showModalBottomSheet(
           isDismissible: dismissable,
-          backgroundColor: Colors.white.withOpacity(0),
+          backgroundColor: Colors.transparent,
+          constraints: BoxConstraints(
+            maxHeight: (height ?? constraints?.maxHeight ?? 100) * 1.3,
+          ),
           barrierColor: barrierColor,
           context: context,
           builder: (_) => this,
@@ -513,32 +516,30 @@ class _MotionToastState extends State<MotionToast>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.dismissable ? Navigator.of(context).pop : null,
-      child: _buildToast(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(child: _buildToast()),
+      ),
     );
   }
 
   Widget _buildToast() {
     switch (widget.position) {
+      case MotionToastPosition.top:
+        return _renderTopMotionToast();
+      case MotionToastPosition.center:
+        return _renderCenterMotionToast();
       case MotionToastPosition.bottom:
         return _renderBottomMotionToast();
-      default:
-        return Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SafeArea(
-            child: widget.position == MotionToastPosition.top
-                ? _renderTopMotionToast()
-                : _renderCenterMotionToast(),
-          ),
-        );
     }
   }
 
   /// Create a bottom motion toast with all the given attributes
   Widget _renderBottomMotionToast() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
+    return Center(
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
           height: widget.height,
           width: widget.width,
           constraints: widget.height == null && widget.width == null
@@ -554,7 +555,7 @@ class _MotionToastState extends State<MotionToast>
             child: _buildMotionToast(),
           ),
         ),
-      ],
+      ),
     );
   }
 
