@@ -246,8 +246,10 @@ class MotionToast extends StatefulWidget {
   /// assert valid values when creating a motion toast widget
   void _assertValidValues() {
     if (width != null || height != null) {
-      assert(width != null && height != null,
-          'You need to provide both width and height or use constraints attribute');
+      assert(
+        width != null && height != null,
+        'You need to provide both width and height or use constraints attribute',
+      );
     }
     assert(
       (position == MotionToastPosition.bottom &&
@@ -400,16 +402,9 @@ class MotionToast extends StatefulWidget {
           PageRouteBuilder<Widget>(
             fullscreenDialog: false,
             barrierColor: barrierColor,
-            pageBuilder: (BuildContext context, _, __) => GestureDetector(
-              onTap: dismissable
-                  ? () {
-                      Navigator.of(context).pop();
-                    }
-                  : null,
-              child: this,
-            ),
+            pageBuilder: (BuildContext context, _, __) => this,
             opaque: false,
-            barrierDismissible: true,
+            barrierDismissible: dismissable,
           ),
         );
         break;
@@ -516,6 +511,13 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: widget.dismissable ? Navigator.of(context).pop : null,
+      child: _buildToast(),
+    );
+  }
+
+  Widget _buildToast() {
     switch (widget.position) {
       case MotionToastPosition.bottom:
         return _renderBottomMotionToast();
