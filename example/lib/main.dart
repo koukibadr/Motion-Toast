@@ -222,6 +222,7 @@ class _HomePageState extends State<HomePage> {
       layoutOrientation: ToastOrientation.rtl,
       animationType: AnimationType.fromRight,
       width: 300,
+      height: 80,
       dismissable: true,
     ).show(context);
   }
@@ -254,6 +255,7 @@ class _HomePageState extends State<HomePage> {
       position: MotionToastPosition.top,
       barrierColor: Colors.black.withOpacity(0.3),
       width: 300,
+      height: 80,
       dismissable: false,
     ).show(context);
   }
@@ -311,6 +313,7 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
         ),
       ),
+      width: 350,
       height: 150,
       description: const Text(
         'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
@@ -328,6 +331,7 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
         ),
       ),
+      width: 350,
       height: 150,
       description: const Text(
         'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
@@ -345,6 +349,7 @@ class _HomePageState extends State<HomePage> {
       description: const Text('Another motion toast example'),
       position: MotionToastPosition.top,
       animationType: AnimationType.fromTop,
+      width: 350,
       height: 100,
     ).show(context);
   }
@@ -364,6 +369,7 @@ class _HomePageState extends State<HomePage> {
       description: const Text('Another motion toast example'),
       position: MotionToastPosition.top,
       animationType: AnimationType.fromTop,
+      width: 350,
       height: 100,
     ).show(context);
   }
@@ -382,6 +388,7 @@ class _HomePageState extends State<HomePage> {
       ),
       description: const Text('Another motion toast example'),
       position: MotionToastPosition.center,
+      width: 350,
       height: 100,
     ).show(context);
   }
@@ -410,6 +417,7 @@ class _HomePageState extends State<HomePage> {
       animationType: AnimationType.fromLeft,
       position: MotionToastPosition.top,
       width: 300,
+      height: 80,
     ).show(context);
   }
 }
