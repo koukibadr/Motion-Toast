@@ -221,8 +221,6 @@ class _HomePageState extends State<HomePage> {
       ),
       layoutOrientation: ToastOrientation.rtl,
       animationType: AnimationType.fromRight,
-      width: 300,
-      height: 80,
       dismissable: true,
     ).show(context);
   }
