@@ -246,8 +246,10 @@ class MotionToast extends StatefulWidget {
   /// assert valid values when creating a motion toast widget
   void _assertValidValues() {
     if (width != null || height != null) {
-      assert(width != null && height != null,
-          'You need to provide both width and height or use constraints attribute');
+      assert(
+        width != null && height != null,
+        'You need to provide both width and height or use constraints attribute',
+      );
     }
     assert(
       (position == MotionToastPosition.bottom &&
@@ -400,23 +402,19 @@ class MotionToast extends StatefulWidget {
           PageRouteBuilder<Widget>(
             fullscreenDialog: false,
             barrierColor: barrierColor,
-            pageBuilder: (BuildContext context, _, __) => GestureDetector(
-              onTap: dismissable
-                  ? () {
-                      Navigator.of(context).pop();
-                    }
-                  : null,
-              child: this,
-            ),
+            pageBuilder: (BuildContext context, _, __) => this,
             opaque: false,
-            barrierDismissible: true,
+            barrierDismissible: dismissable,
           ),
         );
         break;
       default:
         showModalBottomSheet(
           isDismissible: dismissable,
-          backgroundColor: Colors.white.withOpacity(0),
+          backgroundColor: Colors.transparent,
+          constraints: BoxConstraints(
+            maxHeight: (height ?? constraints?.maxHeight ?? 100) * 1.3,
+          ),
           barrierColor: barrierColor,
           context: context,
           builder: (_) => this,
@@ -516,27 +514,32 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: widget.dismissable ? Navigator.of(context).pop : null,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(child: _buildToast()),
+      ),
+    );
+  }
+
+  Widget _buildToast() {
     switch (widget.position) {
+      case MotionToastPosition.top:
+        return _renderTopMotionToast();
+      case MotionToastPosition.center:
+        return _renderCenterMotionToast();
       case MotionToastPosition.bottom:
         return _renderBottomMotionToast();
-      default:
-        return Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SafeArea(
-            child: widget.position == MotionToastPosition.top
-                ? _renderTopMotionToast()
-                : _renderCenterMotionToast(),
-          ),
-        );
     }
   }
 
   /// Create a bottom motion toast with all the given attributes
   Widget _renderBottomMotionToast() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
+    return Center(
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
           height: widget.height,
           width: widget.width,
           constraints: widget.height == null && widget.width == null
@@ -552,7 +555,7 @@ class _MotionToastState extends State<MotionToast>
             child: _buildMotionToast(),
           ),
         ),
-      ],
+      ),
     );
   }
 
