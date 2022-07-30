@@ -1,3 +1,8 @@
+## [2.3.1] - 30/07/2022
+
+- Fix ontap close behavior in bottom toasts
+- Update package examples
+
 ## [2.3.0] - 19/07/2022
 
 - Support responsive UI
