@@ -1,3 +1,7 @@
+## [2.3.2] - 10/08/2022
+
+- Fix pop issue with parent pop
+
 ## [2.3.1] - 30/07/2022
 
 - Fix ontap close behavior in bottom toasts
