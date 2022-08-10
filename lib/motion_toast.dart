@@ -429,18 +429,22 @@ class _MotionToastState extends State<MotionToast>
   late AnimationController slideController;
   late Timer toastTimer;
 
+  void _popCurrentToast() {
+    if (mounted) {
+      Navigator.of(context).popUntil(
+        (route) => route.isCurrent,
+      );
+      widget.onClose?.call();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     _initializeAnimation();
     toastTimer = Timer(
       widget.toastDuration,
-      () {
-        slideController.dispose();
-        Navigator.of(context).pop();
-        toastTimer.cancel();
-        widget.onClose?.call();
-      },
+      _popCurrentToast,
     );
   }
 
@@ -515,7 +519,7 @@ class _MotionToastState extends State<MotionToast>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.dismissable ? Navigator.of(context).pop : null,
+      onTap: widget.dismissable ? _popCurrentToast : null,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(child: _buildToast()),
@@ -623,10 +627,8 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   void dispose() {
-    if (toastTimer.isActive) {
-      slideController.dispose();
-      toastTimer.cancel();
-    }
+    slideController.dispose();
+    toastTimer.cancel();
     super.dispose();
   }
 }
