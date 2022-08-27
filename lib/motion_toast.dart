@@ -431,9 +431,7 @@ class _MotionToastState extends State<MotionToast>
 
   void _popCurrentToast() {
     if (mounted) {
-      Navigator.of(context).popUntil(
-        (route) => route.isCurrent,
-      );
+      Navigator.of(context).pop();
       widget.onClose?.call();
     }
   }

@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 15,
                   ),
                   SizedBox(
                     width: 200,
