@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   SizedBox(
                     width: 200,
@@ -196,9 +196,6 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: const Text('Simultaneously taosts'),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
                   ),
                 ],
               ),
@@ -296,7 +293,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text(
-        'Hello my name is bullshit',
+        'Hello my name is Flutter dev',
       ),
     ).show(context);
   }
@@ -306,15 +303,15 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.alarm,
       primaryColor: Colors.pink,
       title: const Text(
-        'Custom Toast',
+        'New bugatti',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      width: 350,
-      height: 150,
-      description: const Text(
-        'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
+      description: Image.network(
+        'https://media.wired.com/photos/5d56e7a245517600087f90a3/master/pass/Transpo_bugatti_02_CD_3I4-FRONT.jpg',
+        width: 100,
+        height: 100,
       ),
     ).show(context);
   }
