@@ -1,3 +1,7 @@
+## [2.3.3] - 11/09/2022
+
+- Fix auto dismiss bug
+
 ## [2.3.2] - 10/08/2022
 
 - Fix pop issue with parent pop
