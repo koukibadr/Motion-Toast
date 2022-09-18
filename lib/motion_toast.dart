@@ -295,7 +295,6 @@ class MotionToast extends StatefulWidget {
   /// The motion toast background color
   /// if `motionToastType == MOTION_TOAST_TYPE.CUSTOM` color parameter is required
   /// else the color will get the default type color from [motionToastColors]
-  ///
   late final Color primaryColor;
 
   /// Color applied on the motion toast side widget (sidebar) and the icon
@@ -329,7 +328,6 @@ class MotionToast extends StatefulWidget {
 
   /// The constraint of the motion toast to size itself to the content
   /// for responsive design
-  ///
   /// If it's `null`, then [width] and [height] will be used as it is.
   final BoxConstraints? constraints;
 
@@ -458,7 +456,6 @@ class _MotionToastState extends State<MotionToast>
 
   /// initialize the animation that will be applied when displaying the toast
   ///  based on [this.widget.animationDuration], [this.widget.animationType] and [this.widge]
-  ///
   void _initializeAnimation() {
     slideController = AnimationController(
       duration: widget.animationDuration,
