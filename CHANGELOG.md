@@ -1,3 +1,7 @@
+## [2.4.3] - 18/09/2022
+
+- Add padding attribute to main widget
+
 ## [2.3.3] - 11/09/2022
 
 - Fix auto dismiss bug
