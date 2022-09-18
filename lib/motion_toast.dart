@@ -530,10 +530,12 @@ class _MotionToastState extends State<MotionToast>
       onTap: widget.dismissable ? _popCurrentToast : null,
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SafeArea(child: Padding(
-          padding: widget.padding,
-          child: _buildToast(),
-        ),),
+        body: SafeArea(
+          child: Padding(
+            padding: widget.padding,
+            child: _buildToast(),
+          ),
+        ),
       ),
     );
   }
