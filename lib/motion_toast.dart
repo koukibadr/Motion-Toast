@@ -40,6 +40,7 @@ class MotionToast extends StatefulWidget {
     this.secondaryColor,
     this.backgroundType = BackgroundType.lighter,
     this.barrierColor = Colors.transparent,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     _assertValidValues();
     motionToastType = MotionToastType.custom;
@@ -77,6 +78,7 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.success;
     _assertValidValues();
@@ -114,6 +116,7 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.warning;
     _assertValidValues();
@@ -151,6 +154,7 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.error;
     _assertValidValues();
@@ -188,6 +192,7 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.info;
     _assertValidValues();
@@ -225,6 +230,7 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.delete;
     _assertValidValues();
@@ -392,6 +398,9 @@ class MotionToast extends StatefulWidget {
   /// by default the barrier is transparent [Colors.transparent]
   final Color barrierColor;
 
+  //TODO add missing code documentation
+  final EdgeInsets padding;
+
   /// Display the created motion toast based on the [position] attribute
   /// [context]: the actual context of the application
   void show(BuildContext context) {
@@ -520,7 +529,10 @@ class _MotionToastState extends State<MotionToast>
       onTap: widget.dismissable ? _popCurrentToast : null,
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SafeArea(child: _buildToast()),
+        body: SafeArea(child: Padding(
+          padding: widget.padding,
+          child: _buildToast(),
+        ),),
       ),
     );
   }

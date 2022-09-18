@@ -346,6 +346,9 @@ class _HomePageState extends State<HomePage> {
       animationType: AnimationType.fromTop,
       width: 350,
       height: 100,
+      padding: const EdgeInsets.only(
+        top: 30,
+      ),
     ).show(context);
   }
 
