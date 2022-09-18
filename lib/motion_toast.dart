@@ -398,7 +398,8 @@ class MotionToast extends StatefulWidget {
   /// by default the barrier is transparent [Colors.transparent]
   final Color barrierColor;
 
-  //TODO add missing code documentation
+  ///padding added to the main widget motion taost
+  ///by default the padding is set to 0
   final EdgeInsets padding;
 
   /// Display the created motion toast based on the [position] attribute
