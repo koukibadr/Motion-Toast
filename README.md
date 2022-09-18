@@ -32,6 +32,7 @@
 - Responsive toast according to device size
 - Customizable width and height
 - Customizable box constraints
+- Customizable toast padding
 
 ## Getting Started
 
@@ -39,7 +40,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.3.3
+	motion_toast: ^2.4.3
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -76,6 +77,7 @@ dependencies:
 | **secondaryColor**    | `Color`                 | Secondary color applied on the sidebar and the icon (available when using the default constructor)                    | false                                                                         | null                           |
 | **backgroundType**    | `BACKGROUND_TYPE`       | define the background style transparent, solid or lighter                                                             | false                                                                         | `BACKGROUND_TYPE.lighter`      |
 | **barrierColor**      | `Color`                 | the barrier color                                                                                                     | false                                                                         | `Colors.transparent`           |
+| **padding**      | `EdgeInsets`                 | toast padding                                                                                                     | false                                                                         | `EdgeInsets.zero`           |
 
 - **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
 - **For bottom toast you can't set the animation `FROM_TOP` as well as for top displayed toast you can't set the animation to `FROM_BOTTOM`**
