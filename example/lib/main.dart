@@ -246,7 +246,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Please enter your name'),
-      animationType: AnimationType.fromLeft,
       position: MotionToastPosition.top,
       barrierColor: Colors.black.withOpacity(0.3),
       width: 300,

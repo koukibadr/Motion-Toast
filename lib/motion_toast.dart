@@ -8,6 +8,7 @@ import 'package:motion_toast/widgets/motion_toast_background.dart';
 import 'package:motion_toast/widgets/motion_toast_content.dart';
 
 /// Render the motion toast widget
+// ignore: must_be_immutable
 class MotionToast extends StatefulWidget {
   @override
   State<MotionToast> createState() => _MotionToastState();
@@ -42,6 +43,7 @@ class MotionToast extends StatefulWidget {
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
   }) : super(key: key) {
+    _initializeAnimationType();
     _assertValidValues();
     motionToastType = MotionToastType.custom;
     iconType = IconType.materialDesign;
@@ -81,6 +83,7 @@ class MotionToast extends StatefulWidget {
     this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.success;
+    _initializeAnimationType();
     _assertValidValues();
     _initializeParameters();
   }
@@ -119,6 +122,7 @@ class MotionToast extends StatefulWidget {
     this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.warning;
+    _initializeAnimationType();
     _assertValidValues();
     _initializeParameters();
   }
@@ -157,6 +161,7 @@ class MotionToast extends StatefulWidget {
     this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.error;
+    _initializeAnimationType();
     _assertValidValues();
     _initializeParameters();
   }
@@ -195,6 +200,7 @@ class MotionToast extends StatefulWidget {
     this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.info;
+    _initializeAnimationType();
     _assertValidValues();
     _initializeParameters();
   }
@@ -233,6 +239,7 @@ class MotionToast extends StatefulWidget {
     this.padding = EdgeInsets.zero,
   }) : super(key: key) {
     motionToastType = MotionToastType.delete;
+    _initializeAnimationType();
     _assertValidValues();
     _initializeParameters();
   }
@@ -257,13 +264,16 @@ class MotionToast extends StatefulWidget {
         'You need to provide both width and height or use constraints attribute',
       );
     }
-    assert(
-      (position == MotionToastPosition.bottom &&
-              animationType != AnimationType.fromTop) ||
-          (position == MotionToastPosition.top &&
-              animationType != AnimationType.fromBottom) ||
-          (position == MotionToastPosition.center),
-    );
+  }
+
+  void _initializeAnimationType() {
+    if (position == MotionToastPosition.bottom &&
+        animationType == AnimationType.fromTop) {
+      animationType = AnimationType.fromBottom;
+    } else if (position == MotionToastPosition.top &&
+        animationType == AnimationType.fromBottom) {
+      animationType = AnimationType.fromTop;
+    }
   }
 
   /// the text widget used for description message
@@ -356,7 +366,7 @@ class MotionToast extends StatefulWidget {
   /// FROM_RIGHT
   /// }
   /// ```
-  final AnimationType animationType;
+  late AnimationType animationType;
 
   /// the Duration of the toast animation
   /// by default it's 1.5 seconds
