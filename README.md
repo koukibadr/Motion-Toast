@@ -207,8 +207,6 @@ final  EdgeInsets padding;
 
 -  **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
 
--  **For bottom toast you can't set the animation `FROM_TOP` as well as for top displayed toast you can't set the animation to `FROM_BOTTOM`**
-
 -  **if `secondaryColor` not defined sidebar and icon will be rendered with `primaryColor`**
 
   
