@@ -1,3 +1,8 @@
+## [2.5.3] - 30/09/2022
+
+- Update bottom and top position animation initialization
+- Update package readme documentation
+
 ## [2.4.3] - 18/09/2022
 
 - Add padding attribute to main widget
@@ -39,10 +44,12 @@
 
 - Fix RTL long text display
 - Fix bugs
+
 ## [2.1.9] - 04/06/2022
 
 - Fix WidgetBiding warning
 - rename package enums
+
 ## [2.1.8] - 26/05/2022
 
 - Fix WidgetBiding warning
