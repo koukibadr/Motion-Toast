@@ -348,8 +348,8 @@ To change the toast layout you need to use `layoutOrientation`,
 MotionToast.success(
 	title:  Text("من اليمين"),
 	description:  Text("هذا مثال بالعربية"),
-	layoutOrientation:  ORIENTATION.RTL,
-	animationType:  ANIMATION.FROM_RIGHT,width:  300,
+	layoutOrientation:  ToastOrientation.rtl,
+	animationType:  AnimationType.fromRight,width:  300,
 ).show(context);
 ```
 
@@ -370,8 +370,8 @@ MotionToast(
 	color:  Colors.deepOrange,
 	title:  Text("Top Motion Toast"),
 	description:  Text("Another motion toast example"),
-	position:  MOTION_TOAST_POSITION.TOP,
-	animationType:  ANIMATION.FROM_TOP,
+	position: MotionToastPosition.top,
+	animationType:  AnimationType.fromTop,
 ).show(context);
 
 ```
@@ -391,7 +391,7 @@ MotionToast(
 	color:  Colors.deepOrange,
 	title:  Text("Center Motion Toast"),
 	description:  Text("Another motion toast example"),
-	position:  MOTION_TOAST_POSITION.CENTER
+	position:  MotionToastPosition.center
 ).show(context);
 
 ```
@@ -427,11 +427,11 @@ MotionToast(
 	icon:  Icons.zoom_out,
 	primaryColor:  Colors.orange[500]!,
 	secondaryColor:  Colors.grey,
-	backgroundType:  BACKGROUND_TYPE.solid,
+	backgroundType:  BackgroundType.solid,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
-	position:  MOTION_TOAST_POSITION.top,
-	animationType:  ANIMATION.fromTop,
+	position:  MotionToastPosition.top,
+	animationType:  AnimationType.fromTop,
 	height:  100,
 	width:  300,
 ).show(context);
@@ -456,10 +456,10 @@ MotionToast(
 	icon:  Icons.zoom_out,
 	primaryColor:  Colors.grey[400]!,
 	secondaryColor:  Colors.yellow,
-	backgroundType:  BACKGROUND_TYPE.transparent,
+	backgroundType:  BackgroundType.transparent,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
-	position:  MOTION_TOAST_POSITION.center,
+	position:  MotionToastPosition.center,
 	height:  100,
 	width:  300,
 ).show(context);
