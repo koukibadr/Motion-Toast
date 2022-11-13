@@ -1,3 +1,7 @@
+## [2.5.4] - 13/11/2022
+
+- Update package readme documentation
+
 ## [2.5.3] - 30/09/2022
 
 - Update bottom and top position animation initialization
