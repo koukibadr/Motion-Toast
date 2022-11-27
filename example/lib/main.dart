@@ -144,9 +144,9 @@ class _HomePageState extends State<HomePage> {
                     width: 200,
                     child: ElevatedButton(
                       onPressed: () {
-                        _displayCenterMotionToast();
+                        _displayMotionToastWithoutSideBar();
                       },
-                      child: const Text('Center Motion Toast'),
+                      child: const Text('Without sidebar'),
                     ),
                   ),
                   const SizedBox(
@@ -156,9 +156,9 @@ class _HomePageState extends State<HomePage> {
                     width: 200,
                     child: ElevatedButton(
                       onPressed: () {
-                        _displayTopMotionToast();
+                        _displayMotionToastWithBorder();
                       },
-                      child: const Text('Top Motion Toast'),
+                      child: const Text('With border'),
                     ),
                   ),
                   const SizedBox(
@@ -312,7 +312,7 @@ class _HomePageState extends State<HomePage> {
     ).show(context);
   }
 
-  void _displayCenterMotionToast() {
+  void _displayMotionToastWithoutSideBar() {
     MotionToast(
       icon: Icons.alarm,
       primaryColor: Colors.deepOrange,
@@ -329,10 +329,12 @@ class _HomePageState extends State<HomePage> {
       ),
       //description: "Center displayed motion toast",
       position: MotionToastPosition.center,
+      displayBorder: true,
+      displaySideBar: false,
     ).show(context);
   }
 
-  void _displayTopMotionToast() {
+  void _displayMotionToastWithBorder() {
     MotionToast(
       icon: Icons.zoom_out,
       primaryColor: Colors.deepOrange,
@@ -340,6 +342,7 @@ class _HomePageState extends State<HomePage> {
       description: const Text('Another motion toast example'),
       position: MotionToastPosition.top,
       animationType: AnimationType.fromTop,
+      displayBorder: true,
       width: 350,
       height: 100,
       padding: const EdgeInsets.only(

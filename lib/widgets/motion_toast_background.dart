@@ -15,6 +15,10 @@ class MotionToastBackground extends StatelessWidget {
   /// Appearance type of the background.
   final BackgroundType backgroundType;
 
+  final Color borderColor;
+
+  final bool displayBorder;
+
   /// Creates a widget that renders the child
   /// on top of customizable background.
   const MotionToastBackground({
@@ -23,6 +27,8 @@ class MotionToastBackground extends StatelessWidget {
     required this.backgroundColor,
     required this.child,
     required this.backgroundType,
+    required this.borderColor,
+    required this.displayBorder,
   }) : super(key: key);
 
   @override
@@ -50,6 +56,12 @@ class MotionToastBackground extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(borderRadius),
         ),
+        border: displayBorder
+            ? Border.all(
+                width: 1,
+                color: borderColor,
+              )
+            : null,
       ),
       child: child,
     );

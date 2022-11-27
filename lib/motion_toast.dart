@@ -42,6 +42,8 @@ class MotionToast extends StatefulWidget {
     this.backgroundType = BackgroundType.lighter,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
+    this.displayBorder = false,
+    this.displaySideBar = true,
   }) : super(key: key) {
     _initializeAnimationType();
     _assertValidValues();
@@ -81,6 +83,8 @@ class MotionToast extends StatefulWidget {
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
+    this.displayBorder = false,
+    this.displaySideBar = true,
   }) : super(key: key) {
     motionToastType = MotionToastType.success;
     _initializeAnimationType();
@@ -120,6 +124,8 @@ class MotionToast extends StatefulWidget {
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
+    this.displayBorder = false,
+    this.displaySideBar = true,
   }) : super(key: key) {
     motionToastType = MotionToastType.warning;
     _initializeAnimationType();
@@ -159,6 +165,8 @@ class MotionToast extends StatefulWidget {
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
+    this.displayBorder = false,
+    this.displaySideBar = true,
   }) : super(key: key) {
     motionToastType = MotionToastType.error;
     _initializeAnimationType();
@@ -198,6 +206,8 @@ class MotionToast extends StatefulWidget {
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
+    this.displayBorder = false,
+    this.displaySideBar = true,
   }) : super(key: key) {
     motionToastType = MotionToastType.info;
     _initializeAnimationType();
@@ -237,6 +247,8 @@ class MotionToast extends StatefulWidget {
     this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
+    this.displayBorder = false,
+    this.displaySideBar = true,
   }) : super(key: key) {
     motionToastType = MotionToastType.delete;
     _initializeAnimationType();
@@ -409,6 +421,13 @@ class MotionToast extends StatefulWidget {
   ///padding added to the main widget motion taost
   ///by default the padding is set to 0
   final EdgeInsets padding;
+
+
+  //TODO missing code documentation
+  final bool displayBorder;
+
+  //TODO missing code documentation
+  final bool displaySideBar;
 
   /// Display the created motion toast based on the [position] attribute
   /// [context]: the actual context of the application
@@ -632,6 +651,8 @@ class _MotionToastState extends State<MotionToast>
       backgroundColor: widget.primaryColor,
       borderRadius: widget.borderRadius,
       backgroundType: widget.backgroundType,
+      borderColor: widget.secondaryColor ?? widget.primaryColor,
+      displayBorder: widget.displayBorder,
       child: MotionToastContent(
         color: widget.secondaryColor ?? widget.primaryColor,
         description: widget.description,
@@ -641,6 +662,7 @@ class _MotionToastState extends State<MotionToast>
         title: widget.title,
         withAnimation: widget.enableAnimation,
         isReversed: widget.layoutOrientation == ToastOrientation.rtl,
+        displaySideBar: widget.displaySideBar,
       ),
     );
   }
