@@ -422,11 +422,12 @@ class MotionToast extends StatefulWidget {
   ///by default the padding is set to 0
   final EdgeInsets padding;
 
-
-  //TODO missing code documentation
+  /// define whether the borders are rendered or not
+  /// by default  `= false`
   final bool displayBorder;
 
-  //TODO missing code documentation
+  /// define whether the side bar is displayed or not
+  /// default `= true`
   final bool displaySideBar;
 
   /// Display the created motion toast based on the [position] attribute
