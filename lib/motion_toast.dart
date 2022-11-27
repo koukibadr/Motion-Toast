@@ -16,9 +16,9 @@ class MotionToast extends StatefulWidget {
   /// Used to create a custom motion toast with given [icon], [description] and  [primaryColor]
   MotionToast({
     Key? key,
-    required this.icon,
     required this.description,
     required this.primaryColor,
+    this.icon,
     this.title,
     this.width,
     this.height,
@@ -300,7 +300,7 @@ class MotionToast extends StatefulWidget {
   /// the icon will get the default type icon
   ///
   /// if [motionToastType] set to [MotionToastType.custom] the icon parameter is required
-  late final IconData icon;
+  late final IconData? icon;
 
   /// The motion toast background color
   /// if `motionToastType == MOTION_TOAST_TYPE.CUSTOM` color parameter is required

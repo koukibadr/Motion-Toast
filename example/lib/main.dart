@@ -299,19 +299,16 @@ class _HomePageState extends State<HomePage> {
 
   void _displayCustomMotionToast() {
     MotionToast(
-      icon: Icons.alarm,
       primaryColor: Colors.pink,
       title: const Text(
-        'New bugatti',
+        'Bugatti',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
-      description: Image.network(
-        'https://media.wired.com/photos/5d56e7a245517600087f90a3/master/pass/Transpo_bugatti_02_CD_3I4-FRONT.jpg',
-        width: 100,
-        height: 100,
-      ),
+      dismissable: false,
+      description: const Text(
+          'Automobiles Ettore Bugatti was a German then French manufacturer of high-performance automobiles. The company was founded in 1909 in the then-German city of Molsheim, Alsace, by the Italian-born industrial designer Ettore Bugatti. '),
     ).show(context);
   }
 

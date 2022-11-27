@@ -35,7 +35,7 @@ class MotionToastContent extends StatelessWidget {
   final double iconSize;
 
   /// Icon to display on the toast.
-  final IconData icon;
+  final IconData? icon;
 
   /// Set to `true` to show animation of the toast.
   final bool withAnimation;
@@ -67,13 +67,18 @@ class MotionToastContent extends StatelessWidget {
               ),
             ),
           ),
-          const Seperator.double(15),
-          MotionToastIcon(
-            iconSize: iconSize,
-            color: color,
-            icon: icon,
-            withAnimation: withAnimation,
-          ),
+          if (icon != null)
+            Row(
+              children: [
+                const Seperator.double(15),
+                MotionToastIcon(
+                  iconSize: iconSize,
+                  color: color,
+                  icon: icon!,
+                  withAnimation: withAnimation,
+                ),
+              ],
+            ),
           const Seperator.double(15),
           MotionToastSideBar(
             color: color,
@@ -91,13 +96,18 @@ class MotionToastContent extends StatelessWidget {
           radius: radius,
         ),
         const Seperator.double(15),
-        MotionToastIcon(
-          iconSize: iconSize,
-          color: color,
-          icon: icon,
-          withAnimation: withAnimation,
-        ),
-        const Seperator.double(15),
+        if (icon != null)
+          Row(
+            children: [
+              MotionToastIcon(
+                iconSize: iconSize,
+                color: color,
+                icon: icon!,
+                withAnimation: withAnimation,
+              ),
+              const Seperator.double(15),
+            ],
+          ),
         Flexible(
           child: SingleChildScrollView(
             padding: const EdgeInsets.only(
