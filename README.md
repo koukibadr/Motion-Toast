@@ -40,6 +40,8 @@
 - Customizable width and height
 - Customizable box constraints
 - Customizable toast padding
+- Customizable border display
+- Customizable sidebar widget display
 
   
 
@@ -51,7 +53,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.5.4
+	motion_toast: ^2.6.4
 ```
 
   
@@ -199,6 +201,14 @@ final  Color barrierColor;
 ///padding added to the main widget motion taost
 ///by default the padding is set to 0
 final  EdgeInsets padding;
+
+/// define whether the borders are rendered or not
+  /// by default  `= false`
+  final bool displayBorder;
+
+  /// define whether the side bar is displayed or not
+  /// default `= true`
+  final bool displaySideBar;
 
 ```
 
@@ -471,6 +481,26 @@ MotionToast(
 </p>
 
   
+
+-  **Motion toast without sidebar and with border**
+
+  
+
+```dart
+
+MotionToast(
+	icon:  Icons.zoom_out,
+	primaryColor:  Colors.orange[500]!,
+	secondaryColor:  Colors.grey,
+	backgroundType:  BackgroundType.solid,
+	title:  Text('Two Color Motion Toast'),
+	description:  Text('Another motion toast example'),
+	displayBorder: true,
+	displaySideBar: false,
+).show(context);
+
+```
+
 
 ## Contribution
 

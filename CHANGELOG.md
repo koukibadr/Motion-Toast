@@ -1,3 +1,11 @@
+## [2.6.4] - 27/11/2022
+
+- Remove required rule from icon attribute
+- Add border to motion toast content widget
+- Add displayBorder attribute
+- Add displaySideBar boolean attribute
+
+
 ## [2.5.4] - 13/11/2022
 
 - Update package readme documentation

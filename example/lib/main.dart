@@ -314,21 +314,12 @@ class _HomePageState extends State<HomePage> {
 
   void _displayMotionToastWithoutSideBar() {
     MotionToast(
-      icon: Icons.alarm,
-      primaryColor: Colors.deepOrange,
-      title: const Text(
-        'Center Toast',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      width: 350,
-      height: 150,
-      description: const Text(
-        'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed sed.',
-      ),
-      //description: "Center displayed motion toast",
-      position: MotionToastPosition.center,
+      icon: Icons.zoom_out,
+      primaryColor: Colors.orange[500]!,
+      secondaryColor: Colors.grey,
+      backgroundType: BackgroundType.solid,
+      title: Text('Two Color Motion Toast'),
+      description: Text('Another motion toast example'),
       displayBorder: true,
       displaySideBar: false,
     ).show(context);
