@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
+import 'package:motion_toast/resources/extensions.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
 import 'package:motion_toast/widgets/motion_toast_content.dart';
 
@@ -560,29 +561,17 @@ class _MotionToastState extends State<MotionToast>
         body: SafeArea(
           child: Padding(
             padding: widget.padding,
-            child: _buildToast(),
+            child: _renderMotionToastContent(),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildToast() {
-    switch (widget.position) {
-      case MotionToastPosition.top:
-        return _renderTopMotionToast();
-      case MotionToastPosition.center:
-        return _renderCenterMotionToast();
-      case MotionToastPosition.bottom:
-        return _renderBottomMotionToast();
-    }
-  }
-
-  /// Create a bottom motion toast with all the given attributes
-  Widget _renderBottomMotionToast() {
+  Widget _renderMotionToastContent() {
     return Center(
       child: Align(
-        alignment: Alignment.bottomCenter,
+        alignment: widget.position.alignment,
         child: Container(
           height: widget.height,
           width: widget.width,
@@ -594,54 +583,12 @@ class _MotionToastState extends State<MotionToast>
                     maxHeight: 100,
                   )
               : null,
-          child: SlideTransition(
-            position: offsetAnimation,
-            child: _buildMotionToast(),
-          ),
-        ),
-      ),
-    );
-  }
-
-  /// render center displayed motion toast with all the given attributes
-  Widget _renderCenterMotionToast() {
-    return Center(
-      child: Container(
-        height: widget.height,
-        width: widget.width,
-        constraints: widget.height == null && widget.width == null
-            ? widget.constraints ??
-                BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width * 0.75,
-                  minWidth: 200,
-                  maxHeight: 100,
-                )
-            : null,
-        child: _buildMotionToast(),
-      ),
-    );
-  }
-
-  /// render a top positionned motion toast with all the given attributes
-  Widget _renderTopMotionToast() {
-    return Center(
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: Container(
-          height: widget.height,
-          width: widget.width,
-          constraints: widget.height == null && widget.width == null
-              ? widget.constraints ??
-                  BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.75,
-                    minWidth: 200,
-                    maxHeight: 100,
-                  )
-              : null,
-          child: SlideTransition(
-            position: offsetAnimation,
-            child: _buildMotionToast(),
-          ),
+          child: widget.position == MotionToastPosition.center
+              ? _buildMotionToast()
+              : SlideTransition(
+                  position: offsetAnimation,
+                  child: _buildMotionToast(),
+                ),
         ),
       ),
     );
