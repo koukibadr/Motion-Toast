@@ -1,3 +1,7 @@
+## [2.6.5] - 11/02/2023
+
+- Fix material3 support issue for bottom toasts
+
 ## [2.6.4] - 27/11/2022
 
 - Remove required rule from icon attribute
