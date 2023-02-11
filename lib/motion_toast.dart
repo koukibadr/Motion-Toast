@@ -434,31 +434,15 @@ class MotionToast extends StatefulWidget {
   /// Display the created motion toast based on the [position] attribute
   /// [context]: the actual context of the application
   void show(BuildContext context) {
-    switch (position) {
-      case MotionToastPosition.center:
-      case MotionToastPosition.top:
-        Navigator.of(context).push(
-          PageRouteBuilder<Widget>(
-            fullscreenDialog: false,
-            barrierColor: barrierColor,
-            pageBuilder: (BuildContext context, _, __) => this,
-            opaque: false,
-            barrierDismissible: dismissable,
-          ),
-        );
-        break;
-      default:
-        showModalBottomSheet(
-          isDismissible: dismissable,
-          backgroundColor: Colors.transparent,
-          constraints: BoxConstraints(
-            maxHeight: (height ?? constraints?.maxHeight ?? 100) * 1.3,
-          ),
-          barrierColor: barrierColor,
-          context: context,
-          builder: (_) => this,
-        );
-    }
+    Navigator.of(context).push(
+      PageRouteBuilder<Widget>(
+        fullscreenDialog: false,
+        barrierColor: barrierColor,
+        pageBuilder: (BuildContext context, _, __) => this,
+        opaque: false,
+        barrierDismissible: dismissable,
+      ),
+    );
   }
 }
 
