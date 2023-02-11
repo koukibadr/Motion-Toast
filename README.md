@@ -6,6 +6,7 @@
 <img  src="https://github.com/koukibadr/Motion-Toast/blob/main/MOTION%20TOAST.gif?raw=true"  width="350"/>
 <br>
 <b>A well designed toast with animations for all platforms</b>
+<b>Support material3 themes</b>
 </p>
 
   
@@ -42,7 +43,6 @@
 - Customizable toast padding
 - Customizable border display
 - Customizable sidebar widget display
-
   
 
 ## Getting Started
@@ -53,7 +53,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.6.4
+	motion_toast: ^2.6.5
 ```
 
   
