@@ -53,7 +53,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.6.5
+	motion_toast: ^2.6.6
 ```
 
   
@@ -498,6 +498,26 @@ MotionToast(
 	displayBorder: true,
 	displaySideBar: false,
 ).show(context);
+
+```
+
+-  **Dismiss the toast from your UI screen**
+
+  
+
+```dart
+
+MotionToast toast = MotionToast(
+	icon:  Icons.zoom_out,
+	primaryColor:  Colors.orange[500]!,
+	secondaryColor:  Colors.grey,
+	backgroundType:  BackgroundType.solid,
+	title:  Text('Two Color Motion Toast'),
+	description:  Text('Another motion toast example'),
+	displayBorder: true,
+	displaySideBar: false,
+).show(context);
+toast.dismiss();
 
 ```
 

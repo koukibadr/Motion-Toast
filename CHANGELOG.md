@@ -1,3 +1,7 @@
+## [2.6.6] - 02/04/2023
+
+- Add dismiss toast callback (hot fix for this [issue](https://github.com/koukibadr/Motion-Toast/issues/100) )
+
 ## [2.6.5] - 11/02/2023
 
 - Fix material3 support issue for bottom toasts

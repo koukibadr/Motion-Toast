@@ -431,9 +431,12 @@ class MotionToast extends StatefulWidget {
   /// default `= true`
   final bool displaySideBar;
 
+  late BuildContext _context;
+
   /// Display the created motion toast based on the [position] attribute
   /// [context]: the actual context of the application
   void show(BuildContext context) {
+    _context = context;
     Navigator.of(context).push(
       PageRouteBuilder<Widget>(
         fullscreenDialog: false,
@@ -444,6 +447,12 @@ class MotionToast extends StatefulWidget {
       ),
     );
   }
+
+  void dismiss() {
+    Navigator.of(_context).pop();
+    onClose?.call();
+  }
+
 }
 
 class _MotionToastState extends State<MotionToast>
