@@ -452,7 +452,6 @@ class MotionToast extends StatefulWidget {
     Navigator.of(_context).pop();
     onClose?.call();
   }
-
 }
 
 class _MotionToastState extends State<MotionToast>
