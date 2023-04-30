@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _displaySuccessMotionToast() {
-    MotionToast.success(
+    MotionToast toast = MotionToast.success(
       title: const Text(
         'Lorum Ipsum',
         style: TextStyle(fontWeight: FontWeight.bold),
@@ -219,7 +219,11 @@ class _HomePageState extends State<HomePage> {
       layoutOrientation: ToastOrientation.rtl,
       animationType: AnimationType.fromRight,
       dismissable: true,
-    ).show(context);
+    );
+    toast.show(context);
+    Future.delayed(const Duration(seconds: 4)).then((value) {
+      toast.dismiss();
+    });
   }
 
   void _displayWarningMotionToast() {
@@ -308,7 +312,8 @@ class _HomePageState extends State<HomePage> {
       ),
       dismissable: false,
       description: const Text(
-          'Automobiles Ettore Bugatti was a German then French manufacturer of high-performance automobiles. The company was founded in 1909 in the then-German city of Molsheim, Alsace, by the Italian-born industrial designer Ettore Bugatti. '),
+        'Automobiles Ettore Bugatti was a German then French manufacturer of high-performance automobiles. The company was founded in 1909 in the then-German city of Molsheim, Alsace, by the Italian-born industrial designer Ettore Bugatti. ',
+      ),
     ).show(context);
   }
 
@@ -318,8 +323,8 @@ class _HomePageState extends State<HomePage> {
       primaryColor: Colors.orange[500]!,
       secondaryColor: Colors.grey,
       backgroundType: BackgroundType.solid,
-      title: Text('Two Color Motion Toast'),
-      description: Text('Another motion toast example'),
+      title: const Text('Two Color Motion Toast'),
+      description: const Text('Another motion toast example'),
       displayBorder: true,
       displaySideBar: false,
     ).show(context);

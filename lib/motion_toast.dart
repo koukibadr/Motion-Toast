@@ -14,6 +14,10 @@ class MotionToast extends StatefulWidget {
   @override
   State<MotionToast> createState() => _MotionToastState();
 
+  // ignore: library_private_types_in_public_api
+  static _MotionToastState? of(BuildContext context) =>
+      context.findAncestorStateOfType<_MotionToastState>();
+
   /// Used to create a custom motion toast with given [icon], [description] and  [primaryColor]
   MotionToast({
     Key? key,
@@ -449,8 +453,7 @@ class MotionToast extends StatefulWidget {
   }
 
   void dismiss() {
-    Navigator.of(_context).pop();
-    onClose?.call();
+    of(_context)?._popCurrentToast();
   }
 }
 
