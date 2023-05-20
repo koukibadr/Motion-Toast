@@ -11,8 +11,14 @@ import 'package:motion_toast/widgets/motion_toast_content.dart';
 /// Render the motion toast widget
 // ignore: must_be_immutable
 class MotionToast extends StatefulWidget {
+  late State<MotionToast> currentWidgetState;
+
   @override
-  State<MotionToast> createState() => _MotionToastState();
+  // ignore: no_logic_in_create_state
+  State<MotionToast> createState() {
+    currentWidgetState = _MotionToastState();
+    return currentWidgetState;
+  }
 
   // ignore: library_private_types_in_public_api
   static _MotionToastState? of(BuildContext context) =>
@@ -453,7 +459,10 @@ class MotionToast extends StatefulWidget {
   }
 
   void dismiss() {
-    of(_context)?._popCurrentToast();
+    if (currentWidgetState.mounted) {
+      Navigator.of(_context).pop();
+      onClose?.call();
+    }
   }
 }
 
