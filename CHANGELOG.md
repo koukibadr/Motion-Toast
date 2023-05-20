@@ -1,3 +1,7 @@
+## [2.6.8] - 20/05/2023
+
+- Fix toast dismiss callback bug: [issue](https://github.com/koukibadr/Motion-Toast/issues/100)
+
 ## [2.6.7] - 30/04/2023
 
 - Fix auto dismiss issue

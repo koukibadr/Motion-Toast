@@ -53,7 +53,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.6.7
+	motion_toast: ^2.6.8
 ```
 
   
