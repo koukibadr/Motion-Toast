@@ -48,7 +48,6 @@ class MotionToast extends StatefulWidget {
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
-    this.dismissable = true,
     this.secondaryColor,
     this.backgroundType = BackgroundType.lighter,
     this.barrierColor = Colors.transparent,
@@ -91,7 +90,6 @@ class MotionToast extends StatefulWidget {
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
-    this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
     this.displayBorder = false,
@@ -132,7 +130,6 @@ class MotionToast extends StatefulWidget {
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
-    this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
     this.displayBorder = false,
@@ -173,7 +170,6 @@ class MotionToast extends StatefulWidget {
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
-    this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
     this.displayBorder = false,
@@ -214,7 +210,6 @@ class MotionToast extends StatefulWidget {
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
-    this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
     this.displayBorder = false,
@@ -255,7 +250,6 @@ class MotionToast extends StatefulWidget {
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
-    this.dismissable = true,
     this.barrierColor = Colors.transparent,
     this.padding = EdgeInsets.zero,
     this.displayBorder = false,
@@ -421,10 +415,6 @@ class MotionToast extends StatefulWidget {
   /// Function invoked when the toast is closed
   final Function? onClose;
 
-  /// define whether the motion toast can be dismissed or not
-  /// applied on bottom motion toast
-  final bool dismissable;
-
   /// The barrier color applied to the dialog display
   /// by default the barrier is transparent [Colors.transparent]
   final Color barrierColor;
@@ -441,26 +431,39 @@ class MotionToast extends StatefulWidget {
   /// default `= true`
   final bool displaySideBar;
 
-  late BuildContext _context;
+  //Overlay that does not block the screen
+  OverlayEntry? overlayEntry;
+
+  ///display the notification on the screen
+  ///[context] the context of the application
+  void show(BuildContext context) {
+    overlayEntry = _overlayEntryBuilder();
+    Overlay.maybeOf(context)?.insert(overlayEntry!);
+  }
 
   /// Display the created motion toast based on the [position] attribute
   /// [context]: the actual context of the application
-  void show(BuildContext context) {
-    _context = context;
-    Navigator.of(context).push(
-      PageRouteBuilder<Widget>(
-        fullscreenDialog: false,
-        barrierColor: barrierColor,
-        pageBuilder: (BuildContext context, _, __) => this,
-        opaque: false,
-        barrierDismissible: dismissable,
-      ),
+  OverlayEntry _overlayEntryBuilder() {
+    return OverlayEntry(
+      opaque: false,
+      builder: (context) {
+        return SafeArea(
+          child: AlertDialog(
+            backgroundColor: Colors.transparent,
+            contentPadding: const EdgeInsets.all(0),
+            insetPadding: const EdgeInsets.all(30),
+            elevation: 0,
+            content: this,
+          ),
+        );
+      },
     );
   }
 
   void dismiss() {
     if (currentWidgetState.mounted) {
-      Navigator.of(_context).pop();
+      overlayEntry?.remove();
+      overlayEntry = null;
       onClose?.call();
     }
   }
@@ -474,7 +477,8 @@ class _MotionToastState extends State<MotionToast>
 
   void _popCurrentToast() {
     if (mounted) {
-      Navigator.of(context).pop();
+      widget.overlayEntry?.remove();
+      widget.overlayEntry = null;
       widget.onClose?.call();
     }
   }
@@ -558,18 +562,7 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.dismissable ? _popCurrentToast : null,
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Padding(
-            padding: widget.padding,
-            child: _renderMotionToastContent(),
-          ),
-        ),
-      ),
-    );
+    return _renderMotionToastContent();
   }
 
   Widget _renderMotionToastContent() {
