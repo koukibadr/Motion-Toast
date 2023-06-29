@@ -1,3 +1,7 @@
+## [2.7.8] - 29/06/2023
+
+- Add dark mode support (special thanks to [kmalyshev](https://github.com/kmalyshev))
+
 ## [2.6.8] - 20/05/2023
 
 - Fix toast dismiss callback bug: [issue](https://github.com/koukibadr/Motion-Toast/issues/100)

@@ -22,6 +22,7 @@
   
 
 - Animated toasts with animated icons
+- Support dark and light mode
 - Built-in types (Success, Warning, Error, Info, Delete)
 - Possibility to design your own toast
 - Different color themes (mutliple colors support)
@@ -53,7 +54,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.6.8
+	motion_toast: ^2.7.8
 ```
 
   
