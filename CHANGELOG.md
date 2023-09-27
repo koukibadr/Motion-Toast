@@ -1,3 +1,7 @@
+## [2.7.9] - 27/09/2023
+
+- Update package license to MIT license
+
 ## [2.7.8] - 29/06/2023
 
 - Add dark mode support (special thanks to [kmalyshev](https://github.com/kmalyshev))
