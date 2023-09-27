@@ -1,6 +1,6 @@
 name: motion_toast
 description: 'A beautiful designed toast with animations, contains multiple built in designs and let you design your toast'
-version: 2.7.8
+version: 2.7.9
 homepage: 'https://github.com/koukibadr/Motion-Toast'
 environment:
   sdk: '>=2.12.0 <3.0.0'
