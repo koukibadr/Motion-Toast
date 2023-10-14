@@ -1,7 +1,8 @@
 on:
-  release:
-    branches:
-      - main
+  push:
+    branches: [ "release" ]
+  pull_request:
+    branches: [ "release" ]
 jobs:
   build:
     runs-on: ubuntu-latest
