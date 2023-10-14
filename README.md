@@ -57,8 +57,6 @@ dependencies:
 	motion_toast: ^2.7.9
 ```
 
-  
-
 Or you can reference the main repository directly by adding those lines
 
   
