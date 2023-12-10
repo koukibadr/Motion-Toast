@@ -2,6 +2,9 @@
 
 - Update package license to MIT license
 
+## [2.7.10] - 10/12/2023
+
+- Add `resources/arrays.dart` file export [Issue link](https://github.com/koukibadr/Motion-Toast/issues/112) 
 ## [2.7.8] - 29/06/2023
 
 - Add dark mode support (special thanks to [kmalyshev](https://github.com/kmalyshev))

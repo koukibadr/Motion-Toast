@@ -1,5 +1,6 @@
 library motion_toast;
 
+export 'resources/arrays.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
