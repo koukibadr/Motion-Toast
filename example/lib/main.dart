@@ -230,7 +230,7 @@ class _HomePageState extends State<HomePage> {
     );
     toast.show(context);
     Future.delayed(const Duration(seconds: 4)).then((value) {
-      toast.dismiss();
+      //toast.dismiss();
     });
   }
 

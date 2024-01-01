@@ -444,19 +444,30 @@ class MotionToast extends StatefulWidget {
 
   late BuildContext _context;
 
+  bool withOverlay = false;
+
+  //Overlay that does not block the screen
+  OverlayEntry? overlayEntry;
+
   /// Display the created motion toast based on the [position] attribute
   /// [context]: the actual context of the application
   void show(BuildContext context) {
     _context = context;
-    Navigator.of(context).push(
-      PageRouteBuilder<Widget>(
-        fullscreenDialog: false,
-        barrierColor: barrierColor,
-        pageBuilder: (BuildContext context, _, __) => this,
-        opaque: false,
-        barrierDismissible: dismissable,
-      ),
-    );
+
+    if (withOverlay) {
+      overlayEntry = _overlayEntryBuilder();
+      Overlay.maybeOf(context)?.insert(overlayEntry!);
+    } else {
+      Navigator.of(context).push(
+        PageRouteBuilder<Widget>(
+          fullscreenDialog: false,
+          barrierColor: barrierColor,
+          pageBuilder: (BuildContext context, _, __) => this,
+          opaque: false,
+          barrierDismissible: dismissable,
+        ),
+      );
+    }
   }
 
   void dismiss() {
@@ -464,6 +475,29 @@ class MotionToast extends StatefulWidget {
       Navigator.of(_context).pop();
       onClose?.call();
     }
+  }
+
+  void closeOverlay() {
+    overlayEntry?.remove();
+    overlayEntry = null;
+  }
+
+  OverlayEntry _overlayEntryBuilder() {
+    return OverlayEntry(
+      opaque: false,
+      builder: (context) {
+        return SafeArea(
+          child: AlertDialog(
+            //TODO add toast position
+            backgroundColor: Colors.transparent,
+            contentPadding: const EdgeInsets.all(0),
+            insetPadding: const EdgeInsets.all(30),
+            elevation: 0,
+            content: this,
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -475,7 +509,11 @@ class _MotionToastState extends State<MotionToast>
 
   void _popCurrentToast() {
     if (mounted) {
-      Navigator.of(context).pop();
+      if (widget.withOverlay) {
+        widget.closeOverlay();
+      } else {
+        Navigator.of(context).pop();
+      }
       widget.onClose?.call();
     }
   }
