@@ -56,7 +56,6 @@ class MotionToastContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const Seperator.double(10),
           Flexible(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -123,10 +122,9 @@ class MotionToastContent extends StatelessWidget {
           ),
         Flexible(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.only(
-              top: 10,
-              bottom: 10,
-              right: 8,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5,
+              vertical: 10,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,7 +136,6 @@ class MotionToastContent extends StatelessWidget {
             ),
           ),
         ),
-        const Seperator.double(7),
       ],
     );
   }

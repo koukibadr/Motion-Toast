@@ -2,6 +2,11 @@
 
 - Update package license to MIT license
 
+## [2.8.0] - 21/01/2024
+
+- Update motion toast display with Overlay instead of Navigator
+- Fix center content issue [Issue #113](https://github.com/koukibadr/Motion-Toast/issues/113) 
+
 ## [2.7.10] - 10/12/2023
 
 - Add `resources/arrays.dart` file export [Issue link](https://github.com/koukibadr/Motion-Toast/issues/112) 
