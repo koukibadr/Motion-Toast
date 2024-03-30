@@ -8,7 +8,7 @@ const motionToastColors = {
   MotionToastType.error: errorColor,
   MotionToastType.warning: warningColor,
   MotionToastType.info: infoColor,
-  MotionToastType.delete: deleteColor
+  MotionToastType.delete: deleteColor,
 };
 
 /// Material Icons for the different types of motion toast.
@@ -17,7 +17,7 @@ const motionToastIconsMD = {
   MotionToastType.error: Icons.error,
   MotionToastType.warning: Icons.warning,
   MotionToastType.info: Icons.info,
-  MotionToastType.delete: Icons.delete
+  MotionToastType.delete: Icons.delete,
 };
 
 /// Cupertino Icons for the different types of motion toast.

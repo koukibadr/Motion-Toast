@@ -3,7 +3,7 @@ description: 'A beautiful designed toast with animations, contains multiple buil
 version: 2.9.0
 homepage: 'https://github.com/koukibadr/Motion-Toast'
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.12.0 <4.0.0'
   flutter: '>=1.17.0'
 dependencies:
   flutter:
