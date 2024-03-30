@@ -215,23 +215,19 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _displaySuccessMotionToast() {
-    MotionToast toast = MotionToast.success(
-      title: const Text(
-        'Lorum Ipsum',
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
+    MotionToast toast = MotionToast(
+      primaryColor: Colors.red,
       description: const Text(
-        'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor, sed do eiusmod tempor',
+        'This is a description example',
         style: TextStyle(fontSize: 12),
       ),
-      layoutOrientation: ToastOrientation.rtl,
-      animationType: AnimationType.fromRight,
       dismissable: true,
+      displaySideBar: false,
     );
     toast.show(context);
-    Future.delayed(const Duration(seconds: 4)).then((value) {
-      toast.closeOverlay();
-    });
+    // Future.delayed(const Duration(seconds: 4)).then((value) {
+    //   toast.closeOverlay();
+    // });
   }
 
   void _displayWarningMotionToast() {
@@ -349,7 +345,7 @@ class _HomePageState extends State<HomePage> {
       displayBorder: true,
       width: 350,
       height: 100,
-      padding: const EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 30,
       ),
     ).show(context);

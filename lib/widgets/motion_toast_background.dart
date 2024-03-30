@@ -3,26 +3,15 @@ import 'package:motion_toast/resources/arrays.dart';
 
 /// Widget that renders a motion toast background
 class MotionToastBackground extends StatelessWidget {
-  /// Border radius of the background.
   final double borderRadius;
-
-  /// The color of the background.
   final Color backgroundColor;
-
-  /// Widget to render on top of the background.
   final Widget child;
-
-  /// Appearance type of the background.
   final BackgroundType backgroundType;
-
   final Color borderColor;
-
   final bool displayBorder;
-
   final Brightness brightness;
+  final EdgeInsets contentPadding;
 
-  /// Creates a widget that renders the child
-  /// on top of customizable background.
   const MotionToastBackground({
     Key? key,
     required this.borderRadius,
@@ -32,6 +21,7 @@ class MotionToastBackground extends StatelessWidget {
     required this.borderColor,
     required this.displayBorder,
     required this.brightness,
+    required this.contentPadding,
   }) : super(key: key);
 
   @override
@@ -66,7 +56,10 @@ class MotionToastBackground extends StatelessWidget {
               )
             : null,
       ),
-      child: child,
+      child: Padding(
+        padding: contentPadding,
+        child: child,
+      ),
     );
   }
 }
