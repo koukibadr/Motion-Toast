@@ -54,7 +54,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.8.0
+	motion_toast: ^2.9.0
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -78,130 +78,144 @@ dependencies:
 ```dart
 
 /// the text widget used for description message
-final  Widget description;
+  final Widget description;
 
-/// The title of the motion toast
-/// if it's null it will not be rendered in the widget
-final  Widget? title;
+  /// The title of the motion toast
+  /// if it's null it will not be rendered in the widget
+  final Widget? title;
 
-/// The motion toast type possible values:
-/// sucess
-/// error
-/// warning
-/// info
-/// delete
-/// custom
-late  final  MotionToastType motionToastType;
+  /// The motion toast type possible values:
+  /// ```dart
+  /// {
+  ///  sucess
+  ///  error
+  ///  warning
+  ///  info
+  ///  delete
+  ///  custom
+  /// }
+  /// ```
+  late final MotionToastType motionToastType;
 
-  
+  /// The motion toast icon, for types other than custom
+  /// the icon will get the default type icon
+  ///
+  /// if [motionToastType] set to [MotionToastType.custom] the icon parameter is required
+  late final IconData? icon;
 
-/// The motion toast icon, for types other than custom
-/// the icon will get the default type icon
-/// if [motionToastType] set to [MotionToastType.custom] the icon parameter is required
-late  final  IconData icon;
+  /// The motion toast background color
+  /// if `motionToastType == MOTION_TOAST_TYPE.CUSTOM` color parameter is required
+  /// else the color will get the default type color from [motionToastColors]
+  late final Color primaryColor;
 
-/// The motion toast background color
-/// if `motionToastType == MOTION_TOAST_TYPE.CUSTOM` color parameter is required
-/// else the color will get the default type color from [motionToastColors]
-late  final  Color primaryColor;
+  /// Color applied on the motion toast side widget (sidebar) and the icon
+  /// if it's null secondary color will be the primary color
+  /// can be customized when using the default constructor
+  late final Color? secondaryColor;
 
-/// Color applied on the motion toast side widget (sidebar) and the icon
-/// if it's null secondary color will be the primary color
-/// can be customized when using the default constructor
-late  final  Color? secondaryColor;
+  /// the type  of the background that will be applied on the motion toast content
+  /// available values:
+  /// - solid: the primary color will be applied as it is on the content background
+  /// - transparent: an opacity will be added to the primary color
+  /// - lighter: a white background added to the motion toast with little opacity added to the primary color
+  late final BackgroundType backgroundType;
 
+  /// The design type icon (Material design or Cupertino)
+  /// if [motionToastType] set to [MOTION_TOAST_TYPE.CUSTOM] [iconType] will not be used
+  /// possible values
+  /// ```dart
+  /// {
+  /// MATERIAL_DESIGN,
+  /// CUPERTINO
+  /// }
+  /// ```
+  late final IconType? iconType;
 
-/// the type of the background that will be applied on the motion toast content
-/// available values:
-/// - solid: the primary color will be applied as it is on the content background
-/// - transparent: an opacity will be added to the primary color
-/// - lighter: a white background added to the motion toast with little opacity added to the primary color
-late  final  BackgroundType backgroundType;
+  /// The motion toast width by default it's set to 250
+  final double? width;
 
+  /// define the height of the motion toast
+  final double? height;
 
-/// The design type icon (Material design or Cupertino)
-/// if [motionToastType] set to [MOTION_TOAST_TYPE.CUSTOM]  [iconType] will not be used
-/// possible values
-/// MATERIAL_DESIGN,
-/// CUPERTINO
-late  final  IconType? iconType;
+  /// The constraint of the motion toast to size itself to the content
+  /// for responsive design
+  /// If it's `null`, then [width] and [height] will be used as it is.
+  final BoxConstraints? constraints;
 
-/// The motion toast width by default it's set to 250
-final  double? width;
+  /// the motion toast icon size
+  /// by default it's 40
+  final double iconSize;
 
-/// define the height of the motion toast
-final  double? height;
+  /// disable or enable the heartbeat animation on the icon
+  /// by default the animation is enabled
+  final bool enableAnimation;
 
-/// The constraint of the motion toast to size itself to the content
-/// for responsive design
-/// If it's `null`, then [width] and [height] will be used as it is.
-final  BoxConstraints? constraints;
+  /// The layout ToastOrientation (from right to left or from left to right)
+  /// ```dart
+  /// {
+  /// LTR,
+  /// RTL
+  /// }
+  /// ```
+  final ToastOrientation layoutOrientation;
 
-/// the motion toast icon size
-/// by default it's 40
-final  double iconSize;
+  /// The type of animation, by default it's [AnimationType.fromBottom]
+  /// ```dart
+  /// {
+  /// FROM_BOTTOM,
+  /// FROM_LEFT,
+  /// FROM_RIGHT
+  /// }
+  /// ```
+  late AnimationType animationType;
 
+  /// the Duration of the toast animation
+  /// by default it's 1.5 seconds
+  final Duration animationDuration;
 
-/// disable or enable the heartbeat animation on the icon
-/// by default the animation is enabled
-final  bool enableAnimation;
+  /// How long the toast will be shown
+  /// by default it's 3 seconds.
+  final Duration toastDuration;
 
-/// The layout ToastOrientation (from right to left or from left to right)
-/// {
-/// LTR,
-/// RTL
-/// }
-final  ToastOrientation layoutOrientation;
+  /// The toast animation curve
+  /// by default it's `Curves.ease`
+  final Curve animationCurve;
 
-  
+  /// The position where the motion toast will be displayed
+  /// possible values
+  /// ```dart
+  /// {
+  /// CENTER,
+  /// TOP,
+  /// BOTTOM
+  /// }
+  /// ```
+  final MotionToastPosition position;
 
-/// The type of animation, by default it's [AnimationType.fromBottom]
-/// {
-/// FROM_BOTTOM,
-/// FROM_LEFT,
-/// FROM_RIGHT
-final  AnimationType animationType;
+  /// Define the border radius of the toast
+  /// by default it's 20
+  final double borderRadius;
 
+  /// Function invoked when the toast is closed
+  final Function? onClose;
 
-/// the Duration of the toast animation
-/// by default it's 1.5 seconds
-final  Duration animationDuration;
+  /// define whether the motion toast can be dismissed or not
+  /// applied on bottom motion toast
+  final bool dismissable;
 
-/// How long the toast will be shown
-/// by default it's 3 seconds.
-final  Duration toastDuration;
+  /// The barrier color applied to the dialog display
+  /// by default the barrier is transparent [Colors.transparent]
+  final Color barrierColor;
 
-/// The toast animation curve
-/// by default it's `Curves.ease`
-final  Curve animationCurve;
+  ///padding added to the main widget motion taost
+  ///by default the padding is set to 0
+  final EdgeInsets margin;
 
-/// The position where the motion toast will be displayed
-/// possible values
-/// CENTER,
-/// TOP,
-/// BOTTOM
-final  MotionToastPosition position;
+  ///padding added under the main widget
+  ///by default the padding is set to 0
+  final EdgeInsets contentPadding;
 
-/// Define the border radius of the toast
-/// by default it's 20
-final  double borderRadius;
-
-/// Function invoked when the toast is closed
-final  Function? onClose;
-
-/// define whether the motion toast can be dismissed or not
-/// applied on bottom motion toast
-final  bool dismissable;
-
-/// The barrier color applied to the dialog display
-/// by default the barrier is transparent [Colors.transparent]
-final  Color barrierColor;
-
-///padding added to the main widget motion taost
-///by default the padding is set to 0
-final  EdgeInsets padding;
-
-/// define whether the borders are rendered or not
+  /// define whether the borders are rendered or not
   /// by default  `= false`
   final bool displayBorder;
 
