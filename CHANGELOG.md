@@ -1,3 +1,7 @@
+## [2.9.1] - 13/04/2024
+
+- Update package documentation and pubspec description image
+
 ## [2.9.0] - 30/03/2024
 
 - Rename `padding` to `margin`
