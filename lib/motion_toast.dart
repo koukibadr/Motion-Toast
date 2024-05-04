@@ -471,14 +471,9 @@ class MotionToast extends StatefulWidget {
     return OverlayEntry(
       opaque: false,
       builder: (context) {
-        return SafeArea(
-          child: AlertDialog(
-            backgroundColor: Colors.transparent,
-            contentPadding: const EdgeInsets.all(0),
-            insetPadding: const EdgeInsets.all(30),
-            elevation: 0,
-            content: this,
-          ),
+        return Material(
+          color: Colors.transparent,
+          child: this,
         );
       },
     );
@@ -577,18 +572,7 @@ class _MotionToastState extends State<MotionToast>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.dismissable ? _popCurrentToast : null,
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Padding(
-            padding: widget.margin,
-            child: _renderMotionToastContent(),
-          ),
-        ),
-      ),
-    );
+    return _renderMotionToastContent();
   }
 
   Widget _renderMotionToastContent() {
@@ -598,6 +582,7 @@ class _MotionToastState extends State<MotionToast>
         child: Container(
           height: widget.height,
           width: widget.width,
+          color: Colors.red,
           constraints: widget.height == null && widget.width == null
               ? widget.constraints ??
                   BoxConstraints(
