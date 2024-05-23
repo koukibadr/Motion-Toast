@@ -60,7 +60,6 @@ class MotionToast extends StatefulWidget {
   }) : super(key: key) {
     _initializeAnimationType();
     _assertValidValues();
-    iconType = IconType.materialDesign;
   }
 
   /// Render a success motion toast
@@ -74,7 +73,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = IconType.materialDesign,
     this.width,
     this.height,
     this.constraints,
@@ -118,7 +116,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.constraints,
@@ -162,7 +159,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.constraints,
@@ -206,7 +202,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.constraints,
@@ -250,7 +245,6 @@ class MotionToast extends StatefulWidget {
     Key? key,
     required this.description,
     this.title,
-    this.iconType = IconType.materialDesign,
     this.width = 350,
     this.height = 80,
     this.constraints,
@@ -332,17 +326,6 @@ class MotionToast extends StatefulWidget {
   /// - transparent: an opacity will be added to the primary color
   /// - lighter: a white background added to the motion toast with little opacity added to the primary color
   late final BackgroundType backgroundType;
-
-  /// The design type icon (Material design or Cupertino)
-  /// if [motionToastType] set to [MOTION_TOAST_TYPE.CUSTOM] [iconType] will not be used
-  /// possible values
-  /// ```dart
-  /// {
-  /// MATERIAL_DESIGN,
-  /// CUPERTINO
-  /// }
-  /// ```
-  late final IconType? iconType;
 
   /// The motion toast width by default it's set to 250
   final double? width;
