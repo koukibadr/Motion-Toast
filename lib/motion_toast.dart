@@ -60,7 +60,6 @@ class MotionToast extends StatefulWidget {
   }) : super(key: key) {
     _initializeAnimationType();
     _assertValidValues();
-    motionToastType = MotionToastType.custom;
     iconType = IconType.materialDesign;
   }
 
@@ -99,11 +98,13 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
+    this.backgroundType = BackgroundType.lighter,
   }) : super(key: key) {
-    motionToastType = MotionToastType.success;
+    primaryColor = successColor;
+    secondaryColor = successColor;
+    icon = Icons.check_circle_outline;
     _initializeAnimationType();
     _assertValidValues();
-    _initializeParameters();
   }
 
   /// Render a warning motion toast
@@ -141,11 +142,13 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
+    this.backgroundType = BackgroundType.lighter,
   }) : super(key: key) {
-    motionToastType = MotionToastType.warning;
+    primaryColor = warningColor;
+    secondaryColor = warningColor;
+    icon = Icons.warning;
     _initializeAnimationType();
     _assertValidValues();
-    _initializeParameters();
   }
 
   /// Render an error motion toast
@@ -183,11 +186,13 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
+    this.backgroundType = BackgroundType.lighter,
   }) : super(key: key) {
-    motionToastType = MotionToastType.error;
+    primaryColor = errorColor;
+    secondaryColor = errorColor;
+    icon = Icons.error;
     _initializeAnimationType();
     _assertValidValues();
-    _initializeParameters();
   }
 
   /// Render Info motion toast
@@ -225,11 +230,13 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
+    this.backgroundType = BackgroundType.lighter,
   }) : super(key: key) {
-    motionToastType = MotionToastType.info;
+    primaryColor = infoColor;
+    secondaryColor = infoColor;
+    icon = Icons.info;
     _initializeAnimationType();
     _assertValidValues();
-    _initializeParameters();
   }
 
   /// Render delete motion toast
@@ -267,23 +274,13 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
+    this.backgroundType = BackgroundType.lighter,
   }) : super(key: key) {
-    motionToastType = MotionToastType.delete;
+    primaryColor = deleteColor;
+    secondaryColor = deleteColor;
+    icon = Icons.delete;
     _initializeAnimationType();
     _assertValidValues();
-    _initializeParameters();
-  }
-
-  /// initialize [icon] and [primaryColor] based on the selected [motionToastType]
-  void _initializeParameters() {
-    if (iconType == IconType.cupertino) {
-      icon = motionToastIconsCupertino[motionToastType]!;
-    } else {
-      icon = motionToastIconsMD[motionToastType]!;
-    }
-    primaryColor = motionToastColors[motionToastType]!;
-    secondaryColor = motionToastColors[motionToastType]!;
-    backgroundType = BackgroundType.lighter;
   }
 
   /// assert valid values when creating a motion toast widget
@@ -312,19 +309,6 @@ class MotionToast extends StatefulWidget {
   /// The title of the motion toast
   /// if it's null it will not be rendered in the widget
   final Widget? title;
-
-  /// The motion toast type possible values:
-  /// ```dart
-  /// {
-  ///  sucess
-  ///  error
-  ///  warning
-  ///  info
-  ///  delete
-  ///  custom
-  /// }
-  /// ```
-  late final MotionToastType motionToastType;
 
   /// The motion toast icon, for types other than custom
   /// the icon will get the default type icon
