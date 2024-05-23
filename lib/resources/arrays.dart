@@ -1,9 +1,6 @@
 /// Type of motion toast to show.
 enum MotionToastType { success, error, warning, info, delete, custom }
 
-/// The design of the toast.
-enum IconType { materialDesign, cupertino }
-
 /// Text direction used to determine which direction to draw the toast
 enum ToastOrientation { ltr, rtl }
 
