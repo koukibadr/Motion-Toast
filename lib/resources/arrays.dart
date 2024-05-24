@@ -11,4 +11,4 @@ enum AnimationType { fromBottom, fromLeft, fromRight, fromTop }
 enum MotionToastPosition { center, bottom, top }
 
 /// The appearance of the background of the toast.
-enum BackgroundType { transparent, solid, lighter }
+enum BackgroundType { transparent, solid }

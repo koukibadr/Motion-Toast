@@ -51,7 +51,7 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = true,
     this.secondaryColor,
-    this.backgroundType = BackgroundType.lighter,
+    this.backgroundType = BackgroundType.solid,
     this.barrierColor = Colors.transparent,
     this.margin = EdgeInsets.zero,
     this.displayBorder = false,
@@ -96,7 +96,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.lighter,
+    this.backgroundType = BackgroundType.solid,
   }) : super(key: key) {
     primaryColor = successColor;
     secondaryColor = successColor;
@@ -139,7 +139,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.lighter,
+    this.backgroundType = BackgroundType.solid,
   }) : super(key: key) {
     primaryColor = warningColor;
     secondaryColor = warningColor;
@@ -182,7 +182,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.lighter,
+    this.backgroundType = BackgroundType.solid,
   }) : super(key: key) {
     primaryColor = errorColor;
     secondaryColor = errorColor;
@@ -225,7 +225,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.lighter,
+    this.backgroundType = BackgroundType.solid,
   }) : super(key: key) {
     primaryColor = infoColor;
     secondaryColor = infoColor;
@@ -268,7 +268,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.lighter,
+    this.backgroundType = BackgroundType.solid,
   }) : super(key: key) {
     primaryColor = deleteColor;
     secondaryColor = deleteColor;

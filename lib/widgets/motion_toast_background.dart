@@ -26,26 +26,11 @@ class MotionToastBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (backgroundType == BackgroundType.lighter) {
-      return Container(
-        decoration: BoxDecoration(
-          color: brightness == Brightness.light ? Colors.white : Colors.black,
-          borderRadius: BorderRadius.all(
-            Radius.circular(borderRadius),
-          ),
-        ),
-        child: _renderWidgetChild(opacity: 0.4),
-      );
-    }
-    return _renderWidgetChild();
-  }
-
-  Widget _renderWidgetChild({double opacity = 0.8}) {
     return Container(
       decoration: BoxDecoration(
         color: backgroundType == BackgroundType.solid
             ? backgroundColor
-            : backgroundColor.withOpacity(opacity),
+            : backgroundColor.withOpacity(0.8),//TODO expose this as a parameter
         borderRadius: BorderRadius.all(
           Radius.circular(borderRadius),
         ),
