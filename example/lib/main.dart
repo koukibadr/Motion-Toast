@@ -215,19 +215,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _displaySuccessMotionToast() {
-    MotionToast toast = MotionToast(
-      primaryColor: Colors.red,
+    MotionToast toast = MotionToast.success(
       description: const Text(
         'This is a description example',
         style: TextStyle(fontSize: 12),
       ),
       dismissable: true,
-      displaySideBar: false,
+      opacity: .5,
     );
     toast.show(context);
-    // Future.delayed(const Duration(seconds: 4)).then((value) {
-    //   toast.closeOverlay();
-    // });
   }
 
   void _displayWarningMotionToast() {
@@ -242,6 +238,7 @@ class _HomePageState extends State<HomePage> {
       animationCurve: Curves.bounceIn,
       borderRadius: 0,
       animationDuration: const Duration(milliseconds: 1000),
+      opacity: .9,
     ).show(context);
   }
 
@@ -326,7 +323,6 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.zoom_out,
       primaryColor: Colors.orange[500]!,
       secondaryColor: Colors.grey,
-      backgroundType: BackgroundType.solid,
       title: const Text('Two Color Motion Toast'),
       description: const Text('Another motion toast example'),
       displayBorder: true,
@@ -356,7 +352,6 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.zoom_out,
       primaryColor: Colors.orange[500]!,
       secondaryColor: Colors.grey,
-      backgroundType: BackgroundType.solid,
       title: const Text(
         'Two Color Motion Toast',
         style: TextStyle(
@@ -376,7 +371,6 @@ class _HomePageState extends State<HomePage> {
       icon: Icons.zoom_out,
       primaryColor: Colors.grey[400]!,
       secondaryColor: Colors.yellow,
-      backgroundType: BackgroundType.transparent,
       title: const Text(
         'Two Color Motion Toast',
         style: TextStyle(

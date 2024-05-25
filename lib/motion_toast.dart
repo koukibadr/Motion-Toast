@@ -51,12 +51,12 @@ class MotionToast extends StatefulWidget {
     this.onClose,
     this.dismissable = true,
     this.secondaryColor,
-    this.backgroundType = BackgroundType.solid,
     this.barrierColor = Colors.transparent,
     this.margin = EdgeInsets.zero,
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
+    this.opacity = .0,
   }) : super(key: key) {
     _initializeAnimationType();
     _assertValidValues();
@@ -96,7 +96,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.solid,
+    this.opacity = .0,
   }) : super(key: key) {
     primaryColor = successColor;
     secondaryColor = successColor;
@@ -139,7 +139,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.solid,
+    this.opacity = .0,
   }) : super(key: key) {
     primaryColor = warningColor;
     secondaryColor = warningColor;
@@ -182,7 +182,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.solid,
+    this.opacity = .0,
   }) : super(key: key) {
     primaryColor = errorColor;
     secondaryColor = errorColor;
@@ -225,7 +225,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.solid,
+    this.opacity = .0,
   }) : super(key: key) {
     primaryColor = infoColor;
     secondaryColor = infoColor;
@@ -268,7 +268,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.backgroundType = BackgroundType.solid,
+    this.opacity = .0,
   }) : super(key: key) {
     primaryColor = deleteColor;
     secondaryColor = deleteColor;
@@ -319,13 +319,6 @@ class MotionToast extends StatefulWidget {
   /// if it's null secondary color will be the primary color
   /// can be customized when using the default constructor
   late final Color? secondaryColor;
-
-  /// the type  of the background that will be applied on the motion toast content
-  /// available values:
-  /// - solid: the primary color will be applied as it is on the content background
-  /// - transparent: an opacity will be added to the primary color
-  /// - lighter: a white background added to the motion toast with little opacity added to the primary color
-  late final BackgroundType backgroundType;
 
   /// The motion toast width by default it's set to 250
   final double? width;
@@ -418,6 +411,9 @@ class MotionToast extends StatefulWidget {
   /// define whether the side bar is displayed or not
   /// default `= true`
   final bool displaySideBar;
+
+  //TODO add documentation
+  final double opacity;
 
   //Overlay that does not block the screen
   OverlayEntry? overlayEntry;
@@ -588,11 +584,11 @@ class _MotionToastState extends State<MotionToast>
     return MotionToastBackground(
       backgroundColor: widget.primaryColor,
       borderRadius: widget.borderRadius,
-      backgroundType: widget.backgroundType,
       borderColor: widget.secondaryColor ?? widget.primaryColor,
       displayBorder: widget.displayBorder,
       brightness: Theme.of(context).brightness,
       contentPadding: widget.contentPadding,
+      opacity: widget.opacity,
       child: MotionToastContent(
         color: widget.secondaryColor ?? widget.primaryColor,
         description: widget.description,
