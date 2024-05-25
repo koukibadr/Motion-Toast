@@ -242,7 +242,8 @@ class MotionToast extends StatefulWidget {
   ///
   /// the text style by default: `TextStyle(color: Colors.black)`
   @Deprecated(
-      'Will be removed in the next version, use info instead this constructor is already using info initializers')
+    'Will be removed in the next version, use info instead this constructor is already using info initializers',
+  )
   MotionToast.delete({
     Key? key,
     required this.description,

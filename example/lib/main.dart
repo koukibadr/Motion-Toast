@@ -112,15 +112,6 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    width: 200,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _displayDeleteMotionToast();
-                      },
-                      child: const Text('Delete Motion Toast'),
-                    ),
-                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -269,20 +260,6 @@ class _HomePageState extends State<HomePage> {
       ),
       position: MotionToastPosition.center,
       description: const Text('Example of Info Toast'),
-    ).show(context);
-  }
-
-  void _displayDeleteMotionToast() {
-    MotionToast.delete(
-      title: const Text(
-        'Deleted',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      description: const Text('The item is deleted'),
-      animationType: AnimationType.fromTop,
-      position: MotionToastPosition.top,
     ).show(context);
   }
 

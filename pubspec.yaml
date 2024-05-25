@@ -6,7 +6,7 @@ funding:
 - 'https://www.buymeacoffee.com/koukibadr'
 screenshots:
 - description: Motion Toast pacakge front image.
-  path: example/package_frontimage.png
+  path: example/warning_mt.png
 environment:
   sdk: '>=2.12.0 <4.0.0'
   flutter: '>=1.17.0'

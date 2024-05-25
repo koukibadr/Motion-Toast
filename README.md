@@ -10,9 +10,9 @@
 </p>
 
   
-| ![center_motion_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/center_motion_toast.gif?raw=true) | ![center_motion_toast_2.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/center_motion_toast_2.gif?raw=true) | ![motion_toast_bounce.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_bounce.gif?raw=true) |
-|--|--|--|
-| ![motion_toast_from_left.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_left.gif?raw=true) | ![motion_toast_from_right.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_right.gif?raw=true) | ![top_top_animation.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/top_top_animation.gif?raw=true) |
+| ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/success_mt.png?raw=true) | ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/warning_mt.png?raw=true) |
+|--|--|
+| ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/info_mt.png?raw=true) | ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/error_mt.png?raw=true) |
   
 
 ## Features
