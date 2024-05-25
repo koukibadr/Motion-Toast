@@ -56,7 +56,7 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.opacity = .0,
+    this.opacity = .9,
   }) : super(key: key) {
     _initializeAnimationType();
     _assertValidValues();
@@ -96,10 +96,10 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.opacity = .0,
+    this.opacity = .9,
   }) : super(key: key) {
     primaryColor = successColor;
-    secondaryColor = successColor;
+    secondaryColor = successSideBarColor;
     icon = Icons.check_circle_outline;
     _initializeAnimationType();
     _assertValidValues();
@@ -139,10 +139,10 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.opacity = .0,
+    this.opacity = .9,
   }) : super(key: key) {
     primaryColor = warningColor;
-    secondaryColor = warningColor;
+    secondaryColor = warningSideBarColor;
     icon = Icons.warning;
     _initializeAnimationType();
     _assertValidValues();
@@ -182,10 +182,10 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.opacity = .0,
+    this.opacity = .9,
   }) : super(key: key) {
     primaryColor = errorColor;
-    secondaryColor = errorColor;
+    secondaryColor = errorSideBarColor;
     icon = Icons.error;
     _initializeAnimationType();
     _assertValidValues();
@@ -225,10 +225,10 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.opacity = .0,
+    this.opacity = .9,
   }) : super(key: key) {
     primaryColor = infoColor;
-    secondaryColor = infoColor;
+    secondaryColor = infoSideBarColor;
     icon = Icons.info;
     _initializeAnimationType();
     _assertValidValues();
@@ -241,6 +241,8 @@ class MotionToast extends StatefulWidget {
   /// [description] is required
   ///
   /// the text style by default: `TextStyle(color: Colors.black)`
+  @Deprecated(
+      'Will be removed in the next version, use info instead this constructor is already using info initializers')
   MotionToast.delete({
     Key? key,
     required this.description,
@@ -268,11 +270,11 @@ class MotionToast extends StatefulWidget {
     this.displayBorder = false,
     this.displaySideBar = true,
     this.contentPadding = EdgeInsets.zero,
-    this.opacity = .0,
+    this.opacity = .9,
   }) : super(key: key) {
-    primaryColor = deleteColor;
-    secondaryColor = deleteColor;
-    icon = Icons.delete;
+    primaryColor = infoColor;
+    secondaryColor = infoSideBarColor;
+    icon = Icons.info;
     _initializeAnimationType();
     _assertValidValues();
   }
@@ -412,7 +414,8 @@ class MotionToast extends StatefulWidget {
   /// default `= true`
   final bool displaySideBar;
 
-  //TODO add documentation
+  /// motion toast background opacity
+  /// by default opacity is set to 0
   final double opacity;
 
   //Overlay that does not block the screen

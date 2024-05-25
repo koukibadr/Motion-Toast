@@ -1,5 +1,5 @@
 /// Type of motion toast to show.
-enum MotionToastType { success, error, warning, info, delete, custom }
+enum MotionToastType { success, error, warning, info, custom }
 
 /// Text direction used to determine which direction to draw the toast
 enum ToastOrientation { ltr, rtl }
