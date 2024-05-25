@@ -415,7 +415,7 @@ class MotionToast extends StatefulWidget {
   final bool displaySideBar;
 
   /// motion toast background opacity
-  /// by default opacity is set to 0
+  /// by default opacity is set to .9
   final double opacity;
 
   //Overlay that does not block the screen
