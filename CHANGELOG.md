@@ -1,3 +1,14 @@
+## [2.10.0] - 25/04/2024
+
+**Enhancement**
+- Replace `backgroundType` with `opacity` double attribute
+- Updated predefined themes colors, themes now have different primary and secondary colors
+
+**Changes**
+- Remove motion toast type parameter and replace it with direct theme initialization
+- Remove `iconType` parameter
+- `MotionToast.delete` marked as deprecated and will be removed in the next version
+
 ## [2.9.1] - 13/04/2024
 
 - Update package documentation and pubspec description image

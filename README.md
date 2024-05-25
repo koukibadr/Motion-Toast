@@ -54,7 +54,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.9.1
+	motion_toast: ^2.10.0
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -76,26 +76,12 @@ dependencies:
   
 
 ```dart
-
 /// the text widget used for description message
   final Widget description;
 
   /// The title of the motion toast
   /// if it's null it will not be rendered in the widget
   final Widget? title;
-
-  /// The motion toast type possible values:
-  /// ```dart
-  /// {
-  ///  sucess
-  ///  error
-  ///  warning
-  ///  info
-  ///  delete
-  ///  custom
-  /// }
-  /// ```
-  late final MotionToastType motionToastType;
 
   /// The motion toast icon, for types other than custom
   /// the icon will get the default type icon
@@ -112,24 +98,6 @@ dependencies:
   /// if it's null secondary color will be the primary color
   /// can be customized when using the default constructor
   late final Color? secondaryColor;
-
-  /// the type  of the background that will be applied on the motion toast content
-  /// available values:
-  /// - solid: the primary color will be applied as it is on the content background
-  /// - transparent: an opacity will be added to the primary color
-  /// - lighter: a white background added to the motion toast with little opacity added to the primary color
-  late final BackgroundType backgroundType;
-
-  /// The design type icon (Material design or Cupertino)
-  /// if [motionToastType] set to [MOTION_TOAST_TYPE.CUSTOM] [iconType] will not be used
-  /// possible values
-  /// ```dart
-  /// {
-  /// MATERIAL_DESIGN,
-  /// CUPERTINO
-  /// }
-  /// ```
-  late final IconType? iconType;
 
   /// The motion toast width by default it's set to 250
   final double? width;
@@ -223,37 +191,12 @@ dependencies:
   /// default `= true`
   final bool displaySideBar;
 
-```
-
-  
-  
-
--  **When creating you custom toast you don't have to use `iconType` it will not be used when rendering the toast**
-
--  **if `secondaryColor` not defined sidebar and icon will be rendered with `primaryColor`**
-
-  
-  
-
-if `constraint` and `width` and `height` are not defined the toast will be displayed with
+  /// motion toast background opacity
+  /// by default opacity is set to .9
+  final double opacity;
 
 ```
 
-BoxConstraints(
-	maxWidth: MediaQuery.of(context).size.width * 0.75,
-	minWidth: 200,
-	maxHeight: 100,
-)
-
-```
-
-  
-
-otherwise if `width` and `height` are defined the `constraints` attribute will be ignored
-
-and if you define `width` you need to define height also and vice versa
-
-  
 
 ## Implementation
 
@@ -291,10 +234,8 @@ MotionToast.warning(
 
 -  **Error Motion Toast**
 
-  
 
 ```dart
-
 MotionToast.error(
 	title:  Text("Error"),
 	description:  Text("Please enter your name")
@@ -316,19 +257,6 @@ MotionToast.info(
 
 ```
 
-  
-
--  **Delete Motion Toast**
-
-  
-
-```dart
-MotionToast.delete(
-	title:  Text("Deleted"),
-	description:  Text("The item is deleted")
-).show(context);
-
-```
 
   
 
@@ -450,7 +378,6 @@ MotionToast(
 	icon:  Icons.zoom_out,
 	primaryColor:  Colors.orange[500]!,
 	secondaryColor:  Colors.grey,
-	backgroundType:  BackgroundType.solid,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
 	position:  MotionToastPosition.top,
@@ -471,7 +398,6 @@ MotionToast(
 
 -  **Transparent background motion toast**
 
-  
 
 ```dart
 
@@ -479,7 +405,7 @@ MotionToast(
 	icon:  Icons.zoom_out,
 	primaryColor:  Colors.grey[400]!,
 	secondaryColor:  Colors.yellow,
-	backgroundType:  BackgroundType.transparent,
+	opacity:  0.4,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
 	position:  MotionToastPosition.center,
@@ -505,7 +431,6 @@ MotionToast(
 	icon:  Icons.zoom_out,
 	primaryColor:  Colors.orange[500]!,
 	secondaryColor:  Colors.grey,
-	backgroundType:  BackgroundType.solid,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
 	displayBorder: true,
@@ -524,7 +449,6 @@ MotionToast toast = MotionToast(
 	icon:  Icons.zoom_out,
 	primaryColor:  Colors.orange[500]!,
 	secondaryColor:  Colors.grey,
-	backgroundType:  BackgroundType.solid,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
 	displayBorder: true,
