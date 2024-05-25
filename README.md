@@ -13,8 +13,6 @@
 | ![center_motion_toast.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/center_motion_toast.gif?raw=true) | ![center_motion_toast_2.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/center_motion_toast_2.gif?raw=true) | ![motion_toast_bounce.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_bounce.gif?raw=true) |
 |--|--|--|
 | ![motion_toast_from_left.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_left.gif?raw=true) | ![motion_toast_from_right.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/motion_toast_from_right.gif?raw=true) | ![top_top_animation.gif](https://github.com/koukibadr/Motion-Toast/blob/main/example/top_top_animation.gif?raw=true) |
-
-
   
 
 ## Features
@@ -387,13 +385,6 @@ MotionToast(
 ).show(context);
 
 ```
-
-  
-
-<p  align="center">
-<img  src="https://github.com/koukibadr/Motion-Toast/blob/main/example/two_color_motion_toast.png?raw=true"  width="250"/>
-</p>
-
   
 
 -  **Transparent background motion toast**
@@ -414,11 +405,6 @@ MotionToast(
 ).show(context);
 
 ```
-
-<p  align="center">
-<img  src="https://github.com/koukibadr/Motion-Toast/blob/main/example/transparent_motion_toast.png?raw=true"  width="250"/>
-</p>
-
   
 
 -  **Motion toast without sidebar and with border**

@@ -105,26 +105,20 @@ class MotionToastContent extends StatelessWidget {
                 color: color,
                 radius: radius,
               ),
-              const Seperator.double(15),
             ],
           ),
         if (icon != null)
-          Row(
-            children: [
-              MotionToastIcon(
-                iconSize: iconSize,
-                color: color,
-                icon: icon!,
-                withAnimation: withAnimation,
-              ),
-              const Seperator.double(15),
-            ],
+          MotionToastIcon(
+            iconSize: iconSize,
+            color: color,
+            icon: icon!,
+            withAnimation: withAnimation,
           ),
         Flexible(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(
-              horizontal: 5,
               vertical: 10,
+              horizontal: 5,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
