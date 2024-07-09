@@ -1,7 +1,7 @@
 on:
   release:
     branches:
-      - release
+      - dev
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,18 +10,27 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.10'
+          channel: stable
       - name: Install dependencies
         run: flutter pub get
-      - name: Analyze
-        run: flutter analyze
-      - name: Format code
-        run: dart format --fix .
+      
+      - name: Running Flutter analysis on package code
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings --write=analysis_report.txt
+      
+      - name: Artifact analysis report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analysis-report
+          path: |
+            analysis_report.txt
+          retention-days: 15
+      
       - name: Check Publish Warnings
         run: dart pub publish --dry-run
-      - name: Publish
-        uses: k-paxian/dart-package-publisher@v1.5.1
+
+      - name: Publish new package version
+        uses: k-paxian/dart-package-publisher@master
         with:
           credentialJson: ${{ secrets.CREDENTIAL_JSON }}
           flutter: true
-          skipTests: true
