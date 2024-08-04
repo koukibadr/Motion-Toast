@@ -281,6 +281,8 @@ class _HomePageState extends State<HomePage> {
 
   void _displayCustomMotionToast() {
     MotionToast(
+      width: MediaQuery.of(context).size.width * 0.75,
+      height: MediaQuery.of(context).size.height * 0.10,
       primaryColor: Colors.pink,
       title: const Text(
         'Bugatti',
