@@ -7,7 +7,7 @@ class MotionToastBackground extends StatelessWidget {
   final Color borderColor;
   final bool displayBorder;
   final Brightness brightness;
-  final EdgeInsets contentPadding;
+  final EdgeInsetsGeometry contentPadding;
   final double opacity;
 
   const MotionToastBackground({
