@@ -444,7 +444,22 @@ class MotionToast extends StatefulWidget {
             contentPadding: const EdgeInsets.all(0),
             insetPadding: const EdgeInsets.all(30),
             elevation: 0,
-            content: this,
+            content: Align(
+              alignment: position.alignment,
+              child: Container(
+                height: height,
+                width: width,
+                constraints: height == null && width == null
+                    ? constraints ??
+                        BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width * 0.75,
+                          minWidth: 200,
+                          maxHeight: 100,
+                        )
+                    : null,
+                child: this,
+              ),
+            ),
           ),
         );
       },
@@ -560,27 +575,12 @@ class _MotionToastState extends State<MotionToast>
 
   Widget _renderMotionToastContent() {
     return Center(
-      child: Align(
-        alignment: widget.position.alignment,
-        child: Container(
-          height: widget.height,
-          width: widget.width,
-          constraints: widget.height == null && widget.width == null
-              ? widget.constraints ??
-                  BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.75,
-                    minWidth: 200,
-                    maxHeight: 100,
-                  )
-              : null,
-          child: widget.position == MotionToastPosition.center
-              ? _buildMotionToast()
-              : SlideTransition(
-                  position: offsetAnimation,
-                  child: _buildMotionToast(),
-                ),
-        ),
-      ),
+      child: widget.position == MotionToastPosition.center
+          ? _buildMotionToast()
+          : SlideTransition(
+              position: offsetAnimation,
+              child: _buildMotionToast(),
+            ),
     );
   }
 
