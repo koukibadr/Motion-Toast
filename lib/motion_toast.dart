@@ -401,11 +401,11 @@ class MotionToast extends StatefulWidget {
 
   ///padding added to the main widget motion taost
   ///by default the padding is set to 0
-  final EdgeInsets margin;
+  final EdgeInsetsGeometry margin;
 
   ///padding added under the main widget
   ///by default the padding is set to 0
-  final EdgeInsets contentPadding;
+  final EdgeInsetsGeometry contentPadding;
 
   /// define whether the borders are rendered or not
   /// by default  `= false`
