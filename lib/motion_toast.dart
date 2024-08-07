@@ -37,7 +37,7 @@ class MotionToast extends StatefulWidget {
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ToastOrientation.ltr,
+    this.layoutOrientation = TextDirection.ltr,
     this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -78,7 +78,7 @@ class MotionToast extends StatefulWidget {
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ToastOrientation.ltr,
+    this.layoutOrientation = TextDirection.ltr,
     this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -121,7 +121,7 @@ class MotionToast extends StatefulWidget {
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ToastOrientation.ltr,
+    this.layoutOrientation = TextDirection.ltr,
     this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -164,7 +164,7 @@ class MotionToast extends StatefulWidget {
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ToastOrientation.ltr,
+    this.layoutOrientation = TextDirection.ltr,
     this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -207,7 +207,7 @@ class MotionToast extends StatefulWidget {
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ToastOrientation.ltr,
+    this.layoutOrientation = TextDirection.ltr,
     this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -253,7 +253,7 @@ class MotionToast extends StatefulWidget {
     this.constraints,
     this.iconSize = 40,
     this.enableAnimation = true,
-    this.layoutOrientation = ToastOrientation.ltr,
+    this.layoutOrientation = TextDirection.ltr,
     this.animationType = AnimationType.fromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
@@ -342,14 +342,8 @@ class MotionToast extends StatefulWidget {
   /// by default the animation is enabled
   final bool enableAnimation;
 
-  /// The layout ToastOrientation (from right to left or from left to right)
-  /// ```dart
-  /// {
-  /// LTR,
-  /// RTL
-  /// }
-  /// ```
-  final ToastOrientation layoutOrientation;
+  /// Define the toast's text direction ltr or rtl
+  final TextDirection layoutOrientation;
 
   /// The type of animation, by default it's [AnimationType.fromBottom]
   /// ```dart
@@ -601,7 +595,7 @@ class _MotionToastState extends State<MotionToast>
         radius: widget.borderRadius,
         title: widget.title,
         withAnimation: widget.enableAnimation,
-        isReversed: widget.layoutOrientation == ToastOrientation.rtl,
+        isReversed: widget.layoutOrientation == TextDirection.rtl,
         displaySideBar: widget.displaySideBar,
       ),
     );
