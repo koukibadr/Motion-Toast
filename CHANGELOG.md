@@ -1,13 +1,12 @@
-## [2.11.0] - 25/04/2024
+## [2.11.0] - 07/08/2024
 
 **Enhancement**
-- Replace `backgroundType` with `opacity` double attribute
-- Updated predefined themes colors, themes now have different primary and secondary colors
+- Remove content padding effect on motion toast sidebar widget
+- Replace EdgeInsets type with EdgeInsetsGeometry type for wider options (Support of EdgeInsets and EdgeInsetsDirectional) [PR](https://github.com/koukibadr/Motion-Toast/pull/125)
+- Update custom motion toast rendering to support width and height constraints for large screens
 
 **Changes**
-- Remove motion toast type parameter and replace it with direct theme initialization
-- Remove `iconType` parameter
-- `MotionToast.delete` marked as deprecated and will be removed in the next version
+- Update layoutDirection from LayoutDirection enum to TextDirection dart class
 
 ## [2.10.0] - 25/04/2024
 
