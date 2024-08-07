@@ -52,7 +52,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.10.0
+	motion_toast: ^2.11.0
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -74,7 +74,7 @@ dependencies:
   
 
 ```dart
-/// the text widget used for description message
+  /// the text widget used for description message
   final Widget description;
 
   /// The title of the motion toast
@@ -116,14 +116,8 @@ dependencies:
   /// by default the animation is enabled
   final bool enableAnimation;
 
-  /// The layout ToastOrientation (from right to left or from left to right)
-  /// ```dart
-  /// {
-  /// LTR,
-  /// RTL
-  /// }
-  /// ```
-  final ToastOrientation layoutOrientation;
+  /// Define the toast's text direction ltr or rtl
+  final TextDirection layoutOrientation;
 
   /// The type of animation, by default it's [AnimationType.fromBottom]
   /// ```dart
@@ -175,11 +169,11 @@ dependencies:
 
   ///padding added to the main widget motion taost
   ///by default the padding is set to 0
-  final EdgeInsets margin;
+  final EdgeInsetsGeometry margin;
 
   ///padding added under the main widget
   ///by default the padding is set to 0
-  final EdgeInsets contentPadding;
+  final EdgeInsetsGeometry contentPadding;
 
   /// define whether the borders are rendered or not
   /// by default  `= false`
@@ -192,7 +186,6 @@ dependencies:
   /// motion toast background opacity
   /// by default opacity is set to .9
   final double opacity;
-
 ```
 
 

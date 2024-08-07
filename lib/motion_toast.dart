@@ -585,9 +585,9 @@ class _MotionToastState extends State<MotionToast>
       borderColor: widget.secondaryColor ?? widget.primaryColor,
       displayBorder: widget.displayBorder,
       brightness: Theme.of(context).brightness,
-      contentPadding: widget.contentPadding,
       opacity: widget.opacity,
       child: MotionToastContent(
+        contentPadding: widget.contentPadding,
         color: widget.secondaryColor ?? widget.primaryColor,
         description: widget.description,
         icon: widget.icon,

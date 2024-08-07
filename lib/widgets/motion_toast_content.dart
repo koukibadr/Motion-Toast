@@ -18,33 +18,20 @@ class MotionToastContent extends StatelessWidget {
     required this.title,
     required this.withAnimation,
     required this.displaySideBar,
+    required this.contentPadding,
     bool isReversed = false,
   }) : super(key: key) {
     _contentLayoutType = ContentLayoutType.values[isReversed ? 1 : 0];
   }
 
-  /// The flow of the contents in the motion toast.
   late final ContentLayoutType _contentLayoutType;
-
-  /// The color of the toast background.
+  final EdgeInsetsGeometry contentPadding;
   final Color color;
-
-  /// Border radius of the toast.
   final double radius;
-
-  /// Size of the toast icon.
   final double iconSize;
-
-  /// Icon to display on the toast.
   final IconData? icon;
-
-  /// Set to `true` to show animation of the toast.
   final bool withAnimation;
-
-  /// Title [Text] widget of the toast.
   final Widget? title;
-
-  /// Description [Text] widget of the toast.
   final Widget description;
 
   final bool displaySideBar;
@@ -56,31 +43,40 @@ class MotionToastContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Flexible(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  if (title != null) title!,
-                  description,
+          Expanded(
+            child: Padding(
+              padding: contentPadding,
+              child: Row(
+                children: [
+                  Flexible(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          if (title != null) title!,
+                          description,
+                        ],
+                      ),
+                    ),
+                  ),
+                  if (icon != null)
+                    Row(
+                      children: [
+                        const Seperator.double(15),
+                        MotionToastIcon(
+                          iconSize: iconSize,
+                          color: color,
+                          icon: icon!,
+                          withAnimation: withAnimation,
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ),
           ),
-          if (icon != null)
-            Row(
-              children: [
-                const Seperator.double(15),
-                MotionToastIcon(
-                  iconSize: iconSize,
-                  color: color,
-                  icon: icon!,
-                  withAnimation: withAnimation,
-                ),
-              ],
-            ),
           if (displaySideBar)
             Row(
               children: [
@@ -107,25 +103,34 @@ class MotionToastContent extends StatelessWidget {
               ),
             ],
           ),
-        if (icon != null)
-          MotionToastIcon(
-            iconSize: iconSize,
-            color: color,
-            icon: icon!,
-            withAnimation: withAnimation,
-          ),
-        Flexible(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 5,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                if (title != null) title!,
-                description,
+        Expanded(
+          child: Padding(
+            padding: contentPadding,
+            child: Row(
+              children: [
+                if (icon != null)
+                  MotionToastIcon(
+                    iconSize: iconSize,
+                    color: color,
+                    icon: icon!,
+                    withAnimation: withAnimation,
+                  ),
+                Flexible(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 5,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        if (title != null) title!,
+                        description,
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
