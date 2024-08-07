@@ -7,7 +7,6 @@ class MotionToastBackground extends StatelessWidget {
   final Color borderColor;
   final bool displayBorder;
   final Brightness brightness;
-  final EdgeInsetsGeometry contentPadding;
   final double opacity;
 
   const MotionToastBackground({
@@ -18,7 +17,6 @@ class MotionToastBackground extends StatelessWidget {
     required this.borderColor,
     required this.displayBorder,
     required this.brightness,
-    required this.contentPadding,
     required this.opacity,
   }) : super(key: key);
 
@@ -37,10 +35,7 @@ class MotionToastBackground extends StatelessWidget {
               )
             : null,
       ),
-      child: Padding(
-        padding: contentPadding,
-        child: child,
-      ),
+      child: child,
     );
   }
 }
