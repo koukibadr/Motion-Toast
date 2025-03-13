@@ -291,11 +291,9 @@ class MotionToast extends StatefulWidget {
   }
 
   void _initializeAnimationType() {
-    if (position == MotionToastPosition.bottom &&
-        animationType == AnimationType.fromTop) {
+    if (position == MotionToastPosition.bottom && animationType == AnimationType.fromTop) {
       animationType = AnimationType.fromBottom;
-    } else if (position == MotionToastPosition.top &&
-        animationType == AnimationType.fromBottom) {
+    } else if (position == MotionToastPosition.top && animationType == AnimationType.fromBottom) {
       animationType = AnimationType.fromTop;
     }
   }
@@ -433,27 +431,33 @@ class MotionToast extends StatefulWidget {
       opaque: false,
       builder: (context) {
         return SafeArea(
-          child: AlertDialog(
-            backgroundColor: Colors.transparent,
-            contentPadding: const EdgeInsets.all(0),
-            insetPadding: const EdgeInsets.all(30),
-            elevation: 0,
-            content: Align(
-              alignment: position.alignment,
-              child: Container(
-                height: height,
-                width: width,
-                constraints: height == null && width == null
-                    ? constraints ??
-                        BoxConstraints(
-                          maxWidth: MediaQuery.of(context).size.width * 0.75,
-                          minWidth: 200,
-                          maxHeight: 100,
-                        )
-                    : null,
-                child: this,
+          child: Stack(
+            children: [
+              Align(
+                alignment: position.alignment,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: IntrinsicHeight(
+                      child: Container(
+                        height: height,
+                        width: width,
+                        constraints: height == null && width == null
+                            ? constraints ??
+                                BoxConstraints(
+                                  maxWidth: MediaQuery.of(context).size.width * 0.75,
+                                  minWidth: 200,
+                                  maxHeight: 100,
+                                )
+                            : null,
+                        child: this,
+                      ),
+                    ),
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
         );
       },
@@ -461,8 +465,7 @@ class MotionToast extends StatefulWidget {
   }
 }
 
-class _MotionToastState extends State<MotionToast>
-    with TickerProviderStateMixin {
+class _MotionToastState extends State<MotionToast> with TickerProviderStateMixin {
   late Animation<Offset> offsetAnimation;
   late AnimationController slideController;
   late Timer toastTimer;
