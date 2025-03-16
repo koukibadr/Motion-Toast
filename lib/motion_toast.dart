@@ -37,7 +37,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = TextDirection.ltr,
-    this.animationType = AnimationType.fromBottom,
+    this.animationType = AnimationType.slideInFromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -80,7 +80,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = TextDirection.ltr,
-    this.animationType = AnimationType.fromBottom,
+    this.animationType = AnimationType.slideInFromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -125,7 +125,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = TextDirection.ltr,
-    this.animationType = AnimationType.fromBottom,
+    this.animationType = AnimationType.slideInFromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -170,7 +170,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = TextDirection.ltr,
-    this.animationType = AnimationType.fromBottom,
+    this.animationType = AnimationType.slideInFromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -215,7 +215,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = TextDirection.ltr,
-    this.animationType = AnimationType.fromBottom,
+    this.animationType = AnimationType.slideInFromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -263,7 +263,7 @@ class MotionToast extends StatefulWidget {
     this.iconSize = 40,
     this.enableAnimation = true,
     this.layoutOrientation = TextDirection.ltr,
-    this.animationType = AnimationType.fromBottom,
+    this.animationType = AnimationType.slideInFromBottom,
     this.animationDuration = const Duration(
       milliseconds: 1500,
     ),
@@ -302,17 +302,18 @@ class MotionToast extends StatefulWidget {
   }
 
   void _initializeAnimationType() {
-    if (toastAlignment.y == 1 && animationType == AnimationType.fromTop) {
+    if (toastAlignment.y == 1 &&
+        animationType == AnimationType.slideInFromTop) {
       /// position.y == 1 means the toast is displayed at the bottom
       /// if the animation type is fromTop it will be changed to fromBottom
       // TODO change this to assert
-      animationType = AnimationType.fromBottom;
+      animationType = AnimationType.slideInFromBottom;
     } else if (toastAlignment.y == -1 &&
-        animationType == AnimationType.fromBottom) {
+        animationType == AnimationType.slideInFromBottom) {
       /// position.y == -1 means the toast is displayed at the top
       /// if the animation type is fromBottom it will be changed to fromTop
       // TODO change this to assert
-      animationType = AnimationType.fromTop;
+      animationType = AnimationType.slideInFromTop;
     }
   }
 
@@ -525,7 +526,7 @@ class _MotionToastState extends State<MotionToast>
     );
 
     switch (widget.animationType) {
-      case AnimationType.fromLeft:
+      case AnimationType.slideInFromLeft:
         if (widget.toastAlignment.y == -1) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(-0.3, 0.3),
@@ -538,7 +539,7 @@ class _MotionToastState extends State<MotionToast>
           ).animate(curveAnimation);
         }
         break;
-      case AnimationType.fromRight:
+      case AnimationType.slideInFromRight:
         if (widget.toastAlignment.y == -1) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(0.5, 0.3),
@@ -551,7 +552,7 @@ class _MotionToastState extends State<MotionToast>
           ).animate(curveAnimation);
         }
         break;
-      case AnimationType.fromTop:
+      case AnimationType.slideInFromTop:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(0, -0.3),
           end: const Offset(0, 0.3),
