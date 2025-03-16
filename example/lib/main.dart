@@ -196,6 +196,18 @@ class _HomePageState extends State<HomePage> {
                       child: const Text('Simultaneously taosts'),
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _displayCustomToastAlignment();
+                      },
+                      child: const Text('Custom toast alignment'),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -388,6 +400,24 @@ class _HomePageState extends State<HomePage> {
       toastAlignment: Alignment.topCenter,
       width: 300,
       height: 80,
+    ).show(context);
+  }
+
+  void _displayCustomToastAlignment() {
+    MotionToast(
+      icon: Icons.zoom_out,
+      primaryColor: Colors.orange[500]!,
+      secondaryColor: Colors.grey,
+      title: const Text(
+        'Two Color Motion Toast',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      description: const Text('Another motion toast example'),
+      toastAlignment: Alignment(0.5, -0.8),
+      width: 350,
+      height: 100,
     ).show(context);
   }
 }
