@@ -52,7 +52,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.11.0
+	motion_toast: ^2.12.0
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -119,12 +119,13 @@ dependencies:
   /// Define the toast's text direction ltr or rtl
   final TextDirection layoutOrientation;
 
-  /// The type of animation, by default it's [AnimationType.fromBottom]
+  /// The type of animation, by default it's [AnimationType.slideInFromBottom]
   /// ```dart
   /// {
-  /// FROM_BOTTOM,
-  /// FROM_LEFT,
-  /// FROM_RIGHT
+  /// slideInFromBottom,
+  /// slideInFromLeft,
+  /// slideInFromRight,
+  /// slideInFromTop
   /// }
   /// ```
   late AnimationType animationType;
@@ -151,6 +152,10 @@ dependencies:
   /// }
   /// ```
   final MotionToastPosition position;
+
+  /// The alignment of the toast on the screen
+  /// by default it's `Alignment.bottomCenter`.
+  final Alignment toastAlignment;
 
   /// Define the border radius of the toast
   /// by default it's 20
@@ -291,7 +296,8 @@ MotionToast.success(
 	title:  Text("من اليمين"),
 	description:  Text("هذا مثال بالعربية"),
 	layoutOrientation:  ToastOrientation.rtl,
-	animationType:  AnimationType.fromRight,width:  300,
+	animationType:  AnimationType.slideInFromRight,
+  width:  300,
 ).show(context);
 ```
 
@@ -312,8 +318,8 @@ MotionToast(
 	color:  Colors.deepOrange,
 	title:  Text("Top Motion Toast"),
 	description:  Text("Another motion toast example"),
-	position: MotionToastPosition.top,
-	animationType:  AnimationType.fromTop,
+  toastAlignment: Alignment.topCenter,
+	animationType:  AnimationType.slideInFromTop,
 ).show(context);
 
 ```
@@ -333,7 +339,7 @@ MotionToast(
 	color:  Colors.deepOrange,
 	title:  Text("Center Motion Toast"),
 	description:  Text("Another motion toast example"),
-	position:  MotionToastPosition.center
+  toastAlignment: Alignment.center,
 ).show(context);
 
 ```
@@ -371,8 +377,8 @@ MotionToast(
 	secondaryColor:  Colors.grey,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
-	position:  MotionToastPosition.top,
-	animationType:  AnimationType.fromTop,
+  toastAlignment: Alignment.topCenter,
+	animationType:  AnimationType.slideInFromTop,
 	height:  100,
 	width:  300,
 ).show(context);
@@ -392,7 +398,7 @@ MotionToast(
 	opacity:  0.4,
 	title:  Text('Two Color Motion Toast'),
 	description:  Text('Another motion toast example'),
-	position:  MotionToastPosition.center,
+  toastAlignment: Alignment.center,
 	height:  100,
 	width:  300,
 ).show(context);

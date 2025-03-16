@@ -1,3 +1,15 @@
+## [2.12.0] - 16/03/2025
+
+**Bug Fix**
+- Update toast overlay height to support app usage when the toast is displayed [PR](https://github.com/koukibadr/Motion-Toast/pull/135) [Issue #134](https://github.com/koukibadr/Motion-Toast/issues/134)
+
+**Enhancement**
+- Update alignment, MotionToastPosition is refactored to use Alignment object [PR](https://github.com/koukibadr/Motion-Toast/pull/140) [Issue #126](https://github.com/koukibadr/Motion-Toast/issues/126)
+- Support for custom alignment values
+
+**Changes**
+- Refactor: AnimationTypes values are renamed [PR](https://github.com/koukibadr/Motion-Toast/pull/141)
+
 ## [2.11.0] - 07/08/2024
 
 **Enhancement**
