@@ -256,7 +256,9 @@ class _HomePageState extends State<HomePage> {
       ),
       description: const Text('Please enter your name'),
       toastAlignment: Alignment.topCenter,
-      barrierColor: Colors.black.withOpacity(0.3),
+      barrierColor: Colors.black.withValues(
+        alpha: 0.3,
+      ),
       width: 300,
       height: 80,
       dismissable: false,
@@ -416,7 +418,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Another motion toast example'),
-      toastAlignment: Alignment(0.5, -0.8),
+      toastAlignment: const Alignment(0.5, -0.8),
       width: 350,
       height: 100,
     ).show(context);
