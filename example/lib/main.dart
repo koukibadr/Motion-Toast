@@ -242,7 +242,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Please enter your name'),
-      position: MotionToastPosition.top,
+      toastAlignment: Alignment.topCenter,
       barrierColor: Colors.black.withOpacity(0.3),
       width: 300,
       height: 80,
@@ -258,7 +258,7 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      position: MotionToastPosition.center,
+      toastAlignment: Alignment.center,
       description: const Text('Example of Info Toast'),
     ).show(context);
   }
@@ -315,7 +315,7 @@ class _HomePageState extends State<HomePage> {
       primaryColor: Colors.deepOrange,
       title: const Text('Top Motion Toast'),
       description: const Text('Another motion toast example'),
-      position: MotionToastPosition.top,
+      toastAlignment: Alignment.topCenter,
       animationType: AnimationType.fromTop,
       displayBorder: true,
       width: 350,
@@ -338,7 +338,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Another motion toast example'),
-      position: MotionToastPosition.top,
+      toastAlignment: Alignment.topCenter,
       animationType: AnimationType.fromTop,
       width: 350,
       height: 100,
@@ -357,7 +357,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       description: const Text('Another motion toast example'),
-      position: MotionToastPosition.center,
+      toastAlignment: Alignment.center,
       width: 350,
       height: 100,
     ).show(context);
@@ -385,7 +385,7 @@ class _HomePageState extends State<HomePage> {
       ),
       description: const Text('Please enter your name'),
       animationType: AnimationType.fromLeft,
-      position: MotionToastPosition.top,
+      toastAlignment: Alignment.topCenter,
       width: 300,
       height: 80,
     ).show(context);

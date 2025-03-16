@@ -5,7 +5,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
-import 'package:motion_toast/resources/extensions.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
 import 'package:motion_toast/widgets/motion_toast_content.dart';
 
@@ -46,6 +45,8 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
+    this.toastAlignment = Alignment.bottomCenter,
+    @Deprecated('Use toastAlignment instead')
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
@@ -87,6 +88,8 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
+    this.toastAlignment = Alignment.bottomCenter,
+    @Deprecated('Use toastAlignment instead')
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
@@ -130,6 +133,8 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
+    this.toastAlignment = Alignment.bottomCenter,
+    @Deprecated('Use toastAlignment instead')
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
@@ -173,6 +178,8 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
+    this.toastAlignment = Alignment.bottomCenter,
+    @Deprecated('Use toastAlignment instead')
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
@@ -216,6 +223,8 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
+    this.toastAlignment = Alignment.bottomCenter,
+    @Deprecated('Use toastAlignment instead')
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
@@ -262,6 +271,8 @@ class MotionToast extends StatefulWidget {
       seconds: 3,
     ),
     this.animationCurve = Curves.ease,
+    this.toastAlignment = Alignment.bottomCenter,
+    @Deprecated('Use toastAlignment instead')
     this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
@@ -291,11 +302,16 @@ class MotionToast extends StatefulWidget {
   }
 
   void _initializeAnimationType() {
-    if (position == MotionToastPosition.bottom &&
-        animationType == AnimationType.fromTop) {
+    if (toastAlignment.y == 1 && animationType == AnimationType.fromTop) {
+      /// position.y == 1 means the toast is displayed at the bottom
+      /// if the animation type is fromTop it will be changed to fromBottom
+      // TODO change this to assert
       animationType = AnimationType.fromBottom;
-    } else if (position == MotionToastPosition.top &&
+    } else if (toastAlignment.y == -1 &&
         animationType == AnimationType.fromBottom) {
+      /// position.y == -1 means the toast is displayed at the top
+      /// if the animation type is fromBottom it will be changed to fromTop
+      // TODO change this to assert
       animationType = AnimationType.fromTop;
     }
   }
@@ -345,7 +361,7 @@ class MotionToast extends StatefulWidget {
   /// Define the toast's text direction ltr or rtl
   final TextDirection layoutOrientation;
 
-  /// The type of animation, by default it's [AnimationType.fromBottom]
+  /// The type of animation, by default it's [AnimationType.slideInFromBottom]
   /// ```dart
   /// {
   /// FROM_BOTTOM,
@@ -377,6 +393,10 @@ class MotionToast extends StatefulWidget {
   /// }
   /// ```
   final MotionToastPosition position;
+
+  /// The alignment of the toast on the screen
+  /// by default it's `Alignment.bottomCenter`.
+  final Alignment toastAlignment;
 
   /// Define the border radius of the toast
   /// by default it's 20
@@ -436,7 +456,7 @@ class MotionToast extends StatefulWidget {
           child: Stack(
             children: [
               Align(
-                alignment: position.alignment,
+                alignment: toastAlignment,
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Material(
@@ -506,7 +526,7 @@ class _MotionToastState extends State<MotionToast>
 
     switch (widget.animationType) {
       case AnimationType.fromLeft:
-        if (widget.position == MotionToastPosition.top) {
+        if (widget.toastAlignment.y == -1) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(-0.3, 0.3),
             end: const Offset(0, 0.3),
@@ -519,7 +539,7 @@ class _MotionToastState extends State<MotionToast>
         }
         break;
       case AnimationType.fromRight:
-        if (widget.position == MotionToastPosition.top) {
+        if (widget.toastAlignment.y == -1) {
           offsetAnimation = Tween<Offset>(
             begin: const Offset(0.5, 0.3),
             end: const Offset(0, 0.3),
@@ -576,7 +596,8 @@ class _MotionToastState extends State<MotionToast>
 
   Widget _renderMotionToastContent() {
     return Center(
-      child: widget.position == MotionToastPosition.center
+      // position = 0 means the toast is displayed at the center
+      child: widget.toastAlignment.y == 0
           ? _buildMotionToast()
           : SlideTransition(
               position: offsetAnimation,
