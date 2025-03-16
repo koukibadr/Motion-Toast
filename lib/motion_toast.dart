@@ -291,9 +291,11 @@ class MotionToast extends StatefulWidget {
   }
 
   void _initializeAnimationType() {
-    if (position == MotionToastPosition.bottom && animationType == AnimationType.fromTop) {
+    if (position == MotionToastPosition.bottom &&
+        animationType == AnimationType.fromTop) {
       animationType = AnimationType.fromBottom;
-    } else if (position == MotionToastPosition.top && animationType == AnimationType.fromBottom) {
+    } else if (position == MotionToastPosition.top &&
+        animationType == AnimationType.fromBottom) {
       animationType = AnimationType.fromTop;
     }
   }
@@ -446,7 +448,8 @@ class MotionToast extends StatefulWidget {
                         constraints: height == null && width == null
                             ? constraints ??
                                 BoxConstraints(
-                                  maxWidth: MediaQuery.of(context).size.width * 0.75,
+                                  maxWidth:
+                                      MediaQuery.sizeOf(context).width * 0.75,
                                   minWidth: 200,
                                   maxHeight: 100,
                                 )
@@ -465,7 +468,8 @@ class MotionToast extends StatefulWidget {
   }
 }
 
-class _MotionToastState extends State<MotionToast> with TickerProviderStateMixin {
+class _MotionToastState extends State<MotionToast>
+    with TickerProviderStateMixin {
   late Animation<Offset> offsetAnimation;
   late AnimationController slideController;
   late Timer toastTimer;
