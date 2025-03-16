@@ -365,9 +365,10 @@ class MotionToast extends StatefulWidget {
   /// The type of animation, by default it's [AnimationType.slideInFromBottom]
   /// ```dart
   /// {
-  /// FROM_BOTTOM,
-  /// FROM_LEFT,
-  /// FROM_RIGHT
+  /// slideInFromBottom,
+  /// slideInFromLeft,
+  /// slideInFromRight,
+  /// slideInFromTop
   /// }
   /// ```
   late AnimationType animationType;

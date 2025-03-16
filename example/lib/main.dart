@@ -224,6 +224,7 @@ class _HomePageState extends State<HomePage> {
         style: TextStyle(fontSize: 12),
       ),
       dismissable: true,
+      toastAlignment: Alignment.topCenter,
       opacity: .5,
     );
     toast.show(context);
