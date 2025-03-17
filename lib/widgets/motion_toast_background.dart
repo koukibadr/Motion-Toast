@@ -24,9 +24,7 @@ class MotionToastBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: backgroundColor.withValues(
-          alpha: opacity,
-        ),
+        color: backgroundColor.withOpacity(opacity),
         borderRadius: BorderRadius.all(
           Radius.circular(borderRadius),
         ),
