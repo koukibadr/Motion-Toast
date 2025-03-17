@@ -1,3 +1,8 @@
+## [2.12.1] - 17/03/2025
+
+**Bug Fix**
+- Resolve compilation error with `wihValues` when setting opacity value [Issue #134](https://github.com/koukibadr/Motion-Toast/issues/134)
+
 ## [2.12.0] - 16/03/2025
 
 **Bug Fix**
