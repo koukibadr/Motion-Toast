@@ -59,7 +59,6 @@ class MotionToast extends StatefulWidget {
     this.contentPadding = EdgeInsets.zero,
     this.opacity = .9,
   }) : super(key: key) {
-    _initializeAnimationType();
     _assertValidValues();
   }
 
@@ -104,7 +103,6 @@ class MotionToast extends StatefulWidget {
     primaryColor = successColor;
     secondaryColor = successSideBarColor;
     icon = Icons.check_circle_outline;
-    _initializeAnimationType();
     _assertValidValues();
   }
 
@@ -149,7 +147,6 @@ class MotionToast extends StatefulWidget {
     primaryColor = warningColor;
     secondaryColor = warningSideBarColor;
     icon = Icons.warning;
-    _initializeAnimationType();
     _assertValidValues();
   }
 
@@ -194,7 +191,6 @@ class MotionToast extends StatefulWidget {
     primaryColor = errorColor;
     secondaryColor = errorSideBarColor;
     icon = Icons.error;
-    _initializeAnimationType();
     _assertValidValues();
   }
 
@@ -239,7 +235,6 @@ class MotionToast extends StatefulWidget {
     primaryColor = infoColor;
     secondaryColor = infoSideBarColor;
     icon = Icons.info;
-    _initializeAnimationType();
     _assertValidValues();
   }
 
@@ -287,7 +282,6 @@ class MotionToast extends StatefulWidget {
     primaryColor = infoColor;
     secondaryColor = infoSideBarColor;
     icon = Icons.info;
-    _initializeAnimationType();
     _assertValidValues();
   }
 
@@ -298,22 +292,6 @@ class MotionToast extends StatefulWidget {
         width != null && height != null,
         'You need to provide both width and height or use constraints attribute',
       );
-    }
-  }
-
-  void _initializeAnimationType() {
-    if (toastAlignment.y == 1 &&
-        animationType == AnimationType.slideInFromTop) {
-      /// position.y == 1 means the toast is displayed at the bottom
-      /// if the animation type is fromTop it will be changed to fromBottom
-      // TODO change this to assert
-      animationType = AnimationType.slideInFromBottom;
-    } else if (toastAlignment.y == -1 &&
-        animationType == AnimationType.slideInFromBottom) {
-      /// position.y == -1 means the toast is displayed at the top
-      /// if the animation type is fromBottom it will be changed to fromTop
-      // TODO change this to assert
-      animationType = AnimationType.slideInFromTop;
     }
   }
 
