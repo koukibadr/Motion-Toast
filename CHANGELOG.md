@@ -1,37 +1,52 @@
+## [2.13.0] - 10/05/2025
+
+**Changes**
+
+- Enable slide animation for bottom and top for bottom and top centered toasts [PR#150](https://github.com/koukibadr/Motion-Toast/pull/150)
+- Refactor deprecated color opacity [PR#151](https://github.com/koukibadr/Motion-Toast/pull/151)
+
 ## [2.12.1] - 17/03/2025
 
 **Bug Fix**
+
 - Resolve compilation error with `wihValues` when setting opacity value [Issue #134](https://github.com/koukibadr/Motion-Toast/issues/134)
 
 ## [2.12.0] - 16/03/2025
 
 **Bug Fix**
+
 - Update toast overlay height to support app usage when the toast is displayed [PR](https://github.com/koukibadr/Motion-Toast/pull/135) [Issue #134](https://github.com/koukibadr/Motion-Toast/issues/134)
 
 **Enhancement**
+
 - Update alignment, MotionToastPosition is refactored to use Alignment object [PR](https://github.com/koukibadr/Motion-Toast/pull/140) [Issue #126](https://github.com/koukibadr/Motion-Toast/issues/126)
 - Support for custom alignment values
 
 **Changes**
+
 - Refactor: AnimationTypes values are renamed [PR](https://github.com/koukibadr/Motion-Toast/pull/141)
 
 ## [2.11.0] - 07/08/2024
 
 **Enhancement**
+
 - Remove content padding effect on motion toast sidebar widget
 - Replace EdgeInsets type with EdgeInsetsGeometry type for wider options (Support of EdgeInsets and EdgeInsetsDirectional) [PR](https://github.com/koukibadr/Motion-Toast/pull/125)
 - Update custom motion toast rendering to support width and height constraints for large screens
 
 **Changes**
+
 - Update layoutDirection from LayoutDirection enum to TextDirection dart class
 
 ## [2.10.0] - 25/04/2024
 
 **Enhancement**
+
 - Replace `backgroundType` with `opacity` double attribute
 - Updated predefined themes colors, themes now have different primary and secondary colors
 
 **Changes**
+
 - Remove motion toast type parameter and replace it with direct theme initialization
 - Remove `iconType` parameter
 - `MotionToast.delete` marked as deprecated and will be removed in the next version
@@ -48,7 +63,7 @@
 ## [2.8.0] - 21/01/2024
 
 - Update motion toast display with Overlay instead of Navigator
-- Fix center content issue [Issue #113](https://github.com/koukibadr/Motion-Toast/issues/113) 
+- Fix center content issue [Issue #113](https://github.com/koukibadr/Motion-Toast/issues/113)
 
 ## [2.7.9] - 27/09/2023
 
@@ -56,7 +71,8 @@
 
 ## [2.7.10] - 10/12/2023
 
-- Add `resources/arrays.dart` file export [Issue link](https://github.com/koukibadr/Motion-Toast/issues/112) 
+- Add `resources/arrays.dart` file export [Issue link](https://github.com/koukibadr/Motion-Toast/issues/112)
+
 ## [2.7.8] - 29/06/2023
 
 - Add dark mode support (special thanks to [kmalyshev](https://github.com/kmalyshev))
@@ -83,7 +99,6 @@
 - Add border to motion toast content widget
 - Add displayBorder attribute
 - Add displaySideBar boolean attribute
-
 
 ## [2.5.4] - 13/11/2022
 
