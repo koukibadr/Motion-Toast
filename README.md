@@ -1,7 +1,5 @@
 # Motion Toast
 
-  
-
 <p  align="center">
 <img  src="https://github.com/koukibadr/Motion-Toast/blob/main/MOTION%20TOAST.gif?raw=true"  width="350"/>
 <br>
@@ -9,15 +7,11 @@
 <b>Support material3 themes</b>
 </p>
 
-  
 | ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/success_mt.png?raw=true) | ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/warning_mt.png?raw=true) |
-|--|--|
-| ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/info_mt.png?raw=true) | ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/error_mt.png?raw=true) |
-  
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/info_mt.png?raw=true)    | ![success_mt.png](https://github.com/koukibadr/Motion-Toast/blob/main/example/error_mt.png?raw=true)   |
 
 ## Features
-
-  
 
 - Animated toasts with animated icons
 - Support dark and light mode
@@ -42,22 +36,17 @@
 - Customizable toast padding
 - Customizable border display
 - Customizable sidebar widget display
-  
 
 ## Getting Started
-
-  
 
 In order to add motion toast to your project add this line to your `pubspec.yaml` file
 
 ```yaml
 dependencies:
-	motion_toast: ^2.12.1
+	motion_toast: ^2.13.0
 ```
 
 Or you can reference the main repository directly by adding those lines
-
-  
 
 ```yaml
 dependencies:
@@ -66,14 +55,9 @@ dependencies:
 
 ```
 
-  
-
 ## Attributes
 
-  
-  
-
-```dart
+````dart
   /// the text widget used for description message
   final Widget description;
 
@@ -191,16 +175,11 @@ dependencies:
   /// motion toast background opacity
   /// by default opacity is set to .9
   final double opacity;
-```
-
+````
 
 ## Implementation
 
-  
-
--  **Success Motion Toast**
-
-  
+- **Success Motion Toast**
 
 ```dart
 
@@ -211,11 +190,7 @@ MotionToast.success(
 
 ```
 
-  
-
--  **Warning Motion Toast**
-
-  
+- **Warning Motion Toast**
 
 ```dart
 
@@ -226,10 +201,7 @@ MotionToast.warning(
 
 ```
 
-  
-
--  **Error Motion Toast**
-
+- **Error Motion Toast**
 
 ```dart
 MotionToast.error(
@@ -239,10 +211,7 @@ MotionToast.error(
 
 ```
 
-
--  **Info Motion Toast**
-
-  
+- **Info Motion Toast**
 
 ```dart
 
@@ -253,18 +222,11 @@ MotionToast.info(
 
 ```
 
-
-  
-
--  **Custom Motion Toast**
-
-  
+- **Custom Motion Toast**
 
 To create your custom toast just use the default constructor,
 
-**`icon`  `description` and `color` are required**
-
-  
+**`icon` `description` and `color` are required**
 
 ```dart
 
@@ -279,17 +241,11 @@ MotionToast(
 
 ```
 
-  
-
--  **Right-Designed Motion Toast**
-
-  
+- **Right-Designed Motion Toast**
 
 To change the toast layout you need to use `layoutOrientation`,
 
-**`icon`  `description`** and **`color`** are required
-
-  
+**`icon` `description`** and **`color`** are required
 
 ```dart
 MotionToast.success(
@@ -301,15 +257,9 @@ MotionToast.success(
 ).show(context);
 ```
 
-  
-
--  **Top-displayed Motion Toast**
-
-  
+- **Top-displayed Motion Toast**
 
 To change the display position of the motion toast use `position` attribute
-
-  
 
 ```dart
 
@@ -324,15 +274,11 @@ MotionToast(
 
 ```
 
-  
-
--  **Center-displayed Motion Toast**
-
-  
+- **Center-displayed Motion Toast**
 
 ```dart
 
-  
+
 
 MotionToast(
 	icon:  Icons.zoom_out,
@@ -344,10 +290,7 @@ MotionToast(
 
 ```
 
-
--  **Using onClose parameter** (display two successive toasts)
-
-  
+- **Using onClose parameter** (display two successive toasts)
 
 ```dart
 MotionToast.success(
@@ -363,11 +306,7 @@ MotionToast.success(
 
 ```
 
-  
-
--  **Two-Colors Motion Toast**
-
-  
+- **Two-Colors Motion Toast**
 
 ```dart
 
@@ -384,10 +323,8 @@ MotionToast(
 ).show(context);
 
 ```
-  
 
--  **Transparent background motion toast**
-
+- **Transparent background motion toast**
 
 ```dart
 
@@ -404,11 +341,8 @@ MotionToast(
 ).show(context);
 
 ```
-  
 
--  **Motion toast without sidebar and with border**
-
-  
+- **Motion toast without sidebar and with border**
 
 ```dart
 
@@ -424,9 +358,7 @@ MotionToast(
 
 ```
 
--  **Dismiss the toast from your UI screen**
-
-  
+- **Dismiss the toast from your UI screen**
 
 ```dart
 
@@ -443,25 +375,17 @@ toast.dismiss();
 
 ```
 
-
 ## Contribution
 
-  
-
 Of course the project is open source, and you can contribute to it [repository link](https://github.com/koukibadr/Motion-Toast)
-
-  
 
 - If you **found a bug**, open an issue.
 
 - If you **have a feature request**, open an issue.
 
 - If you **want to contribute**, submit a pull request.
-  
 
 ## Contributors
-
-
 
 <a  href = "https://github.com/koukibadr/Motion-Toast/graphs/contributors">
 
