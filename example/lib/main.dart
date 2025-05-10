@@ -219,6 +219,7 @@ class _HomePageState extends State<HomePage> {
 
   void _displaySuccessMotionToast() {
     MotionToast toast = MotionToast.success(
+      animationType: AnimationType.slideInFromBottom,
       description: const Text(
         'This is a description example',
         style: TextStyle(fontSize: 12),
