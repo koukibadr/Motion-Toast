@@ -1,3 +1,9 @@
+## [2.14.0] 19/05/2025
+
+**Changes**
+
+- Remove deprecated position attribute [PR#154](https://github.com/koukibadr/Motion-Toast/pull/154)
+
 ## [2.13.0] - 10/05/2025
 
 **Changes**

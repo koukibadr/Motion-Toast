@@ -43,7 +43,7 @@ In order to add motion toast to your project add this line to your `pubspec.yaml
 
 ```yaml
 dependencies:
-	motion_toast: ^2.13.0
+	motion_toast: ^2.14.0
 ```
 
 Or you can reference the main repository directly by adding those lines
@@ -125,17 +125,6 @@ dependencies:
   /// The toast animation curve
   /// by default it's `Curves.ease`
   final Curve animationCurve;
-
-  /// The position where the motion toast will be displayed
-  /// possible values
-  /// ```dart
-  /// {
-  /// CENTER,
-  /// TOP,
-  /// BOTTOM
-  /// }
-  /// ```
-  final MotionToastPosition position;
 
   /// The alignment of the toast on the screen
   /// by default it's `Alignment.bottomCenter`.
