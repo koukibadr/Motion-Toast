@@ -46,8 +46,6 @@ class MotionToast extends StatefulWidget {
     ),
     this.animationCurve = Curves.ease,
     this.toastAlignment = Alignment.bottomCenter,
-    @Deprecated('Use toastAlignment instead')
-    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
@@ -88,8 +86,6 @@ class MotionToast extends StatefulWidget {
     ),
     this.animationCurve = Curves.ease,
     this.toastAlignment = Alignment.bottomCenter,
-    @Deprecated('Use toastAlignment instead')
-    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
@@ -132,8 +128,6 @@ class MotionToast extends StatefulWidget {
     ),
     this.animationCurve = Curves.ease,
     this.toastAlignment = Alignment.bottomCenter,
-    @Deprecated('Use toastAlignment instead')
-    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
@@ -176,8 +170,6 @@ class MotionToast extends StatefulWidget {
     ),
     this.animationCurve = Curves.ease,
     this.toastAlignment = Alignment.bottomCenter,
-    @Deprecated('Use toastAlignment instead')
-    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
@@ -220,8 +212,6 @@ class MotionToast extends StatefulWidget {
     ),
     this.animationCurve = Curves.ease,
     this.toastAlignment = Alignment.bottomCenter,
-    @Deprecated('Use toastAlignment instead')
-    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
@@ -267,8 +257,6 @@ class MotionToast extends StatefulWidget {
     ),
     this.animationCurve = Curves.ease,
     this.toastAlignment = Alignment.bottomCenter,
-    @Deprecated('Use toastAlignment instead')
-    this.position = MotionToastPosition.bottom,
     this.borderRadius = 20,
     this.onClose,
     this.dismissable = true,
@@ -362,17 +350,6 @@ class MotionToast extends StatefulWidget {
   /// The toast animation curve
   /// by default it's `Curves.ease`
   final Curve animationCurve;
-
-  /// The position where the motion toast will be displayed
-  /// possible values
-  /// ```dart
-  /// {
-  /// CENTER,
-  /// TOP,
-  /// BOTTOM
-  /// }
-  /// ```
-  final MotionToastPosition position;
 
   /// The alignment of the toast on the screen
   /// by default it's `Alignment.bottomCenter`.
