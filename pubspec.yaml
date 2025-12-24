@@ -1,12 +1,13 @@
 name: motion_toast
-description: 'A beautiful designed toast with animations, contains multiple built in designs and let you design your toast'
-version: 2.14.0
+description: 'A beautiful designed toast with animations, contains multiple
+  built in designs and let you design your toast'
+version: 2.15.0
 homepage: 'https://github.com/koukibadr/Motion-Toast'
 funding:
-- 'https://www.buymeacoffee.com/koukibadr'
+  - 'https://www.buymeacoffee.com/koukibadr'
 screenshots:
-- description: Motion Toast pacakge front image.
-  path: example/warning_mt.png
+  - description: Motion Toast package front image.
+    path: example/warning_mt.png
 environment:
   sdk: '>=2.12.0 <4.0.0'
   flutter: '>=1.17.0'
