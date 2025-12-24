@@ -226,9 +226,13 @@ class _HomePageState extends State<HomePage> {
       ),
       dismissable: true,
       toastAlignment: Alignment.topCenter,
+      toastDuration: const Duration(seconds: 5),
       opacity: .5,
     );
     toast.show(context);
+    Future.delayed(const Duration(seconds: 2), () {
+      toast.dismiss();
+    });
   }
 
   void _displayWarningMotionToast() {

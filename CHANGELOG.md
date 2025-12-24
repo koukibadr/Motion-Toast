@@ -1,3 +1,9 @@
+## [2.15.0] 24/12/2025
+
+**Changes**
+
+- Rename `closeOverlay()` method to `dismiss()` for better API clarity [PR#156](https://github.com/koukibadr/Motion-Toast/pull/156)
+
 ## [2.14.0] 19/05/2025
 
 **Changes**

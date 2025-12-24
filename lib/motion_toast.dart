@@ -400,7 +400,9 @@ class MotionToast extends StatefulWidget {
     Overlay.maybeOf(context)?.insert(overlayEntry!);
   }
 
-  void closeOverlay() {
+  /// Dismiss the displayed motion toast from the overlay
+  /// if no toast is displayed nothing happens.
+  void dismiss() {
     overlayEntry?.remove();
     overlayEntry = null;
   }
@@ -453,7 +455,7 @@ class _MotionToastState extends State<MotionToast>
 
   void _popCurrentToast() {
     if (mounted) {
-      widget.closeOverlay();
+      widget.dismiss();
       widget.onClose?.call();
     }
   }
