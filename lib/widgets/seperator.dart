@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class Seperator extends StatelessWidget {
   // The distance between the contents of the toast.
