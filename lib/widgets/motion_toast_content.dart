@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:motion_toast/widgets/seperator.dart';
 
 import 'motion_toast_icon.dart';

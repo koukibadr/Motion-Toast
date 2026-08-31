@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Render a heartbeat animated icon
 class HeartBeatIcon extends StatefulWidget {

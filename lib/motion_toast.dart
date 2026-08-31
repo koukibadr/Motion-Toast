@@ -2,7 +2,7 @@ library motion_toast;
 
 export 'resources/arrays.dart';
 import 'dart:async';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:motion_toast/resources/arrays.dart';
 import 'package:motion_toast/resources/colors.dart';
 import 'package:motion_toast/widgets/motion_toast_background.dart';
