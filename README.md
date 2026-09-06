@@ -51,7 +51,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  motion_toast: ^2.15.0
+  motion_toast: ^2.16.0
 ```
 
 Or install from the command line:

@@ -1,3 +1,9 @@
+## [2.16.0] 06/09/2026
+
+**Changes**
+
+- Support flutter decoupled UI package with material_ui package
+
 ## [2.15.0] 24/12/2025
 
 **Changes**
